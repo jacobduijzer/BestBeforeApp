@@ -27,6 +27,7 @@ namespace BestBeforeApp.Products
                     new Product { Id = 10, Name = "Vlees", Amount = 1, BestBefore = DateTime.Now.AddMonths(3) },
                     new Product { Id = 11, Name = "Andere koekjes", Amount = 1, BestBefore = DateTime.Now.AddMonths(2) },
                     new Product { Id = 12, Name = "Havermout", Amount = 6, BestBefore = DateTime.Now.AddYears(1) },
+                    new Product { Id = 13, Name = "Frikandellen", Amount = 1, BestBefore = DateTime.Now }
                 }.OrderBy(x => x.BestBefore));
     }
 }
