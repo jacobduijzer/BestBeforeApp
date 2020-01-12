@@ -6,6 +6,7 @@ using Microsoft.AppCenter;
 using Microsoft.AppCenter.Analytics;
 using Microsoft.AppCenter.Crashes;
 using Microsoft.AppCenter.Distribute;
+using Plugin.Multilingual;
 
 namespace BestBeforeApp
 {
@@ -19,6 +20,9 @@ namespace BestBeforeApp
         public App()
         {
             InitializeComponent();
+
+            var culture = CrossMultilingual.Current.DeviceCultureInfo;
+            AppResources.Culture = culture;
 
             DependencyService.Register<MockDataStore>();
             MainPage = ServiceProvider.GetService<AppShell>();
