@@ -52,5 +52,11 @@ namespace BestBeforeApp.Resources {
                 return ResourceManager.GetString("HelloWorld", resourceCulture);
             }
         }
+        
+        internal static string Browse {
+            get {
+                return ResourceManager.GetString("Browse", resourceCulture);
+            }
+        }
     }
 }

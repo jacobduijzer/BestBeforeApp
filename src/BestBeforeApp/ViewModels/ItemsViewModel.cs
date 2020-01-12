@@ -7,6 +7,7 @@ using Xamarin.Forms;
 
 using BestBeforeApp.Models;
 using BestBeforeApp.Views;
+using BestBeforeApp.Resources;
 
 namespace BestBeforeApp.ViewModels
 {
@@ -17,7 +18,8 @@ namespace BestBeforeApp.ViewModels
 
         public ItemsViewModel()
         {
-            Title = "Browse";
+            Title = AppResources.HelloWorld;
+            //Title = "Browse";
             Items = new ObservableCollection<Item>();
             LoadItemsCommand = new Command(async () => await ExecuteLoadItemsCommand());
 

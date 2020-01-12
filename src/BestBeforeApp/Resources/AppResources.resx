@@ -16,4 +16,9 @@
       <value>Hello from App Resources</value>
       <comment>Comments! Hello!</comment>
     </data>
+  <data name="Browse" xml:space="preserve">
+      <value>Brows123</value>
+      <comment>Items! Browse!</comment>
+    </data>
+  
 </root>

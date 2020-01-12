@@ -1,5 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Shell xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:d="http://xamarin.com/schemas/2014/forms/design" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d" xmlns:local="clr-namespace:BestBeforeApp.Views" Title="BestBeforeApp" x:Class="BestBeforeApp.AppShell">
+<Shell xmlns="http://xamarin.com/schemas/2014/forms"
+       xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+       xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+       mc:Ignorable="d"
+       xmlns:local="clr-namespace:BestBeforeApp.Views"
+       xmlns:i18n="clr-namespace:BestBeforeApp.Helpers"
+       Title="BestBeforeApp"
+       x:Class="BestBeforeApp.AppShell">
     <!-- 
         Styles and Resources 
     -->
@@ -22,7 +30,7 @@
     </Shell.Resources>
     <!-- Your Pages -->
     <TabBar>
-        <Tab Title="Browse" Icon="tab_feed.png">
+        <Tab Title="{i18n:Translate Browse}" Icon="tab_feed.png">
             <ShellContent ContentTemplate="{DataTemplate local:ItemsPage}" />
         </Tab>
         <Tab Title="About" Icon="tab_about.png">
