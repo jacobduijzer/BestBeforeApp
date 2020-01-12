@@ -1,13 +1,12 @@
 ﻿using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
-using BestBeforeApp.Services;
 using Microsoft.AppCenter;
 using Microsoft.AppCenter.Analytics;
 using Microsoft.AppCenter.Crashes;
 using Microsoft.AppCenter.Distribute;
-using Plugin.Multilingual;
 using BestBeforeApp.Resources;
+using System.Globalization;
 
 namespace BestBeforeApp
 {
@@ -17,15 +16,15 @@ namespace BestBeforeApp
         private const string APPCENTERANDROID = "a530f0ea-d70b-43ac-aa17-ec7a98394c5e";
 
         public static IServiceProvider ServiceProvider { get; set; }
+        public static CultureInfo AppCulture { get; private set; }
         
         public App()
         {
             InitializeComponent();
 
-            var culture = CrossMultilingual.Current.DeviceCultureInfo;
-            AppResources.Culture = culture;
-
-            DependencyService.Register<MockDataStore>();
+            //var culture = CrossMultilingual.Current.DeviceCultureInfo;
+            AppCulture = new System.Globalization.CultureInfo("nl-NL");
+            AppResources.Culture = AppCulture;
             MainPage = ServiceProvider.GetService<AppShell>();
         }
 

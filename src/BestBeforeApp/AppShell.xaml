@@ -34,9 +34,6 @@
         <Tab Title="{i18n:Translate Products}" Icon="tab_feed.png">
             <ShellContent ContentTemplate="{DataTemplate products:ProductsPage}" />
         </Tab>
-        <Tab Title="{i18n:Translate Browse}" Icon="tab_feed.png">
-            <ShellContent ContentTemplate="{DataTemplate local:ItemsPage}" />
-        </Tab>
         <Tab Title="About" Icon="tab_about.png">
             <ShellContent ContentTemplate="{DataTemplate local:AboutPage}" />
         </Tab>

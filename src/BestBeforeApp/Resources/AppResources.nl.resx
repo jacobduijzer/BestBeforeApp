@@ -12,12 +12,12 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-   <data name="HelloWorld" xml:space="preserve">
-      <value>Hello from App Resources</value>
+  <data name="HelloWorld" xml:space="preserve">
+      <value>Hallo vanuit App Resources</value>
       <comment>Comments! Hello!</comment>
     </data>
   <data name="Browse" xml:space="preserve">
-      <value>Brows123</value>
+      <value>Bladeren</value>
       <comment>Items! Browse!</comment>
     </data>
   

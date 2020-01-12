@@ -21,7 +21,7 @@
                             <BoxView WidthRequest="20" BackgroundColor="Orange" />
                             <StackLayout Padding="10">
                             <Label Text="{Binding Name}" LineBreakMode="NoWrap" Style="{DynamicResource ListItemTextStyle}" FontSize="16" />
-                            <Label Text="{Binding BestBefore}" LineBreakMode="NoWrap" Style="{DynamicResource ListItemDetailTextStyle}" FontSize="13" />
+                            <Label Text="{Binding BestBeforeHumanized}" LineBreakMode="NoWrap" Style="{DynamicResource ListItemDetailTextStyle}" FontSize="13" />
                         </StackLayout>
                         </StackLayout>
                         

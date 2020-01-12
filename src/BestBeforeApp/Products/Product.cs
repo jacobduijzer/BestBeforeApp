@@ -1,4 +1,5 @@
 using System;
+using Humanizer;
 
 namespace BestBeforeApp.Products
 {
@@ -11,5 +12,7 @@ namespace BestBeforeApp.Products
         public int Amount { get; set; }
 
         public DateTime BestBefore { get; set; }
+
+        public string BestBeforeHumanized => BestBefore.Humanize(false, null, App.AppCulture);
     }
 }

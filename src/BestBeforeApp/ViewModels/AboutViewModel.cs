@@ -5,11 +5,11 @@ using Xamarin.Forms;
 
 namespace BestBeforeApp.ViewModels
 {
-    public class AboutViewModel : BaseViewModel
+    public class AboutViewModel
     {
         public AboutViewModel()
         {
-            Title = "About";
+            //Title = "About";
             OpenWebCommand = new Command(async () => await Browser.OpenAsync("https://xamarin.com"));
         }
 
