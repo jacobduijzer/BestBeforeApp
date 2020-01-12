@@ -17,16 +17,24 @@
     <PackageReference Include="Microsoft.Extensions.Hosting" Version="3.1.0" />
     <PackageReference Include="Microsoft.Extensions.Logging" Version="3.1.0" />
     <PackageReference Include="Plugin.Multilingual" Version="1.0.2" />
+    <PackageReference Include="Refractored.MvvmHelpers" Version="1.6.1-beta" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Helpers\" />
     <Folder Include="Resources\" />
+    <Folder Include="Products\" />
   </ItemGroup>
   <ItemGroup>
     <None Remove="appsettings.json" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Remove="Resources\AppResources.nl.resx" />
+  </ItemGroup>
+  <ItemGroup>
     <EmbeddedResource Include="appsettings.json" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Remove="Resources\AppResources.nl.Designer.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Update="Resources\AppResources.resx">

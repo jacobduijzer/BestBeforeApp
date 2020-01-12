@@ -2,6 +2,7 @@ using System;
 using System.IO;
 using BestBeforeApp.Helpers;
 using BestBeforeApp.Models;
+using BestBeforeApp.Products;
 using BestBeforeApp.Services;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -46,7 +47,8 @@ namespace BestBeforeApp
         {
             services.AddSingleton<AppShell>(factory => new AppShell());
             services.AddTransient<IDataStore<Item>, MockDataStore>();
-            //services.AddTransient<ProductsViewModel>();
+            services.AddTransient<IProductsService, MockProductsService>();
+            services.AddTransient<ProductsViewModel>();
             services.AddSingleton<App>();
         }
     }

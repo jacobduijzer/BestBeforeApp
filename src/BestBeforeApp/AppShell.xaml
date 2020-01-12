@@ -5,6 +5,7 @@
        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
        mc:Ignorable="d"
        xmlns:local="clr-namespace:BestBeforeApp.Views"
+       xmlns:products="clr-namespace:BestBeforeApp.Products"
        xmlns:i18n="clr-namespace:BestBeforeApp.Helpers"
        Title="BestBeforeApp"
        x:Class="BestBeforeApp.AppShell">
@@ -30,6 +31,9 @@
     </Shell.Resources>
     <!-- Your Pages -->
     <TabBar>
+        <Tab Title="{i18n:Translate Products}" Icon="tab_feed.png">
+            <ShellContent ContentTemplate="{DataTemplate products:ProductsPage}" />
+        </Tab>
         <Tab Title="{i18n:Translate Browse}" Icon="tab_feed.png">
             <ShellContent ContentTemplate="{DataTemplate local:ItemsPage}" />
         </Tab>
@@ -37,33 +41,4 @@
             <ShellContent ContentTemplate="{DataTemplate local:AboutPage}" />
         </Tab>
     </TabBar>
-    <!-- Optional Templates 
-    // These may be provided inline as below or as separate classes.
-
-    // This header appears at the top of the Flyout.
-    <Shell.FlyoutHeaderTemplate>
-        <DataTemplate>
-            <Grid>ContentHere</Grid>
-        </DataTemplate>
-    </Shell.FlyoutHeaderTemplate>
-
-    // ItemTemplate is for ShellItems as displayed in a Flyout
-    <Shell.ItemTemplate>
-        <DataTemplate>
-            <ContentView>
-                Bindable Properties: Title, Icon
-            </ContentView>
-        </DataTemplate>
-    </Shell.ItemTemplate>
-
-    // MenuItemTemplate is for MenuItems as displayed in a Flyout
-    <Shell.MenuItemTemplate>
-        <DataTemplate>
-            <ContentView>
-                Bindable Properties: Text, Icon
-            </ContentView>
-        </DataTemplate>
-    </Shell.MenuItemTemplate>
-
-    -->
 </Shell>
