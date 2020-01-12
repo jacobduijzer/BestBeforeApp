@@ -84,9 +84,6 @@
     <PackageReference Include="Refractored.MvvmHelpers">
       <Version>1.6.1-beta</Version>
     </PackageReference>
-    <PackageReference Include="Humanizer">
-      <Version>2.7.9</Version>
-    </PackageReference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="MainActivity.cs" />
