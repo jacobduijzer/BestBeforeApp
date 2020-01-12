@@ -16,8 +16,8 @@ namespace BestBeforeApp
         public static App Init(Action<HostBuilderContext, IServiceCollection> nativeConfigureServices)
         {
             var systemDir = FileSystem.CacheDirectory;
-            Utils.ExtractSaveResource("BestBefore.Mobile.MobileApp.appsettings.json", systemDir);
-            var fullConfig = Path.Combine(systemDir, "BestBefore.Mobile.MobileApp.appsettings.json");
+            Utils.ExtractSaveResource("BestBeforeApp.appsettings.json", systemDir);
+            var fullConfig = Path.Combine(systemDir, "BestBeforeApp.appsettings.json");
 
             var host = new HostBuilder()
                             .ConfigureHostConfiguration(c =>
