@@ -23,7 +23,7 @@ namespace BestBeforeApp
             InitializeComponent();
 
             //var culture = CrossMultilingual.Current.DeviceCultureInfo;
-            AppCulture = new System.Globalization.CultureInfo("nl-NL");
+            AppCulture = new CultureInfo("nl-NL");
             AppResources.Culture = AppCulture;
             MainPage = ServiceProvider.GetService<AppShell>();
         }
