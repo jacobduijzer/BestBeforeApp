@@ -26,10 +26,21 @@
                         <StackLayout Orientation="Horizontal" Padding="3, 0, 3, 0" BackgroundColor="{Binding BestBefore, Converter={StaticResource dateToColorConverter}}">
                             <StackLayout Padding="10" HorizontalOptions="FillAndExpand" BackgroundColor="White">
                                 <StackLayout Orientation="Horizontal">
-                                    <Label Text="{Binding Name}" LineBreakMode="NoWrap" Style="{DynamicResource ListItemTextStyle}" FontSize="24" />
-                                    <Label Text="{Binding Amount, StringFormat='- {0}x' }" LineBreakMode="NoWrap" Style="{DynamicResource ListItemTextStyle}" FontSize="18" />
+                                    <Label Text="{Binding Name}" LineBreakMode="NoWrap"
+                                           Style="{DynamicResource ListItemTextStyle}"
+                                           HorizontalOptions="FillAndExpand"
+                                           FontSize="24" />
+                                    <Label Text="{Binding Amount}"
+                                           Style="{DynamicResource ListItemTextStyle}"
+                                           VerticalTextAlignment="Center"
+                                           VerticalOptions="Center"
+                                           HorizontalOptions="End"
+                                           FontSize="24" />
                                 </StackLayout>
-                                <Label Text="{Binding BestBeforeHumanized}" LineBreakMode="NoWrap" Style="{DynamicResource ListItemDetailTextStyle}" FontSize="13" />
+                                <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                                    <Label Text="{Binding BestBeforeHumanized}" Style="{DynamicResource ListItemDetailTextStyle}" FontSize="13" HorizontalOptions="FillAndExpand"/>
+                                    <Label Text="{Binding BestBefore, StringFormat='{0:dd-MM-yyyy}'}" Style="{DynamicResource ListItemDetailTextStyle}" FontSize="13" HorizontalOptions="End"/>
+                                </StackLayout>
                             </StackLayout>
                         </StackLayout>
                         

@@ -21,7 +21,7 @@ namespace BestBeforeApp.Helpers
             if (ts.TotalDays < 28)
             {
                 var days = Math.Abs((inputDate.Date - DateTime.Now.Date).Days);
-                return $"{days} dagen-1";
+                return $"{days} dagen";
             }
 
             if (ts.TotalDays >= 28 && ts.TotalDays < 30)
