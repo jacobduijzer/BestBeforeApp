@@ -29,6 +29,7 @@
     <Folder Include="Helpers\" />
     <Folder Include="Resources\" />
     <Folder Include="Products\" />
+    <Folder Include="Helpers\Converters\" />
   </ItemGroup>
   <ItemGroup>
     <None Remove="appsettings.json" />

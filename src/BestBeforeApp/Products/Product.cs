@@ -16,3 +16,4 @@ namespace BestBeforeApp.Products
         public string BestBeforeHumanized => BestBefore.HumanizeDate();
     }
 }
+            

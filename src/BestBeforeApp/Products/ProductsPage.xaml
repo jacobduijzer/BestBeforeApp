@@ -2,8 +2,14 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:i18n="clr-namespace:BestBeforeApp.Helpers"
+             xmlns:converters="clr-namespace:BestBeforeApp.Helpers.Converters"
              x:Class="BestBeforeApp.Products.ProductsPage"
              Title="{i18n:Translate Products}">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converters:DateToColorConverter x:Key="dateToColorConverter" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
     <StackLayout>
         <ListView x:Name="ItemsListView"
                   ItemsSource="{Binding Products}"
@@ -17,12 +23,14 @@
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
-                        <StackLayout Orientation="Horizontal">
-                            <BoxView WidthRequest="20" BackgroundColor="Orange" />
-                            <StackLayout Padding="10">
-                            <Label Text="{Binding Name}" LineBreakMode="NoWrap" Style="{DynamicResource ListItemTextStyle}" FontSize="16" />
-                            <Label Text="{Binding BestBeforeHumanized}" LineBreakMode="NoWrap" Style="{DynamicResource ListItemDetailTextStyle}" FontSize="13" />
-                        </StackLayout>
+                        <StackLayout Orientation="Horizontal" Padding="3, 0, 3, 0" BackgroundColor="{Binding BestBefore, Converter={StaticResource dateToColorConverter}}">
+                            <StackLayout Padding="10" HorizontalOptions="FillAndExpand" BackgroundColor="White">
+                                <StackLayout Orientation="Horizontal">
+                                    <Label Text="{Binding Name}" LineBreakMode="NoWrap" Style="{DynamicResource ListItemTextStyle}" FontSize="24" />
+                                    <Label Text="{Binding Amount, StringFormat='- {0}x' }" LineBreakMode="NoWrap" Style="{DynamicResource ListItemTextStyle}" FontSize="18" />
+                                </StackLayout>
+                                <Label Text="{Binding BestBeforeHumanized}" LineBreakMode="NoWrap" Style="{DynamicResource ListItemDetailTextStyle}" FontSize="13" />
+                            </StackLayout>
                         </StackLayout>
                         
                     </ViewCell>
