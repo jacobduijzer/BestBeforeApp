@@ -43,9 +43,9 @@ namespace BestBeforeApp
                 typeof(Distribute));
             //#endif
 
-            var appDbContext = ServiceProvider.GetService<AppDbContext>();
+            // var appDbContext = ServiceProvider.GetService<AppDbContext>();
             //appDbContext.Database.EnsureDeleted();
-            appDbContext.Database.EnsureCreated();
+            // appDbContext.Database.EnsureCreated();
             //appDbContext.Database.Migrate();
 
             //#if DEBUG
