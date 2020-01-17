@@ -22,7 +22,7 @@ namespace BestBeforeApp
 
         public static IServiceProvider ServiceProvider { get; set; }
         public static CultureInfo AppCulture { get; private set; }
-        
+
         public App()
         {
             InitializeComponent();
@@ -49,32 +49,32 @@ namespace BestBeforeApp
             //appDbContext.Database.Migrate();
 
             //#if DEBUG
-            
-                Task.Run(async () =>
-                {
-                    if (!await appDbContext.Products.AnyAsync())
-                    {
-                        var repository = ServiceProvider.GetService<IRepository<Product>>();
-                        if (repository != null)
-                        {
-                            await repository.Add(new Product { Name = "Koekjes", Amount = 1, BestBefore = DateTime.Now.AddMonths(10) });
-                            await repository.Add(new Product { Name = "Taart", Amount = 1, BestBefore = DateTime.Now.AddMonths(9) });
-                            await repository.Add(new Product { Name = "Pasta", Amount = 1, BestBefore = DateTime.Now.AddMonths(8) });
-                            await repository.Add(new Product { Name = "Chocolade", Amount = 1, BestBefore = DateTime.Now.AddMonths(4) });
-                            await repository.Add(new Product { Name = "Snoepjes", Amount = 1, BestBefore = DateTime.Now.AddMonths(5) });
-                            await repository.Add(new Product { Name = "Wafels", Amount = 1, BestBefore = DateTime.Now.AddDays(7) });
-                            await repository.Add(new Product { Name = "Crackers", Amount = 1, BestBefore = DateTime.Now.AddDays(10) });
-                            await repository.Add(new Product { Name = "Pannenkoekenbeslag", Amount = 1, BestBefore = DateTime.Now.AddMonths(15) });
-                            await repository.Add(new Product { Name = "Pizza", Amount = 1, BestBefore = DateTime.Now.AddMonths(4) });
-                            await repository.Add(new Product { Name = "Vlees", Amount = 1, BestBefore = DateTime.Now.AddMonths(3) });
-                            await repository.Add(new Product { Name = "Andere koekjes", Amount = 1, BestBefore = DateTime.Now.AddMonths(2) });
-                            await repository.Add(new Product { Name = "Havermout", Amount = 6, BestBefore = DateTime.Now.AddYears(1) });
-                            await repository.Add(new Product { Name = "Frikandellen", Amount = 1, BestBefore = DateTime.Now });
-                        }
-                    }
 
-                }).Wait();
-            
+                // Task.Run(async () =>
+                // {
+                //     if (!await appDbContext.Products.AnyAsync())
+                //     {
+                //         var repository = ServiceProvider.GetService<IRepository<Product>>();
+                //         if (repository != null)
+                //         {
+                //             await repository.Add(new Product { Name = "Koekjes", Amount = 1, BestBefore = DateTime.Now.AddMonths(10) });
+                //             await repository.Add(new Product { Name = "Taart", Amount = 1, BestBefore = DateTime.Now.AddMonths(9) });
+                //             await repository.Add(new Product { Name = "Pasta", Amount = 1, BestBefore = DateTime.Now.AddMonths(8) });
+                //             await repository.Add(new Product { Name = "Chocolade", Amount = 1, BestBefore = DateTime.Now.AddMonths(4) });
+                //             await repository.Add(new Product { Name = "Snoepjes", Amount = 1, BestBefore = DateTime.Now.AddMonths(5) });
+                //             await repository.Add(new Product { Name = "Wafels", Amount = 1, BestBefore = DateTime.Now.AddDays(7) });
+                //             await repository.Add(new Product { Name = "Crackers", Amount = 1, BestBefore = DateTime.Now.AddDays(10) });
+                //             await repository.Add(new Product { Name = "Pannenkoekenbeslag", Amount = 1, BestBefore = DateTime.Now.AddMonths(15) });
+                //             await repository.Add(new Product { Name = "Pizza", Amount = 1, BestBefore = DateTime.Now.AddMonths(4) });
+                //             await repository.Add(new Product { Name = "Vlees", Amount = 1, BestBefore = DateTime.Now.AddMonths(3) });
+                //             await repository.Add(new Product { Name = "Andere koekjes", Amount = 1, BestBefore = DateTime.Now.AddMonths(2) });
+                //             await repository.Add(new Product { Name = "Havermout", Amount = 6, BestBefore = DateTime.Now.AddYears(1) });
+                //             await repository.Add(new Product { Name = "Frikandellen", Amount = 1, BestBefore = DateTime.Now });
+                //         }
+                //     }
+                //
+                // }).Wait();
+
         }
 
         protected override void OnSleep()
