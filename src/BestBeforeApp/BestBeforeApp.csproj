@@ -12,24 +12,32 @@
     <LangVersion>8.0</LangVersion>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="Xamarin.Forms" Version="4.4.0.991477" />  
-    <PackageReference Include="Xamarin.Essentials" Version="1.3.1" />
+    <PackageReference Include="Xamarin.Forms" Version="4.5.0.142-pre1" />  
+    <PackageReference Include="Xamarin.Essentials" Version="1.4.0-pre2" />
     <PackageReference Include="Microsoft.AppCenter" Version="2.6.4" />
     <PackageReference Include="Microsoft.AppCenter.Crashes" Version="2.6.4" />
     <PackageReference Include="Microsoft.AppCenter.Analytics" Version="2.6.4" />
     <PackageReference Include="Microsoft.AppCenter.Distribute" Version="2.6.4" />
-    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="3.1.0" />
-    <PackageReference Include="Microsoft.Extensions.Configuration" Version="3.1.0" />
-    <PackageReference Include="Microsoft.Extensions.Hosting" Version="3.1.0" />
-    <PackageReference Include="Microsoft.Extensions.Logging" Version="3.1.0" />
-    <PackageReference Include="Plugin.Multilingual" Version="1.0.2" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="3.1.1" />
+    <PackageReference Include="Microsoft.Extensions.Configuration" Version="3.1.1" />
+    <PackageReference Include="Microsoft.Extensions.Hosting" Version="3.1.1" />
+    <PackageReference Include="Microsoft.Extensions.Logging" Version="3.1.1" />
+    <PackageReference Include="Plugin.Multilingual" Version="1.1.6-beta" />
     <PackageReference Include="Refractored.MvvmHelpers" Version="1.6.1-beta" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="3.1.1" />
+    <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="8.0.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="3.1.1">
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Helpers\" />
     <Folder Include="Resources\" />
     <Folder Include="Products\" />
     <Folder Include="Helpers\Converters\" />
+    <Folder Include="Shared\" />
+    <Folder Include="Migrations\" />
   </ItemGroup>
   <ItemGroup>
     <None Remove="appsettings.json" />

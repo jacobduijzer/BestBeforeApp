@@ -19,8 +19,7 @@ namespace BestBeforeApp.Droid
 
             base.OnCreate(savedInstanceState);
 
-            global::Xamarin.Forms.Forms.SetFlags("CollectionView_Experimental");
-            Xamarin.Essentials.Platform.Init(this, savedInstanceState);
+            global::Xamarin.Essentials.Platform.Init(this, savedInstanceState);
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
             LoadApplication(Startup.Init(ConfigureServices));
         }
@@ -28,12 +27,13 @@ namespace BestBeforeApp.Droid
         public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Android.Content.PM.Permission[] grantResults)
         {
             Xamarin.Essentials.Platform.OnRequestPermissionsResult(requestCode, permissions, grantResults);
-
             base.OnRequestPermissionsResult(requestCode, permissions, grantResults);
         }
 
         private void ConfigureServices(HostBuilderContext ctx, IServiceCollection services) =>
-            services.AddSingleton<INativeCalls, NativeCalls>();
+            services
+                .AddSingleton<INativeCalls, NativeCalls>()
+                .AddSingleton<IDatabaseFileHelper, DatabaseFileHelper>();
 
         public class NativeCalls : INativeCalls
         {

@@ -2,6 +2,7 @@ using System;
 using System.IO;
 using BestBeforeApp.Helpers;
 using BestBeforeApp.Products;
+using BestBeforeApp.Shared;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -40,12 +41,14 @@ namespace BestBeforeApp
             return App.ServiceProvider.GetService<App>();
         }
 
-
         private static void ConfigureServices(HostBuilderContext ctx, IServiceCollection services)
         {
+            //services.AddMediatR(cfg => cfg.AsSingleton(), typeof(TestDataPolulator).GetTypeInfo().Assembly);
             services.AddSingleton<AppShell>(factory => new AppShell());
-            services.AddTransient<IProductsService, MockProductsService>();
-            services.AddTransient<ProductsViewModel>();
+            services.AddDbContext<AppDbContext>();
+            services.AddScoped<IRepository<Product>, ProductRepository>();
+            services.AddScoped<IProductsService, MockProductsService>();
+            services.AddScoped<ProductsViewModel>();
             services.AddSingleton<App>();
         }
     }
