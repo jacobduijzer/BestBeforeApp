@@ -1,3 +1,4 @@
+using System.Linq;
 using BestBeforeApp.Helpers;
 using BestBeforeApp.Products;
 using Microsoft.EntityFrameworkCore;
@@ -9,8 +10,12 @@ namespace BestBeforeApp.Shared
         private readonly IDatabaseFileHelper _dbFileHelper;
 
         public AppDbContext(DbContextOptions<AppDbContext> dbContextOptions, IDatabaseFileHelper dbFileHelper) :
-            base(dbContextOptions) =>
-                _dbFileHelper = dbFileHelper;
+            base(dbContextOptions)
+        {
+            _dbFileHelper = dbFileHelper;
+
+            Database.EnsureCreated();
+        }
 
         //public AppDbContext(DbContextOptions<AppDbContext> options)
         //    : base(options)

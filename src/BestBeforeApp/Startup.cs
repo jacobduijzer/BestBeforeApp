@@ -48,7 +48,6 @@ namespace BestBeforeApp
             services.AddSingleton<AppShell>(factory => new AppShell());
             services.AddDbContext<AppDbContext>();
             services.AddScoped<IRepository<Product>, ProductRepository>();
-            services.AddScoped<IProductsService, MockProductsService>();
             services.AddScoped<ProductsViewModel>();
             services.AddScoped<AboutViewModel>();
             services.AddSingleton<App>();
