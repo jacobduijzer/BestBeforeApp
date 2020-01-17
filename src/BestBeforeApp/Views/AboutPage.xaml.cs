@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel;
+using BestBeforeApp.ViewModels;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -10,9 +11,13 @@ namespace BestBeforeApp.Views
     [DesignTimeVisible(false)]
     public partial class AboutPage : ContentPage
     {
+        private AboutViewModel _aboutViewModel;
+
         public AboutPage()
         {
             InitializeComponent();
+
+            BindingContext = _aboutViewModel = App.ServiceProvider.GetService<AboutViewModel>();
         }
     }
 }

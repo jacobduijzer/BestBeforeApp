@@ -3,6 +3,7 @@ using System.IO;
 using BestBeforeApp.Helpers;
 using BestBeforeApp.Products;
 using BestBeforeApp.Shared;
+using BestBeforeApp.ViewModels;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -49,6 +50,7 @@ namespace BestBeforeApp
             services.AddScoped<IRepository<Product>, ProductRepository>();
             services.AddScoped<IProductsService, MockProductsService>();
             services.AddScoped<ProductsViewModel>();
+            services.AddScoped<AboutViewModel>();
             services.AddSingleton<App>();
         }
     }
