@@ -15,6 +15,7 @@ namespace BestBeforeApp.Shared
             _dbFileHelper = dbFileHelper;
 
             Database.EnsureCreated();
+            Database.Migrate();
         }
 
         //public AppDbContext(DbContextOptions<AppDbContext> options)
