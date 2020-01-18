@@ -71,6 +71,12 @@ namespace BestBeforeApp.Resources {
             }
         }
         
+        internal static string ProductsFilter {
+            get {
+                return ResourceManager.GetString("ProductsFilter", resourceCulture);
+            }
+        }
+        
         internal static string ProductName {
             get {
                 return ResourceManager.GetString("ProductName", resourceCulture);

@@ -21,7 +21,7 @@ namespace BestBeforeApp.Products
 
             Analytics.TrackEvent(nameof(ProductsPage));
 
-            if (_productsViewModel.Products.Count == 0)
+            if (_productsViewModel.Products == null || _productsViewModel.Products.Count == 0)
                 _productsViewModel.LoadItemsCommand.Execute(null);
         }
     }

@@ -29,6 +29,10 @@
     <value>Toevoegen</value>
     <comment></comment>
   </data>
+  <data name="ProductsFilter" xml:space="preserve">
+      <value>Filter producten...</value>
+      <comment></comment>
+    </data>
   <data name="ProductName" xml:space="preserve">
     <value>Naam</value>
     <comment></comment>

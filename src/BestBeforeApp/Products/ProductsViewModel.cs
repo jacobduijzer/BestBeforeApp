@@ -1,7 +1,9 @@
 using System;
-using System.Collections.ObjectModel;
+using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using BestBeforeApp.Products.Specifications;
 using MediatR;
 using Microsoft.AppCenter.Crashes;
 using MvvmHelpers;
@@ -14,18 +16,28 @@ namespace BestBeforeApp.Products
     {
         private readonly IMediator _mediator;
 
-        public ObservableCollection<Product> Products { get; private set; }
+        private string _searchString;
+        public string SearchString
+        {
+            get => _searchString;
+            set
+            {
+                _searchString = value;
+                OnPropertyChanged(nameof(Products));
+            }
+        }
+
+        private IList<Product> _products;
+        public IList<Product> Products =>
+            string.IsNullOrEmpty(SearchString) ?
+                _products : _products.Where(x => x.Name.ToLower().Contains(SearchString.ToLower())).ToList();
 
         public ICommand LoadItemsCommand { get; }
-        public ICommand DeleteProductCommand { get; }
         public ICommand ShowDetailsCommand { get; }
 
         public ProductsViewModel(IMediator mediator)
         {
-            Products = new ObservableCollection<Product>();
-
             LoadItemsCommand = new AsyncCommand(GetProductsAsync);
-            //DeleteProductCommand = new AsyncCommand<Product>(DeleteProductAsync);
             ShowDetailsCommand = new AsyncCommand<Product>(ShowDetailsAsync);
 
             _mediator = mediator;
@@ -40,38 +52,12 @@ namespace BestBeforeApp.Products
 
             try
             {
-                Products.Clear();
-
                 var products = await _mediator
-                    .Send(new RetrieveProducts(new AllProductsSpecification()))
-                    .ConfigureAwait(false);
+                       .Send(new RetrieveProducts(new AllProductsSpecification()))
+                       .ConfigureAwait(false);
 
-                foreach (var product in products)
-                {
-                    Products.Add(product);
-                }
-            }
-            catch (Exception ex)
-            {
-                Crashes.TrackError(ex);
-            }
-            finally
-            {
-                IsBusy = false;
-            }
-        }
-
-        private async Task DeleteProductAsync(Product product)
-        {
-            if (IsBusy)
-                return;
-
-            IsBusy = true;
-
-            try
-            {
-                //await _mediator.
-                await GetProductsAsync().ConfigureAwait(false);
+                _products = new List<Product>(products);
+                OnPropertyChanged(nameof(Products));
             }
             catch (Exception ex)
             {

@@ -25,10 +25,16 @@
       <value>Products</value>
       <comment></comment>
     </data>
+  
+  
   <data name="AddProduct" xml:space="preserve">
     <value>Add</value>
     <comment></comment>
   </data>
+   <data name="ProductsFilter" xml:space="preserve">
+      <value>Filter products...</value>
+      <comment></comment>
+    </data>
   <data name="ProductName" xml:space="preserve">
     <value>Name</value>
     <comment></comment>

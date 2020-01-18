@@ -44,7 +44,7 @@
     <Folder Include="ProductDetails\" />
     <Folder Include="Helpers\Behaviors\" />
     <Folder Include="Products\Handlers\" />
-    <Folder Include="Helpers\Controls\" />
+    <Folder Include="Products\Specifications\" />
   </ItemGroup>
   <ItemGroup>
     <None Remove="appsettings.json" />
