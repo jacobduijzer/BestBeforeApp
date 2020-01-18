@@ -1,7 +1,4 @@
-using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Windows.Input;
+using Microsoft.AppCenter.Analytics;
 using Microsoft.Extensions.DependencyInjection;
 using Xamarin.Forms;
 
@@ -21,6 +18,8 @@ namespace BestBeforeApp.Products
         protected override void OnAppearing()
         {
             base.OnAppearing();
+
+            Analytics.TrackEvent(nameof(ProductsPage));
 
             if (_productsViewModel.Products.Count == 0)
                 _productsViewModel.LoadItemsCommand.Execute(null);

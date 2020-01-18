@@ -6,6 +6,8 @@
        mc:Ignorable="d"
        xmlns:local="clr-namespace:BestBeforeApp.Views"
        xmlns:products="clr-namespace:BestBeforeApp.Products"
+       xmlns:productDetails="clr-namespace:BestBeforeApp.ProductDetails"
+       xmlns:addproduct="clr-namespace:BestBeforeApp.AddProduct"
        xmlns:i18n="clr-namespace:BestBeforeApp.Helpers"
        Title="BestBeforeApp"
        x:Class="BestBeforeApp.AppShell">
@@ -31,11 +33,26 @@
     </Shell.Resources>
     <!-- Your Pages -->
     <TabBar>
-        <Tab Title="{i18n:Translate Products}" Icon="tab_feed.png">
-            <ShellContent ContentTemplate="{DataTemplate products:ProductsPage}" />
+        <Tab Title="{i18n:Translate Products}" Icon="list.png" Route="products">
+            <ShellContent ContentTemplate="{DataTemplate products:ProductsPage}" >
+                
+                <!--<ShellContent Title="Prod"
+                  Route="details"
+                      ContentTemplate="{DataTemplate productDetails:ProductDetailsPage}" />-->
+            </ShellContent>
+
+            
         </Tab>
-        <Tab Title="About" Icon="tab_about.png">
+        <Tab Title="{i18n:Translate AddProduct}" Icon="add.png">
+            <ShellContent ContentTemplate="{DataTemplate addproduct:AddProductPage}" />
+        </Tab>
+        <Tab Title="{i18n:Translate Settings}" Icon="settings.png">
             <ShellContent ContentTemplate="{DataTemplate local:AboutPage}" />
         </Tab>
+        
+        
+
     </TabBar>
+
+    
 </Shell>

@@ -25,4 +25,33 @@
       <value>Products</value>
       <comment></comment>
     </data>
+  <data name="AddProduct" xml:space="preserve">
+    <value>Add</value>
+    <comment></comment>
+  </data>
+  <data name="ProductName" xml:space="preserve">
+    <value>Name</value>
+    <comment></comment>
+  </data>
+  <data name="BestBefore" xml:space="preserve">
+    <value>Best before</value>
+    <comment></comment>
+  </data>
+  <data name="ProductAmount" xml:space="preserve">
+    <value>Amount</value>
+    <comment></comment>
+  </data>
+  <data name="ProductImage" xml:space="preserve">
+    <value>Image</value>
+    <comment></comment>
+  </data>
+  
+  <!-- Settings -->
+  <data name="Settings" xml:space="preserve">
+    <value>Settings</value>
+    <comment></comment>
+  </data>
+  
+  
+  
 </root>

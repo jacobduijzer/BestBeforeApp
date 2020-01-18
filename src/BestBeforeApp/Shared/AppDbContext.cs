@@ -1,4 +1,3 @@
-using System.Linq;
 using BestBeforeApp.Helpers;
 using BestBeforeApp.Products;
 using Microsoft.EntityFrameworkCore;
@@ -13,8 +12,6 @@ namespace BestBeforeApp.Shared
             base(dbContextOptions)
         {
             _dbFileHelper = dbFileHelper;
-
-            Database.EnsureCreated();
             Database.Migrate();
         }
 

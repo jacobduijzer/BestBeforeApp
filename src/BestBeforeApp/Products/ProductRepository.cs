@@ -23,6 +23,7 @@ namespace BestBeforeApp.Products
         public async Task<IEnumerable<Product>> Get(Expression<Func<Product, bool>> expression) =>
             await _appDbContext.Products
                 .Where(expression)
+                .OrderBy(x => x.BestBefore) // TODO: parameterize!
                 .ToListAsync()
                 .ConfigureAwait(false);
     }

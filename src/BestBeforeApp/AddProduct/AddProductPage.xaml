@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:i18n="clr-namespace:BestBeforeApp.Helpers"
+             x:Class="BestBeforeApp.AddProduct.AddProductPage"
+             Title="{i18n:Translate AddProduct}">
+    <ScrollView>
+        <StackLayout Orientation="Vertical"
+                     VerticalOptions="FillAndExpand"
+                     Padding="10">
+            <Label Text="{i18n:Translate ProductName}"
+                   FontAttributes="Bold"
+                   TextColor="Gray"
+                   FontSize="16"
+                   Padding="0, 30, 0, 0"/>
+            <Entry TextColor="#535b69"
+                   FontSize="24"
+                   Keyboard="Text"
+                   Text="{Binding Name}"/>
+
+            <Label Text="{i18n:Translate BestBefore}"
+                   FontAttributes="Bold"
+                   TextColor="Gray"
+                   FontSize="16" />
+            <DatePicker TextColor="#535b69"
+                        FontSize="24"
+                        MinimumDate="01/01/2018"
+                        Date="{Binding BestBefore}"/>
+
+            <Label Text="{i18n:Translate ProductAmount}"
+                   FontAttributes="Bold"
+                   TextColor="Gray"
+                   FontSize="16" />
+            <Entry Placeholder="1"
+                   Keyboard="Numeric"
+                   TextColor="#535b69"
+                   FontSize="24"
+                   Text="{Binding Amount}"/>
+
+            <Label Text="{i18n:Translate ProductImage}"
+                   FontAttributes="Bold"
+                   TextColor="Gray"
+                   FontSize="16"/>
+
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="30" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="30" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+
+                <Image Grid.Column="1" Grid.Row="0" Source="{Binding ProductPhoto}" HorizontalOptions="FillAndExpand" />
+                <StackLayout Grid.Column="2" Grid.Row="0" Orientation="Vertical" HorizontalOptions="End">
+                <Image Source="camera" VerticalOptions="Start" HorizontalOptions="End" WidthRequest="30" HeightRequest="30">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding TakePhotoCommand}" />
+                    </Image.GestureRecognizers>
+                </Image>
+
+                <Image Source="camera_off" Margin="0,14,0,0" VerticalOptions="Start" HorizontalOptions="End" WidthRequest="30" HeightRequest="30">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding RemovePhotoCommand}" />
+                    </Image.GestureRecognizers>
+                </Image>
+                </StackLayout>
+            </Grid>
+
+            <StackLayout Orientation="Horizontal">
+                
+                
+                
+            </StackLayout>
+
+            <StackLayout VerticalOptions="EndAndExpand">
+                <Button Text="Opslaan, volgende" Command="{Binding SaveProductAndNavigateCommand}"/>
+                <Button Text="Opslaan, naar de lijst" />
+            </StackLayout>
+        </StackLayout>
+
+    </ScrollView>
+</ContentPage>

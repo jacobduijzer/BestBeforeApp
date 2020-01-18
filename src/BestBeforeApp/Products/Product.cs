@@ -13,6 +13,15 @@ namespace BestBeforeApp.Products
         public DateTime BestBefore { get; set; }
 
         public string BestBeforeHumanized => BestBefore.HumanizeDate();
+
+        public Product() { }
+
+        public Product(string name, DateTime bestBefore, int amount)
+        {
+            Name = name;
+            BestBefore = bestBefore;
+            Amount = amount;
+        }
     }
 }
             

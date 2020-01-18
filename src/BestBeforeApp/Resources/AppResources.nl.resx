@@ -24,5 +24,31 @@
   <data name="Products" xml:space="preserve">
       <value>Voorraad</value>
       <comment></comment>
-    </data>
+  </data>
+  <data name="AddProduct" xml:space="preserve">
+    <value>Toevoegen</value>
+    <comment></comment>
+  </data>
+  <data name="ProductName" xml:space="preserve">
+    <value>Naam</value>
+    <comment></comment>
+  </data>
+  <data name="BestBefore" xml:space="preserve">
+    <value>Houdbaar tot</value>
+    <comment></comment>
+  </data>
+  <data name="ProductAmount" xml:space="preserve">
+    <value>Aantal</value>
+    <comment></comment>
+  </data>
+   <data name="ProductImage" xml:space="preserve">
+    <value>Foto</value>
+    <comment></comment>
+  </data>
+  
+  <!-- Settings -->
+  <data name="Settings" xml:space="preserve">
+    <value>Instellingen</value>
+    <comment></comment>
+  </data>
 </root>

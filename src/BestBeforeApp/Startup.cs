@@ -1,9 +1,12 @@
 using System;
 using System.IO;
+using System.Reflection;
+using BestBeforeApp.AddProduct;
 using BestBeforeApp.Helpers;
 using BestBeforeApp.Products;
 using BestBeforeApp.Shared;
 using BestBeforeApp.ViewModels;
+using MediatR;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -42,15 +45,15 @@ namespace BestBeforeApp
             return App.ServiceProvider.GetService<App>();
         }
 
-        private static void ConfigureServices(HostBuilderContext ctx, IServiceCollection services)
-        {
-            //services.AddMediatR(cfg => cfg.AsSingleton(), typeof(TestDataPolulator).GetTypeInfo().Assembly);
-            services.AddSingleton<AppShell>(factory => new AppShell());
-            services.AddDbContext<AppDbContext>();
-            services.AddScoped<IRepository<Product>, ProductRepository>();
-            services.AddScoped<ProductsViewModel>();
-            services.AddScoped<AboutViewModel>();
-            services.AddSingleton<App>();
-        }
+        private static void ConfigureServices(HostBuilderContext ctx, IServiceCollection services) =>
+            services.AddSingleton<AppShell>(factory => new AppShell())
+                .AddDbContext<AppDbContext>()
+                .AddScoped<IRepository<Product>, ProductRepository>()
+                .AddScoped<ProductsViewModel>()
+                .AddScoped<AddProductViewModel>()
+                .AddScoped<AboutViewModel>()
+                .AddScoped<PhotoService>()
+                .AddMediatR(cfg => cfg.AsScoped(), typeof(AddProductHandler).GetTypeInfo().Assembly)
+                .AddSingleton<App>();
     }
 }

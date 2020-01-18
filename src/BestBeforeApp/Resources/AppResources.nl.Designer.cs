@@ -64,5 +64,41 @@ namespace BestBeforeApp.Resources {
                 return ResourceManager.GetString("Products", resourceCulture);
             }
         }
+        
+        internal static string AddProduct {
+            get {
+                return ResourceManager.GetString("AddProduct", resourceCulture);
+            }
+        }
+        
+        internal static string ProductName {
+            get {
+                return ResourceManager.GetString("ProductName", resourceCulture);
+            }
+        }
+        
+        internal static string BestBefore {
+            get {
+                return ResourceManager.GetString("BestBefore", resourceCulture);
+            }
+        }
+        
+        internal static string ProductAmount {
+            get {
+                return ResourceManager.GetString("ProductAmount", resourceCulture);
+            }
+        }
+        
+        internal static string ProductImage {
+            get {
+                return ResourceManager.GetString("ProductImage", resourceCulture);
+            }
+        }
+        
+        internal static string Settings {
+            get {
+                return ResourceManager.GetString("Settings", resourceCulture);
+            }
+        }
     }
 }
