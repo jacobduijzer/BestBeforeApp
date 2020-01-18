@@ -26,5 +26,17 @@ namespace BestBeforeApp.Products
                 .OrderBy(x => x.BestBefore) // TODO: parameterize!
                 .ToListAsync()
                 .ConfigureAwait(false);
+
+        public async Task<Product> GetById(int id) =>
+            await _appDbContext.Products
+                .FirstOrDefaultAsync(x => x.Id.Equals(id))
+                .ConfigureAwait(false);
+
+        public async Task Delete(Product product)
+        {
+            _appDbContext.Products.Remove(product);
+            await _appDbContext.SaveChangesAsync().ConfigureAwait(false);
+        }
+
     }
 }

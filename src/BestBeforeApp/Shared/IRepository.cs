@@ -9,6 +9,10 @@ namespace BestBeforeApp.Shared
     {
         Task<IEnumerable<T>> Get(Expression<Func<T, bool>> expression);
 
+        Task<T> GetById(int id);
+
         Task Add(T entity);
+
+        Task Delete(T entity);
     }
 }

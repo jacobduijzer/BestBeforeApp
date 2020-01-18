@@ -9,6 +9,7 @@
        xmlns:productDetails="clr-namespace:BestBeforeApp.ProductDetails"
        xmlns:addproduct="clr-namespace:BestBeforeApp.AddProduct"
        xmlns:i18n="clr-namespace:BestBeforeApp.Helpers"
+       FlyoutBehavior="Disabled"
        Title="BestBeforeApp"
        x:Class="BestBeforeApp.AppShell">
     <!-- 
@@ -34,14 +35,7 @@
     <!-- Your Pages -->
     <TabBar>
         <Tab Title="{i18n:Translate Products}" Icon="list.png" Route="products">
-            <ShellContent ContentTemplate="{DataTemplate products:ProductsPage}" >
-                
-                <!--<ShellContent Title="Prod"
-                  Route="details"
-                      ContentTemplate="{DataTemplate productDetails:ProductDetailsPage}" />-->
-            </ShellContent>
-
-            
+            <ShellContent ContentTemplate="{DataTemplate products:ProductsPage}" />
         </Tab>
         <Tab Title="{i18n:Translate AddProduct}" Icon="add.png">
             <ShellContent ContentTemplate="{DataTemplate addproduct:AddProductPage}" />
@@ -49,10 +43,6 @@
         <Tab Title="{i18n:Translate Settings}" Icon="settings.png">
             <ShellContent ContentTemplate="{DataTemplate local:AboutPage}" />
         </Tab>
-        
-        
-
     </TabBar>
-
-    
+                
 </Shell>

@@ -5,14 +5,14 @@ using Xamarin.Forms;
 
 namespace BestBeforeApp.ProductDetails
 {
-    //[QueryProperty("ProductId", "productid")]
+    [QueryProperty("ProductId", "id")]
     public partial class ProductDetailsPage : ContentPage
     {
-        //public int ProductId;
+        public string ProductId { set; get; }
+
         public ProductDetailsPage()
         {
             InitializeComponent();
-
             BindingContext = App.ServiceProvider.GetService<ProductDetailsViewModel>();
         }
 
@@ -20,6 +20,9 @@ namespace BestBeforeApp.ProductDetails
         {
             base.OnAppearing();
             Analytics.TrackEvent(nameof(ProductDetailsPage));
+
+            if (!string.IsNullOrEmpty(ProductId))
+                ((ProductDetailsViewModel)BindingContext).LoadDetailsCommand.Execute(int.Parse(ProductId));
         }
     }
 }

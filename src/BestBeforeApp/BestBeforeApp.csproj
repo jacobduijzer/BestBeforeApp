@@ -43,6 +43,8 @@
     <Folder Include="AddProduct\" />
     <Folder Include="ProductDetails\" />
     <Folder Include="Helpers\Behaviors\" />
+    <Folder Include="Products\Handlers\" />
+    <Folder Include="Helpers\Controls\" />
   </ItemGroup>
   <ItemGroup>
     <None Remove="appsettings.json" />

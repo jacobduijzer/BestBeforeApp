@@ -1,7 +1,48 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:i18n="clr-namespace:BestBeforeApp.Helpers"
              x:Class="BestBeforeApp.ProductDetails.ProductDetailsPage">
-    <ContentPage.Content>
-    </ContentPage.Content>
+<ScrollView>
+        <StackLayout Orientation="Vertical"
+                     VerticalOptions="FillAndExpand"
+                     Padding="10">
+            <Label Text="{i18n:Translate ProductName}"
+                   FontAttributes="Bold"
+                   TextColor="Gray"
+                   FontSize="16"
+                   Padding="0, 30, 0, 0"/>
+            <Entry TextColor="#535b69"
+                   FontSize="24"
+                   Keyboard="Text"
+                   IsReadOnly="True"
+                   Text="{Binding Product.Name}"/>
+
+            <Label Text="{i18n:Translate BestBefore}"
+                   FontAttributes="Bold"
+                   TextColor="Gray"
+                   FontSize="16"
+                   Padding="0, 30, 0, 0"/>
+            <Entry TextColor="#535b69"
+                   FontSize="24"
+                   Keyboard="Text"
+                   IsReadOnly="True"
+                   Text="{Binding Product.BestBefore}"/>
+
+            <Label Text="{i18n:Translate ProductAmount}"
+                   FontAttributes="Bold"
+                   TextColor="Gray"
+                   FontSize="16"
+                   Padding="0, 30, 0, 0"/>
+            <Entry TextColor="#535b69"
+                   FontSize="24"
+                   Keyboard="Text"
+                   IsReadOnly="True"
+                   Text="{Binding Product.Amount}"/>
+
+                <StackLayout VerticalOptions="EndAndExpand">
+                    <Button Text="Delete" Command="{Binding DeleteProductCommand}"/>
+                </StackLayout>
+            </StackLayout>
+    </ScrollView>
 </ContentPage>

@@ -4,6 +4,8 @@
              xmlns:i18n="clr-namespace:BestBeforeApp.Helpers"
              xmlns:converters="clr-namespace:BestBeforeApp.Helpers.Converters"
              xmlns:behaviors="clr-namespace:BestBeforeApp.Helpers.Behaviors"
+             xmlns:controls="clr-namespace:BestBeforeApp.Helpers.Controls"
+             xmlns:productDetails="clr-namespace:BestBeforeApp.ProductDetails"
              x:Class="BestBeforeApp.Products.ProductsPage"
              Title="{i18n:Translate Products}"
              x:Name="ProductsListPage">
@@ -13,6 +15,15 @@
             <converters:SelectedItemEventArgsToSelectedItemConverter x:Key="SelectedItemConverter" />
         </ResourceDictionary>
     </ContentPage.Resources>
+
+     <!--<Shell.SearchHandler>
+        <controls:ProductSearchHandler Placeholder="Enter search term"
+                                       ShowsResults="true"
+                                       ItemTemplate="{StaticResource ProductSearchTemplate}"
+                                       Products="{Binding Products}"
+                                       SelectedItemNavigationTarget="{x:Type productDetails:ProductDetailPage}" />
+    </Shell.SearchHandler>-->
+   
     <StackLayout>
         <ListView HasUnevenRows="true"
                   ItemsSource="{Binding Products}"

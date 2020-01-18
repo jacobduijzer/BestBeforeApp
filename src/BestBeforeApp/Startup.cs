@@ -3,6 +3,7 @@ using System.IO;
 using System.Reflection;
 using BestBeforeApp.AddProduct;
 using BestBeforeApp.Helpers;
+using BestBeforeApp.ProductDetails;
 using BestBeforeApp.Products;
 using BestBeforeApp.Shared;
 using BestBeforeApp.ViewModels;
@@ -50,6 +51,7 @@ namespace BestBeforeApp
                 .AddDbContext<AppDbContext>()
                 .AddScoped<IRepository<Product>, ProductRepository>()
                 .AddScoped<ProductsViewModel>()
+                .AddScoped<ProductDetailsViewModel>()
                 .AddScoped<AddProductViewModel>()
                 .AddScoped<AboutViewModel>()
                 .AddScoped<PhotoService>()
