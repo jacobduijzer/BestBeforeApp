@@ -11,6 +11,7 @@
        xmlns:i18n="clr-namespace:BestBeforeApp.Helpers"
        FlyoutBehavior="Disabled"
        Title="BestBeforeApp"
+       
        x:Class="BestBeforeApp.AppShell">
     <!-- 
         Styles and Resources 
@@ -32,10 +33,12 @@
             <Style TargetType="TabBar" BasedOn="{StaticResource BaseStyle}" />
         </ResourceDictionary>
     </Shell.Resources>
+   
     <!-- Your Pages -->
     <TabBar>
         <Tab Title="{i18n:Translate Products}" Icon="list.png" Route="products">
             <ShellContent ContentTemplate="{DataTemplate products:ProductsPage}" />
+                
         </Tab>
         <Tab Title="{i18n:Translate AddProduct}" Icon="add.png">
             <ShellContent ContentTemplate="{DataTemplate addproduct:AddProductPage}" />

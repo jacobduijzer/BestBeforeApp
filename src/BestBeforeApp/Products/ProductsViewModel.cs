@@ -34,13 +34,20 @@ namespace BestBeforeApp.Products
 
         public ICommand LoadItemsCommand { get; }
         public ICommand ShowDetailsCommand { get; }
+        public ICommand SearchCommand { get; }
 
         public ProductsViewModel(IMediator mediator)
         {
             LoadItemsCommand = new AsyncCommand(GetProductsAsync);
             ShowDetailsCommand = new AsyncCommand<Product>(ShowDetailsAsync);
+            SearchCommand = new AsyncCommand<string>(SearchAsync);
 
             _mediator = mediator;
+        }
+
+        private Task SearchAsync(string arg)
+        {
+            throw new NotImplementedException();
         }
 
         private async Task GetProductsAsync()

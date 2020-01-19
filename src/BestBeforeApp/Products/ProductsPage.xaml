@@ -1,27 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:i18n="clr-namespace:BestBeforeApp.Helpers"
-             xmlns:converters="clr-namespace:BestBeforeApp.Helpers.Converters"
-             xmlns:behaviors="clr-namespace:BestBeforeApp.Helpers.Behaviors"
-             x:Class="BestBeforeApp.Products.ProductsPage"
-             Title="{i18n:Translate Products}"
-             x:Name="ProductsListPage">
+                            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                            xmlns:i18n="clr-namespace:BestBeforeApp.Helpers"
+                            xmlns:converters="clr-namespace:BestBeforeApp.Helpers.Converters"
+                            xmlns:behaviors="clr-namespace:BestBeforeApp.Helpers.Behaviors"
+                            x:Class="BestBeforeApp.Products.ProductsPage"
+                            Title="{i18n:Translate Products}"
+                            x:Name="ProductsListPage">
     <ContentPage.Resources>
         <ResourceDictionary>
             <converters:DateToColorConverter x:Key="dateToColorConverter" />
             <converters:SelectedItemEventArgsToSelectedItemConverter x:Key="SelectedItemConverter" />
         </ResourceDictionary>
     </ContentPage.Resources>
+
+     <Shell.SearchHandler>
+      <SearchHandler Placeholder="Enter search term"/>
+    </Shell.SearchHandler>
    
     <StackLayout>
-        <SearchBar x:Name="searchBar"
+        <!--<SearchBar x:Name="searchBar"
                    HorizontalOptions="Fill"
                    VerticalOptions="CenterAndExpand"
                    Placeholder="{i18n:Translate ProductsFilter}"
                    Text="{Binding SearchString}"
                    Style="{DynamicResource ListItemTextStyle}"
-                   HorizontalTextAlignment="Start" />
+                   HorizontalTextAlignment="Start" />-->
         <ListView HasUnevenRows="true"
                   ItemsSource="{Binding Products}"
                   IsPullToRefreshEnabled="True"
@@ -35,7 +39,8 @@
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
-                        <StackLayout Orientation="Horizontal" Padding="0, 0, 6, 0" BackgroundColor="{Binding BestBefore, Converter={StaticResource dateToColorConverter}}">
+                        <!--<StackLayout Orientation="Horizontal" Padding="0, 0, 6, 0" BackgroundColor="{Binding BestBefore, Converter={StaticResource dateToColorConverter}}">-->
+                        <StackLayout Orientation="Horizontal" Padding="0" >
                             <StackLayout Padding="10" HorizontalOptions="FillAndExpand" BackgroundColor="White">
                                 <StackLayout Orientation="Horizontal">
                                     <Label Text="{Binding Name}"
@@ -51,7 +56,7 @@
                                            FontSize="24" />
                                 </StackLayout>
                                 <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
-                                    <Label Text="{Binding BestBeforeHumanized}" Style="{DynamicResource ListItemDetailTextStyle}" FontSize="13" HorizontalOptions="FillAndExpand"/>
+                                    <Label Text="{Binding BestBeforeHumanized}" Style="{DynamicResource ListItemDetailTextStyle}" FontSize="13" HorizontalOptions="FillAndExpand" TextColor="{Binding BestBefore, Converter={StaticResource dateToColorConverter}}"/>
                                     <Label Text="{Binding BestBefore, StringFormat='{0:dd-MM-yyyy}'}" Style="{DynamicResource ListItemDetailTextStyle}" FontSize="13" HorizontalOptions="End"/>
                                 </StackLayout>
                             </StackLayout>

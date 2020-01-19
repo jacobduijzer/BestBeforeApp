@@ -7,6 +7,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.DependencyInjection;
 using BestBeforeApp.Helpers;
 using Plugin.CurrentActivity;
+using Android.Views;
 
 namespace BestBeforeApp.Droid
 {
@@ -20,9 +21,11 @@ namespace BestBeforeApp.Droid
 
             base.OnCreate(savedInstanceState);
 
+            CrossCurrentActivity.Current.Init(this, savedInstanceState);
+
             global::Xamarin.Essentials.Platform.Init(this, savedInstanceState);
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
-            CrossCurrentActivity.Current.Init(this, savedInstanceState);
+            
             LoadApplication(Startup.Init(ConfigureServices));
         }
 

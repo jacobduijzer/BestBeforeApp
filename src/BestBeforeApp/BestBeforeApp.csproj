@@ -45,6 +45,7 @@
     <Folder Include="Helpers\Behaviors\" />
     <Folder Include="Products\Handlers\" />
     <Folder Include="Products\Specifications\" />
+    <Folder Include="Helpers\CustomRenderers\" />
   </ItemGroup>
   <ItemGroup>
     <None Remove="appsettings.json" />
