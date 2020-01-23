@@ -11,7 +11,7 @@ namespace BestBeforeApp.Shared
 
         Task<T> GetById(int id);
 
-        Task Add(T entity);
+        Task<int> Add(T entity);
 
         Task Delete(T entity);
     }

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<shared:BasePage xmlns="http://xamarin.com/schemas/2014/forms"
+                 xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                 xmlns:i18n="clr-namespace:BestBeforeApp.Helpers"
+                 xmlns:converters="clr-namespace:BestBeforeApp.Helpers.Converters"
+                 xmlns:shared="clr-namespace:BestBeforeApp.Shared"
+                 xmlns:behaviors="clr-namespace:BestBeforeApp.Helpers.Behaviors"
+                 x:Class="BestBeforeApp.Settings.SettingsPage"
+                 Title="{i18n:Translate Settings}" >
+    <StackLayout Padding="20,30,20,10">
+
+        <!-- Local Notifications-->
+        <StackLayout Orientation="Horizontal"
+                     HorizontalOptions="FillAndExpand">
+            <Label Text="{i18n:Translate EnableLocalNotifications}"
+                   TextColor="Gray"
+                   FontSize="20"
+                   VerticalTextAlignment="Center"
+                   HorizontalOptions="StartAndExpand"/>
+            <Switch HorizontalOptions="End"/>
+        </StackLayout>
+
+        <StackLayout>
+            <StackLayout Orientation="Horizontal"
+                     HorizontalOptions="FillAndExpand">
+                <Label Text="{i18n:Translate NumberOfDaysBeforeExpirationDate}"
+                       TextColor="Gray"
+                       FontSize="20"
+                       VerticalTextAlignment="Center"
+                       HorizontalOptions="Start"/>
+                <Entry HorizontalOptions="EndAndExpand"
+                       Placeholder="1"
+                       Keyboard="Numeric"
+                       TextColor="#535b69"
+                       FontSize="24"
+                       Text="{Binding Amount}"/>
+            </StackLayout>
+        </StackLayout>
+
+
+    </StackLayout>
+</shared:BasePage>

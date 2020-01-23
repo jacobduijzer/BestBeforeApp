@@ -7,6 +7,7 @@ using Microsoft.AppCenter.Analytics;
 using Microsoft.AppCenter.Crashes;
 using MvvmHelpers;
 using MvvmHelpers.Commands;
+using Plugin.LocalNotification;
 using Xamarin.Forms;
 
 namespace BestBeforeApp.Products.AddProduct
@@ -107,21 +108,44 @@ namespace BestBeforeApp.Products.AddProduct
         private async Task SaveProductAndNew()
         {
             Analytics.TrackEvent($"{this.GetType().Name} - SaveProductAndNew");
-            await SaveProduct().ConfigureAwait(false);
+            await SaveProductAndScheduleNotification().ConfigureAwait(false);
             Name = string.Empty;
             BestBefore = DateTime.Now.AddMonths(3);
             Amount = 1;
             ProductPhoto = null;
         }
-
+        
         private async Task SaveProductAndNavigate()
         {
             Analytics.TrackEvent($"{this.GetType().Name} - SaveProductAndNavigate");
-            await SaveProduct().ConfigureAwait(false);
+            await SaveProductAndScheduleNotification().ConfigureAwait(false);
             await Shell.Current.GoToAsync("//products").ConfigureAwait(false);
         }
 
-        private async Task SaveProduct()
+        private async Task SaveProductAndScheduleNotification()
+        {
+            var productId = await SaveProduct().ConfigureAwait(false);
+            ScheduleNotification(productId);
+        }
+
+        private void ScheduleNotification(int productId)
+        {
+            var notification = new NotificationRequest
+            {
+                NotificationId = productId,
+                BadgeNumber = 0,
+                Description = "Boe!",
+                Title = "THT",
+                NotifyTime = DateTime.Now.AddSeconds(10),
+                Android =
+                {
+                    IconName = "xamarin_logo"
+                }
+            };
+            NotificationCenter.Current.Show(notification);
+        }
+
+        private async Task<int> SaveProduct()
         {
             IsBusy = true;
 
@@ -133,11 +157,12 @@ namespace BestBeforeApp.Products.AddProduct
                     _ => new Product(Name, BestBefore, Amount, _imageBytes)
                 };
 
-                await _mediator.Publish(new AddProduct(newProduct)).ConfigureAwait(false);
+                return await _mediator.Send(new AddProduct(newProduct)).ConfigureAwait(false);
             }
             catch (Exception ex)
             {
                 Crashes.TrackError(ex);
+                return 0;
             }
             finally
             {

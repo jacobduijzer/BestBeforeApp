@@ -7,6 +7,8 @@ using Microsoft.AppCenter.Crashes;
 using Microsoft.AppCenter.Distribute;
 using BestBeforeApp.Resources;
 using System.Globalization;
+using Plugin.LocalNotification;
+using System.Collections.Generic;
 
 namespace BestBeforeApp
 {
@@ -21,6 +23,8 @@ namespace BestBeforeApp
         public App()
         {
             InitializeComponent();
+
+            NotificationCenter.Current.NotificationTapped += LoadPageFromNotification;
 
             AppCulture = new CultureInfo("nl-NL");
             CultureInfo.CurrentCulture = AppCulture;
@@ -41,6 +45,28 @@ namespace BestBeforeApp
 
         protected override void OnResume()
         {
+        }
+
+        private void LoadPageFromNotification(NotificationTappedEventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(e.Data))
+            {
+                return;
+            }
+
+            var serializer = new ObjectSerializer<List<string>>();
+            var list = serializer.DeserializeObject(e.Data);
+            //if (list.Count != 2)
+            //{
+            //    return;
+            //}
+            //if (list[0] != typeof(NotificationPage).FullName)
+            //{
+            //    return;
+            //}
+            //var tapCount = list[1];
+
+            //((NavigationPage)MainPage).Navigation.PushAsync(new NotificationPage(int.Parse(tapCount)));
         }
     }
 }

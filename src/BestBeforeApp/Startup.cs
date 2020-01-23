@@ -5,8 +5,8 @@ using BestBeforeApp.Helpers;
 using BestBeforeApp.Products;
 using BestBeforeApp.Products.AddProduct;
 using BestBeforeApp.Products.ProductDetails;
+using BestBeforeApp.Settings;
 using BestBeforeApp.Shared;
-using BestBeforeApp.ViewModels;
 using MediatR;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -53,7 +53,7 @@ namespace BestBeforeApp
                 .AddScoped<ProductsViewModel>()
                 .AddScoped<ProductDetailsViewModel>()
                 .AddScoped<AddProductViewModel>()
-                .AddScoped<AboutViewModel>()
+                .AddScoped<SettingsViewModel>()
                 .AddScoped<PhotoService>()
                 .AddMediatR(cfg => cfg.AsScoped(), typeof(AddProductHandler).GetTypeInfo().Assembly)
                 .AddSingleton<App>();

@@ -14,10 +14,12 @@ namespace BestBeforeApp.Products
 
         public ProductRepository(AppDbContext appDbContext) => _appDbContext = appDbContext;
 
-        public async Task Add(Product entity)
+        public async Task<int> Add(Product entity)
         {
             await _appDbContext.Products.AddAsync(entity).ConfigureAwait(false);
             await _appDbContext.SaveChangesAsync().ConfigureAwait(false);
+
+            return entity.Id;
         }
 
         public async Task<IEnumerable<Product>> Get(Expression<Func<Product, bool>> expression) =>

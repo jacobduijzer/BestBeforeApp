@@ -106,5 +106,17 @@ namespace BestBeforeApp.Resources {
                 return ResourceManager.GetString("Settings", resourceCulture);
             }
         }
+        
+        internal static string EnableLocalNotifications {
+            get {
+                return ResourceManager.GetString("EnableLocalNotifications", resourceCulture);
+            }
+        }
+        
+        internal static string NumberOfDaysBeforeExpirationDate {
+            get {
+                return ResourceManager.GetString("NumberOfDaysBeforeExpirationDate", resourceCulture);
+            }
+        }
     }
 }

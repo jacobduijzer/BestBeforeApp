@@ -47,6 +47,178 @@ namespace BestBeforeApp.Droid
 			global::Microsoft.AppCenter.Distribute.Resource.String.appcenter_distribute_update_failed_dialog_message = global::BestBeforeApp.Droid.Resource.String.appcenter_distribute_update_failed_dialog_message;
 			global::Microsoft.AppCenter.Distribute.Resource.String.appcenter_distribute_update_failed_dialog_reinstall = global::BestBeforeApp.Droid.Resource.String.appcenter_distribute_update_failed_dialog_reinstall;
 			global::Microsoft.AppCenter.Distribute.Resource.String.appcenter_distribute_update_failed_dialog_title = global::BestBeforeApp.Droid.Resource.String.appcenter_distribute_update_failed_dialog_title;
+			global::Plugin.LocalNotification.Resource.Attribute.alpha = global::BestBeforeApp.Droid.Resource.Attribute.alpha;
+			global::Plugin.LocalNotification.Resource.Attribute.coordinatorLayoutStyle = global::BestBeforeApp.Droid.Resource.Attribute.coordinatorLayoutStyle;
+			global::Plugin.LocalNotification.Resource.Attribute.font = global::BestBeforeApp.Droid.Resource.Attribute.font;
+			global::Plugin.LocalNotification.Resource.Attribute.fontProviderAuthority = global::BestBeforeApp.Droid.Resource.Attribute.fontProviderAuthority;
+			global::Plugin.LocalNotification.Resource.Attribute.fontProviderCerts = global::BestBeforeApp.Droid.Resource.Attribute.fontProviderCerts;
+			global::Plugin.LocalNotification.Resource.Attribute.fontProviderFetchStrategy = global::BestBeforeApp.Droid.Resource.Attribute.fontProviderFetchStrategy;
+			global::Plugin.LocalNotification.Resource.Attribute.fontProviderFetchTimeout = global::BestBeforeApp.Droid.Resource.Attribute.fontProviderFetchTimeout;
+			global::Plugin.LocalNotification.Resource.Attribute.fontProviderPackage = global::BestBeforeApp.Droid.Resource.Attribute.fontProviderPackage;
+			global::Plugin.LocalNotification.Resource.Attribute.fontProviderQuery = global::BestBeforeApp.Droid.Resource.Attribute.fontProviderQuery;
+			global::Plugin.LocalNotification.Resource.Attribute.fontStyle = global::BestBeforeApp.Droid.Resource.Attribute.fontStyle;
+			global::Plugin.LocalNotification.Resource.Attribute.fontVariationSettings = global::BestBeforeApp.Droid.Resource.Attribute.fontVariationSettings;
+			global::Plugin.LocalNotification.Resource.Attribute.fontWeight = global::BestBeforeApp.Droid.Resource.Attribute.fontWeight;
+			global::Plugin.LocalNotification.Resource.Attribute.keylines = global::BestBeforeApp.Droid.Resource.Attribute.keylines;
+			global::Plugin.LocalNotification.Resource.Attribute.layout_anchor = global::BestBeforeApp.Droid.Resource.Attribute.layout_anchor;
+			global::Plugin.LocalNotification.Resource.Attribute.layout_anchorGravity = global::BestBeforeApp.Droid.Resource.Attribute.layout_anchorGravity;
+			global::Plugin.LocalNotification.Resource.Attribute.layout_behavior = global::BestBeforeApp.Droid.Resource.Attribute.layout_behavior;
+			global::Plugin.LocalNotification.Resource.Attribute.layout_dodgeInsetEdges = global::BestBeforeApp.Droid.Resource.Attribute.layout_dodgeInsetEdges;
+			global::Plugin.LocalNotification.Resource.Attribute.layout_insetEdge = global::BestBeforeApp.Droid.Resource.Attribute.layout_insetEdge;
+			global::Plugin.LocalNotification.Resource.Attribute.layout_keyline = global::BestBeforeApp.Droid.Resource.Attribute.layout_keyline;
+			global::Plugin.LocalNotification.Resource.Attribute.statusBarBackground = global::BestBeforeApp.Droid.Resource.Attribute.statusBarBackground;
+			global::Plugin.LocalNotification.Resource.Attribute.ttcIndex = global::BestBeforeApp.Droid.Resource.Attribute.ttcIndex;
+			global::Plugin.LocalNotification.Resource.Boolean.enable_system_alarm_service_default = global::BestBeforeApp.Droid.Resource.Boolean.enable_system_alarm_service_default;
+			global::Plugin.LocalNotification.Resource.Boolean.enable_system_job_service_default = global::BestBeforeApp.Droid.Resource.Boolean.enable_system_job_service_default;
+			global::Plugin.LocalNotification.Resource.Boolean.workmanager_test_configuration = global::BestBeforeApp.Droid.Resource.Boolean.workmanager_test_configuration;
+			global::Plugin.LocalNotification.Resource.Color.notification_action_color_filter = global::BestBeforeApp.Droid.Resource.Color.notification_action_color_filter;
+			global::Plugin.LocalNotification.Resource.Color.notification_icon_bg_color = global::BestBeforeApp.Droid.Resource.Color.notification_icon_bg_color;
+			global::Plugin.LocalNotification.Resource.Color.ripple_material_light = global::BestBeforeApp.Droid.Resource.Color.ripple_material_light;
+			global::Plugin.LocalNotification.Resource.Color.secondary_text_default_material_light = global::BestBeforeApp.Droid.Resource.Color.secondary_text_default_material_light;
+			global::Plugin.LocalNotification.Resource.Dimension.compat_button_inset_horizontal_material = global::BestBeforeApp.Droid.Resource.Dimension.compat_button_inset_horizontal_material;
+			global::Plugin.LocalNotification.Resource.Dimension.compat_button_inset_vertical_material = global::BestBeforeApp.Droid.Resource.Dimension.compat_button_inset_vertical_material;
+			global::Plugin.LocalNotification.Resource.Dimension.compat_button_padding_horizontal_material = global::BestBeforeApp.Droid.Resource.Dimension.compat_button_padding_horizontal_material;
+			global::Plugin.LocalNotification.Resource.Dimension.compat_button_padding_vertical_material = global::BestBeforeApp.Droid.Resource.Dimension.compat_button_padding_vertical_material;
+			global::Plugin.LocalNotification.Resource.Dimension.compat_control_corner_material = global::BestBeforeApp.Droid.Resource.Dimension.compat_control_corner_material;
+			global::Plugin.LocalNotification.Resource.Dimension.compat_notification_large_icon_max_height = global::BestBeforeApp.Droid.Resource.Dimension.compat_notification_large_icon_max_height;
+			global::Plugin.LocalNotification.Resource.Dimension.compat_notification_large_icon_max_width = global::BestBeforeApp.Droid.Resource.Dimension.compat_notification_large_icon_max_width;
+			global::Plugin.LocalNotification.Resource.Dimension.notification_action_icon_size = global::BestBeforeApp.Droid.Resource.Dimension.notification_action_icon_size;
+			global::Plugin.LocalNotification.Resource.Dimension.notification_action_text_size = global::BestBeforeApp.Droid.Resource.Dimension.notification_action_text_size;
+			global::Plugin.LocalNotification.Resource.Dimension.notification_big_circle_margin = global::BestBeforeApp.Droid.Resource.Dimension.notification_big_circle_margin;
+			global::Plugin.LocalNotification.Resource.Dimension.notification_content_margin_start = global::BestBeforeApp.Droid.Resource.Dimension.notification_content_margin_start;
+			global::Plugin.LocalNotification.Resource.Dimension.notification_large_icon_height = global::BestBeforeApp.Droid.Resource.Dimension.notification_large_icon_height;
+			global::Plugin.LocalNotification.Resource.Dimension.notification_large_icon_width = global::BestBeforeApp.Droid.Resource.Dimension.notification_large_icon_width;
+			global::Plugin.LocalNotification.Resource.Dimension.notification_main_column_padding_top = global::BestBeforeApp.Droid.Resource.Dimension.notification_main_column_padding_top;
+			global::Plugin.LocalNotification.Resource.Dimension.notification_media_narrow_margin = global::BestBeforeApp.Droid.Resource.Dimension.notification_media_narrow_margin;
+			global::Plugin.LocalNotification.Resource.Dimension.notification_right_icon_size = global::BestBeforeApp.Droid.Resource.Dimension.notification_right_icon_size;
+			global::Plugin.LocalNotification.Resource.Dimension.notification_right_side_padding_top = global::BestBeforeApp.Droid.Resource.Dimension.notification_right_side_padding_top;
+			global::Plugin.LocalNotification.Resource.Dimension.notification_small_icon_background_padding = global::BestBeforeApp.Droid.Resource.Dimension.notification_small_icon_background_padding;
+			global::Plugin.LocalNotification.Resource.Dimension.notification_small_icon_size_as_large = global::BestBeforeApp.Droid.Resource.Dimension.notification_small_icon_size_as_large;
+			global::Plugin.LocalNotification.Resource.Dimension.notification_subtext_size = global::BestBeforeApp.Droid.Resource.Dimension.notification_subtext_size;
+			global::Plugin.LocalNotification.Resource.Dimension.notification_top_pad = global::BestBeforeApp.Droid.Resource.Dimension.notification_top_pad;
+			global::Plugin.LocalNotification.Resource.Dimension.notification_top_pad_large_text = global::BestBeforeApp.Droid.Resource.Dimension.notification_top_pad_large_text;
+			global::Plugin.LocalNotification.Resource.Drawable.notification_action_background = global::BestBeforeApp.Droid.Resource.Drawable.notification_action_background;
+			global::Plugin.LocalNotification.Resource.Drawable.notification_bg = global::BestBeforeApp.Droid.Resource.Drawable.notification_bg;
+			global::Plugin.LocalNotification.Resource.Drawable.notification_bg_low = global::BestBeforeApp.Droid.Resource.Drawable.notification_bg_low;
+			global::Plugin.LocalNotification.Resource.Drawable.notification_bg_low_normal = global::BestBeforeApp.Droid.Resource.Drawable.notification_bg_low_normal;
+			global::Plugin.LocalNotification.Resource.Drawable.notification_bg_low_pressed = global::BestBeforeApp.Droid.Resource.Drawable.notification_bg_low_pressed;
+			global::Plugin.LocalNotification.Resource.Drawable.notification_bg_normal = global::BestBeforeApp.Droid.Resource.Drawable.notification_bg_normal;
+			global::Plugin.LocalNotification.Resource.Drawable.notification_bg_normal_pressed = global::BestBeforeApp.Droid.Resource.Drawable.notification_bg_normal_pressed;
+			global::Plugin.LocalNotification.Resource.Drawable.notification_icon_background = global::BestBeforeApp.Droid.Resource.Drawable.notification_icon_background;
+			global::Plugin.LocalNotification.Resource.Drawable.notification_template_icon_bg = global::BestBeforeApp.Droid.Resource.Drawable.notification_template_icon_bg;
+			global::Plugin.LocalNotification.Resource.Drawable.notification_template_icon_low_bg = global::BestBeforeApp.Droid.Resource.Drawable.notification_template_icon_low_bg;
+			global::Plugin.LocalNotification.Resource.Drawable.notification_tile_bg = global::BestBeforeApp.Droid.Resource.Drawable.notification_tile_bg;
+			global::Plugin.LocalNotification.Resource.Drawable.notify_panel_notification_icon_bg = global::BestBeforeApp.Droid.Resource.Drawable.notify_panel_notification_icon_bg;
+			global::Plugin.LocalNotification.Resource.Id.actions = global::BestBeforeApp.Droid.Resource.Id.actions;
+			global::Plugin.LocalNotification.Resource.Id.action_container = global::BestBeforeApp.Droid.Resource.Id.action_container;
+			global::Plugin.LocalNotification.Resource.Id.action_divider = global::BestBeforeApp.Droid.Resource.Id.action_divider;
+			global::Plugin.LocalNotification.Resource.Id.action_image = global::BestBeforeApp.Droid.Resource.Id.action_image;
+			global::Plugin.LocalNotification.Resource.Id.action_text = global::BestBeforeApp.Droid.Resource.Id.action_text;
+			global::Plugin.LocalNotification.Resource.Id.all = global::BestBeforeApp.Droid.Resource.Id.all;
+			global::Plugin.LocalNotification.Resource.Id.async = global::BestBeforeApp.Droid.Resource.Id.async;
+			global::Plugin.LocalNotification.Resource.Id.blocking = global::BestBeforeApp.Droid.Resource.Id.blocking;
+			global::Plugin.LocalNotification.Resource.Id.bottom = global::BestBeforeApp.Droid.Resource.Id.bottom;
+			global::Plugin.LocalNotification.Resource.Id.center = global::BestBeforeApp.Droid.Resource.Id.center;
+			global::Plugin.LocalNotification.Resource.Id.center_horizontal = global::BestBeforeApp.Droid.Resource.Id.center_horizontal;
+			global::Plugin.LocalNotification.Resource.Id.center_vertical = global::BestBeforeApp.Droid.Resource.Id.center_vertical;
+			global::Plugin.LocalNotification.Resource.Id.chronometer = global::BestBeforeApp.Droid.Resource.Id.chronometer;
+			global::Plugin.LocalNotification.Resource.Id.clip_horizontal = global::BestBeforeApp.Droid.Resource.Id.clip_horizontal;
+			global::Plugin.LocalNotification.Resource.Id.clip_vertical = global::BestBeforeApp.Droid.Resource.Id.clip_vertical;
+			global::Plugin.LocalNotification.Resource.Id.end = global::BestBeforeApp.Droid.Resource.Id.end;
+			global::Plugin.LocalNotification.Resource.Id.fill = global::BestBeforeApp.Droid.Resource.Id.fill;
+			global::Plugin.LocalNotification.Resource.Id.fill_horizontal = global::BestBeforeApp.Droid.Resource.Id.fill_horizontal;
+			global::Plugin.LocalNotification.Resource.Id.fill_vertical = global::BestBeforeApp.Droid.Resource.Id.fill_vertical;
+			global::Plugin.LocalNotification.Resource.Id.forever = global::BestBeforeApp.Droid.Resource.Id.forever;
+			global::Plugin.LocalNotification.Resource.Id.icon = global::BestBeforeApp.Droid.Resource.Id.icon;
+			global::Plugin.LocalNotification.Resource.Id.icon_group = global::BestBeforeApp.Droid.Resource.Id.icon_group;
+			global::Plugin.LocalNotification.Resource.Id.info = global::BestBeforeApp.Droid.Resource.Id.info;
+			global::Plugin.LocalNotification.Resource.Id.italic = global::BestBeforeApp.Droid.Resource.Id.italic;
+			global::Plugin.LocalNotification.Resource.Id.left = global::BestBeforeApp.Droid.Resource.Id.left;
+			global::Plugin.LocalNotification.Resource.Id.line1 = global::BestBeforeApp.Droid.Resource.Id.line1;
+			global::Plugin.LocalNotification.Resource.Id.line3 = global::BestBeforeApp.Droid.Resource.Id.line3;
+			global::Plugin.LocalNotification.Resource.Id.none = global::BestBeforeApp.Droid.Resource.Id.none;
+			global::Plugin.LocalNotification.Resource.Id.normal = global::BestBeforeApp.Droid.Resource.Id.normal;
+			global::Plugin.LocalNotification.Resource.Id.notification_background = global::BestBeforeApp.Droid.Resource.Id.notification_background;
+			global::Plugin.LocalNotification.Resource.Id.notification_main_column = global::BestBeforeApp.Droid.Resource.Id.notification_main_column;
+			global::Plugin.LocalNotification.Resource.Id.notification_main_column_container = global::BestBeforeApp.Droid.Resource.Id.notification_main_column_container;
+			global::Plugin.LocalNotification.Resource.Id.right = global::BestBeforeApp.Droid.Resource.Id.right;
+			global::Plugin.LocalNotification.Resource.Id.right_icon = global::BestBeforeApp.Droid.Resource.Id.right_icon;
+			global::Plugin.LocalNotification.Resource.Id.right_side = global::BestBeforeApp.Droid.Resource.Id.right_side;
+			global::Plugin.LocalNotification.Resource.Id.start = global::BestBeforeApp.Droid.Resource.Id.start;
+			global::Plugin.LocalNotification.Resource.Id.tag_transition_group = global::BestBeforeApp.Droid.Resource.Id.tag_transition_group;
+			global::Plugin.LocalNotification.Resource.Id.tag_unhandled_key_event_manager = global::BestBeforeApp.Droid.Resource.Id.tag_unhandled_key_event_manager;
+			global::Plugin.LocalNotification.Resource.Id.tag_unhandled_key_listeners = global::BestBeforeApp.Droid.Resource.Id.tag_unhandled_key_listeners;
+			global::Plugin.LocalNotification.Resource.Id.text = global::BestBeforeApp.Droid.Resource.Id.text;
+			global::Plugin.LocalNotification.Resource.Id.text2 = global::BestBeforeApp.Droid.Resource.Id.text2;
+			global::Plugin.LocalNotification.Resource.Id.time = global::BestBeforeApp.Droid.Resource.Id.time;
+			global::Plugin.LocalNotification.Resource.Id.title = global::BestBeforeApp.Droid.Resource.Id.title;
+			global::Plugin.LocalNotification.Resource.Id.top = global::BestBeforeApp.Droid.Resource.Id.top;
+			global::Plugin.LocalNotification.Resource.Integer.status_bar_notification_info_maxnum = global::BestBeforeApp.Droid.Resource.Integer.status_bar_notification_info_maxnum;
+			global::Plugin.LocalNotification.Resource.Layout.notification_action = global::BestBeforeApp.Droid.Resource.Layout.notification_action;
+			global::Plugin.LocalNotification.Resource.Layout.notification_action_tombstone = global::BestBeforeApp.Droid.Resource.Layout.notification_action_tombstone;
+			global::Plugin.LocalNotification.Resource.Layout.notification_template_custom_big = global::BestBeforeApp.Droid.Resource.Layout.notification_template_custom_big;
+			global::Plugin.LocalNotification.Resource.Layout.notification_template_icon_group = global::BestBeforeApp.Droid.Resource.Layout.notification_template_icon_group;
+			global::Plugin.LocalNotification.Resource.Layout.notification_template_part_chronometer = global::BestBeforeApp.Droid.Resource.Layout.notification_template_part_chronometer;
+			global::Plugin.LocalNotification.Resource.Layout.notification_template_part_time = global::BestBeforeApp.Droid.Resource.Layout.notification_template_part_time;
+			global::Plugin.LocalNotification.Resource.String.status_bar_notification_info_overflow = global::BestBeforeApp.Droid.Resource.String.status_bar_notification_info_overflow;
+			global::Plugin.LocalNotification.Resource.Style.TextAppearance_Compat_Notification = global::BestBeforeApp.Droid.Resource.Style.TextAppearance_Compat_Notification;
+			global::Plugin.LocalNotification.Resource.Style.TextAppearance_Compat_Notification_Info = global::BestBeforeApp.Droid.Resource.Style.TextAppearance_Compat_Notification_Info;
+			global::Plugin.LocalNotification.Resource.Style.TextAppearance_Compat_Notification_Line2 = global::BestBeforeApp.Droid.Resource.Style.TextAppearance_Compat_Notification_Line2;
+			global::Plugin.LocalNotification.Resource.Style.TextAppearance_Compat_Notification_Time = global::BestBeforeApp.Droid.Resource.Style.TextAppearance_Compat_Notification_Time;
+			global::Plugin.LocalNotification.Resource.Style.TextAppearance_Compat_Notification_Title = global::BestBeforeApp.Droid.Resource.Style.TextAppearance_Compat_Notification_Title;
+			global::Plugin.LocalNotification.Resource.Style.Widget_Compat_NotificationActionContainer = global::BestBeforeApp.Droid.Resource.Style.Widget_Compat_NotificationActionContainer;
+			global::Plugin.LocalNotification.Resource.Style.Widget_Compat_NotificationActionText = global::BestBeforeApp.Droid.Resource.Style.Widget_Compat_NotificationActionText;
+			global::Plugin.LocalNotification.Resource.Style.Widget_Support_CoordinatorLayout = global::BestBeforeApp.Droid.Resource.Style.Widget_Support_CoordinatorLayout;
+			global::Plugin.LocalNotification.Resource.Styleable.ColorStateListItem = global::BestBeforeApp.Droid.Resource.Styleable.ColorStateListItem;
+			global::Plugin.LocalNotification.Resource.Styleable.ColorStateListItem_alpha = global::BestBeforeApp.Droid.Resource.Styleable.ColorStateListItem_alpha;
+			global::Plugin.LocalNotification.Resource.Styleable.ColorStateListItem_android_alpha = global::BestBeforeApp.Droid.Resource.Styleable.ColorStateListItem_android_alpha;
+			global::Plugin.LocalNotification.Resource.Styleable.ColorStateListItem_android_color = global::BestBeforeApp.Droid.Resource.Styleable.ColorStateListItem_android_color;
+			global::Plugin.LocalNotification.Resource.Styleable.CoordinatorLayout = global::BestBeforeApp.Droid.Resource.Styleable.CoordinatorLayout;
+			global::Plugin.LocalNotification.Resource.Styleable.CoordinatorLayout_keylines = global::BestBeforeApp.Droid.Resource.Styleable.CoordinatorLayout_keylines;
+			global::Plugin.LocalNotification.Resource.Styleable.CoordinatorLayout_Layout = global::BestBeforeApp.Droid.Resource.Styleable.CoordinatorLayout_Layout;
+			global::Plugin.LocalNotification.Resource.Styleable.CoordinatorLayout_Layout_android_layout_gravity = global::BestBeforeApp.Droid.Resource.Styleable.CoordinatorLayout_Layout_android_layout_gravity;
+			global::Plugin.LocalNotification.Resource.Styleable.CoordinatorLayout_Layout_layout_anchor = global::BestBeforeApp.Droid.Resource.Styleable.CoordinatorLayout_Layout_layout_anchor;
+			global::Plugin.LocalNotification.Resource.Styleable.CoordinatorLayout_Layout_layout_anchorGravity = global::BestBeforeApp.Droid.Resource.Styleable.CoordinatorLayout_Layout_layout_anchorGravity;
+			global::Plugin.LocalNotification.Resource.Styleable.CoordinatorLayout_Layout_layout_behavior = global::BestBeforeApp.Droid.Resource.Styleable.CoordinatorLayout_Layout_layout_behavior;
+			global::Plugin.LocalNotification.Resource.Styleable.CoordinatorLayout_Layout_layout_dodgeInsetEdges = global::BestBeforeApp.Droid.Resource.Styleable.CoordinatorLayout_Layout_layout_dodgeInsetEdges;
+			global::Plugin.LocalNotification.Resource.Styleable.CoordinatorLayout_Layout_layout_insetEdge = global::BestBeforeApp.Droid.Resource.Styleable.CoordinatorLayout_Layout_layout_insetEdge;
+			global::Plugin.LocalNotification.Resource.Styleable.CoordinatorLayout_Layout_layout_keyline = global::BestBeforeApp.Droid.Resource.Styleable.CoordinatorLayout_Layout_layout_keyline;
+			global::Plugin.LocalNotification.Resource.Styleable.CoordinatorLayout_statusBarBackground = global::BestBeforeApp.Droid.Resource.Styleable.CoordinatorLayout_statusBarBackground;
+			global::Plugin.LocalNotification.Resource.Styleable.FontFamily = global::BestBeforeApp.Droid.Resource.Styleable.FontFamily;
+			global::Plugin.LocalNotification.Resource.Styleable.FontFamilyFont = global::BestBeforeApp.Droid.Resource.Styleable.FontFamilyFont;
+			global::Plugin.LocalNotification.Resource.Styleable.FontFamilyFont_android_font = global::BestBeforeApp.Droid.Resource.Styleable.FontFamilyFont_android_font;
+			global::Plugin.LocalNotification.Resource.Styleable.FontFamilyFont_android_fontStyle = global::BestBeforeApp.Droid.Resource.Styleable.FontFamilyFont_android_fontStyle;
+			global::Plugin.LocalNotification.Resource.Styleable.FontFamilyFont_android_fontVariationSettings = global::BestBeforeApp.Droid.Resource.Styleable.FontFamilyFont_android_fontVariationSettings;
+			global::Plugin.LocalNotification.Resource.Styleable.FontFamilyFont_android_fontWeight = global::BestBeforeApp.Droid.Resource.Styleable.FontFamilyFont_android_fontWeight;
+			global::Plugin.LocalNotification.Resource.Styleable.FontFamilyFont_android_ttcIndex = global::BestBeforeApp.Droid.Resource.Styleable.FontFamilyFont_android_ttcIndex;
+			global::Plugin.LocalNotification.Resource.Styleable.FontFamilyFont_font = global::BestBeforeApp.Droid.Resource.Styleable.FontFamilyFont_font;
+			global::Plugin.LocalNotification.Resource.Styleable.FontFamilyFont_fontStyle = global::BestBeforeApp.Droid.Resource.Styleable.FontFamilyFont_fontStyle;
+			global::Plugin.LocalNotification.Resource.Styleable.FontFamilyFont_fontVariationSettings = global::BestBeforeApp.Droid.Resource.Styleable.FontFamilyFont_fontVariationSettings;
+			global::Plugin.LocalNotification.Resource.Styleable.FontFamilyFont_fontWeight = global::BestBeforeApp.Droid.Resource.Styleable.FontFamilyFont_fontWeight;
+			global::Plugin.LocalNotification.Resource.Styleable.FontFamilyFont_ttcIndex = global::BestBeforeApp.Droid.Resource.Styleable.FontFamilyFont_ttcIndex;
+			global::Plugin.LocalNotification.Resource.Styleable.FontFamily_fontProviderAuthority = global::BestBeforeApp.Droid.Resource.Styleable.FontFamily_fontProviderAuthority;
+			global::Plugin.LocalNotification.Resource.Styleable.FontFamily_fontProviderCerts = global::BestBeforeApp.Droid.Resource.Styleable.FontFamily_fontProviderCerts;
+			global::Plugin.LocalNotification.Resource.Styleable.FontFamily_fontProviderFetchStrategy = global::BestBeforeApp.Droid.Resource.Styleable.FontFamily_fontProviderFetchStrategy;
+			global::Plugin.LocalNotification.Resource.Styleable.FontFamily_fontProviderFetchTimeout = global::BestBeforeApp.Droid.Resource.Styleable.FontFamily_fontProviderFetchTimeout;
+			global::Plugin.LocalNotification.Resource.Styleable.FontFamily_fontProviderPackage = global::BestBeforeApp.Droid.Resource.Styleable.FontFamily_fontProviderPackage;
+			global::Plugin.LocalNotification.Resource.Styleable.FontFamily_fontProviderQuery = global::BestBeforeApp.Droid.Resource.Styleable.FontFamily_fontProviderQuery;
+			global::Plugin.LocalNotification.Resource.Styleable.GradientColor = global::BestBeforeApp.Droid.Resource.Styleable.GradientColor;
+			global::Plugin.LocalNotification.Resource.Styleable.GradientColorItem = global::BestBeforeApp.Droid.Resource.Styleable.GradientColorItem;
+			global::Plugin.LocalNotification.Resource.Styleable.GradientColorItem_android_color = global::BestBeforeApp.Droid.Resource.Styleable.GradientColorItem_android_color;
+			global::Plugin.LocalNotification.Resource.Styleable.GradientColorItem_android_offset = global::BestBeforeApp.Droid.Resource.Styleable.GradientColorItem_android_offset;
+			global::Plugin.LocalNotification.Resource.Styleable.GradientColor_android_centerColor = global::BestBeforeApp.Droid.Resource.Styleable.GradientColor_android_centerColor;
+			global::Plugin.LocalNotification.Resource.Styleable.GradientColor_android_centerX = global::BestBeforeApp.Droid.Resource.Styleable.GradientColor_android_centerX;
+			global::Plugin.LocalNotification.Resource.Styleable.GradientColor_android_centerY = global::BestBeforeApp.Droid.Resource.Styleable.GradientColor_android_centerY;
+			global::Plugin.LocalNotification.Resource.Styleable.GradientColor_android_endColor = global::BestBeforeApp.Droid.Resource.Styleable.GradientColor_android_endColor;
+			global::Plugin.LocalNotification.Resource.Styleable.GradientColor_android_endX = global::BestBeforeApp.Droid.Resource.Styleable.GradientColor_android_endX;
+			global::Plugin.LocalNotification.Resource.Styleable.GradientColor_android_endY = global::BestBeforeApp.Droid.Resource.Styleable.GradientColor_android_endY;
+			global::Plugin.LocalNotification.Resource.Styleable.GradientColor_android_gradientRadius = global::BestBeforeApp.Droid.Resource.Styleable.GradientColor_android_gradientRadius;
+			global::Plugin.LocalNotification.Resource.Styleable.GradientColor_android_startColor = global::BestBeforeApp.Droid.Resource.Styleable.GradientColor_android_startColor;
+			global::Plugin.LocalNotification.Resource.Styleable.GradientColor_android_startX = global::BestBeforeApp.Droid.Resource.Styleable.GradientColor_android_startX;
+			global::Plugin.LocalNotification.Resource.Styleable.GradientColor_android_startY = global::BestBeforeApp.Droid.Resource.Styleable.GradientColor_android_startY;
+			global::Plugin.LocalNotification.Resource.Styleable.GradientColor_android_tileMode = global::BestBeforeApp.Droid.Resource.Styleable.GradientColor_android_tileMode;
+			global::Plugin.LocalNotification.Resource.Styleable.GradientColor_android_type = global::BestBeforeApp.Droid.Resource.Styleable.GradientColor_android_type;
+			global::Plugin.LocalNotifications.Resource.Drawable.plugin_lc_smallicon = global::BestBeforeApp.Droid.Resource.Drawable.plugin_lc_smallicon;
 			global::Plugin.Media.Resource.Attribute.alpha = global::BestBeforeApp.Droid.Resource.Attribute.alpha;
 			global::Plugin.Media.Resource.Attribute.font = global::BestBeforeApp.Droid.Resource.Attribute.font;
 			global::Plugin.Media.Resource.Attribute.fontProviderAuthority = global::BestBeforeApp.Droid.Resource.Attribute.fontProviderAuthority;
@@ -4498,7 +4670,16 @@ namespace BestBeforeApp.Droid
 			public const int abc_config_actionMenuItemAllCaps = 2130968578;
 			
 			// aapt resource value: 0x7F040003
-			public const int mtrl_btn_textappearance_all_caps = 2130968579;
+			public const int enable_system_alarm_service_default = 2130968579;
+			
+			// aapt resource value: 0x7F040004
+			public const int enable_system_job_service_default = 2130968580;
+			
+			// aapt resource value: 0x7F040005
+			public const int mtrl_btn_textappearance_all_caps = 2130968581;
+			
+			// aapt resource value: 0x7F040006
+			public const int workmanager_test_configuration = 2130968582;
 			
 			static Boolean()
 			{
@@ -5959,22 +6140,25 @@ namespace BestBeforeApp.Droid
 			public const int notify_panel_notification_icon_bg = 2131165305;
 			
 			// aapt resource value: 0x7F07007A
-			public const int settings = 2131165306;
+			public const int plugin_lc_smallicon = 2131165306;
 			
 			// aapt resource value: 0x7F07007B
-			public const int tab_about = 2131165307;
+			public const int settings = 2131165307;
 			
 			// aapt resource value: 0x7F07007C
-			public const int tab_feed = 2131165308;
+			public const int tab_about = 2131165308;
 			
 			// aapt resource value: 0x7F07007D
-			public const int tooltip_frame_dark = 2131165309;
+			public const int tab_feed = 2131165309;
 			
 			// aapt resource value: 0x7F07007E
-			public const int tooltip_frame_light = 2131165310;
+			public const int tooltip_frame_dark = 2131165310;
 			
 			// aapt resource value: 0x7F07007F
-			public const int xamarin_logo = 2131165311;
+			public const int tooltip_frame_light = 2131165311;
+			
+			// aapt resource value: 0x7F070080
+			public const int xamarin_logo = 2131165312;
 			
 			static Drawable()
 			{

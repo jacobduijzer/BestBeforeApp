@@ -55,4 +55,14 @@
     <value>Instellingen</value>
     <comment></comment>
   </data>
+  
+  <data name="EnableLocalNotifications" xml:space="preserve">
+    <value>Gebruik notificaties</value>
+    <comment></comment>
+  </data>
+  
+  <data name="NumberOfDaysBeforeExpirationDate" xml:space="preserve">
+    <value>Aantal dagen voor houdbaarheidsdatum</value>
+    <comment></comment>
+  </data>
 </root>

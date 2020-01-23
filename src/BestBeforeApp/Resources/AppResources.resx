@@ -58,6 +58,18 @@
     <comment></comment>
   </data>
   
+  <data name="EnableLocalNotifications" xml:space="preserve">
+    <value>Enable notifications</value>
+    <comment></comment>
+  </data>
+  
+  <data name="NumberOfDaysBeforeExpirationDate" xml:space="preserve">
+    <value>Number of days before expiration date</value>
+    <comment></comment>
+  </data>
+  
+  
+  
   
   
 </root>

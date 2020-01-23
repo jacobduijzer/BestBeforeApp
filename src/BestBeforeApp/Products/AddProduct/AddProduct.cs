@@ -1,10 +1,9 @@
 using Ardalis.GuardClauses;
-using BestBeforeApp.Products;
 using MediatR;
 
 namespace BestBeforeApp.Products.AddProduct
 {
-    public class AddProduct : INotification
+    public class AddProduct : IRequest<int>
     {
         public AddProduct(Product product)
         {
