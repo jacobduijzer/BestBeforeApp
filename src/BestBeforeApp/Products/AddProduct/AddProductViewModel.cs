@@ -109,16 +109,24 @@ namespace BestBeforeApp.Products.AddProduct
         {
             Analytics.TrackEvent($"{this.GetType().Name} - SaveProductAndNew");
             await SaveProductAndScheduleNotification().ConfigureAwait(false);
+            ResetProduct();
+        }
+
+        private void ResetProduct()
+        {
             Name = string.Empty;
-            BestBefore = DateTime.Now.AddMonths(3);
+            BestBefore = DateTime.Now.AddMonths(3); // TODO: set to default or from setting
             Amount = 1;
             ProductPhoto = null;
         }
-        
+
         private async Task SaveProductAndNavigate()
         {
             Analytics.TrackEvent($"{this.GetType().Name} - SaveProductAndNavigate");
             await SaveProductAndScheduleNotification().ConfigureAwait(false);
+
+            ResetProduct();
+
             await Shell.Current.GoToAsync("//products").ConfigureAwait(false);
         }
 
@@ -134,8 +142,8 @@ namespace BestBeforeApp.Products.AddProduct
             {
                 NotificationId = productId,
                 BadgeNumber = 0,
-                Description = "Boe!",
-                Title = "THT",
+                Description = $"Over x dagen is {Name} over de datum",
+                Title = "HoudbaarTot",
                 NotifyTime = DateTime.Now.AddSeconds(10),
                 Android =
                 {
