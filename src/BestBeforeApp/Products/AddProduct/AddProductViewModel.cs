@@ -147,7 +147,7 @@ namespace BestBeforeApp.Products.AddProduct
                 NotifyTime = DateTime.Now.AddSeconds(10),
                 Android =
                 {
-                    IconName = "xamarin_logo"
+                    IconName = "ic_launcher"
                 }
             };
             NotificationCenter.Current.Show(notification);
