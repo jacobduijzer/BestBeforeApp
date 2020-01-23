@@ -1,10 +1,10 @@
 using System;
 using System.IO;
 using System.Reflection;
-using BestBeforeApp.AddProduct;
 using BestBeforeApp.Helpers;
-using BestBeforeApp.ProductDetails;
 using BestBeforeApp.Products;
+using BestBeforeApp.Products.AddProduct;
+using BestBeforeApp.Products.ProductDetails;
 using BestBeforeApp.Shared;
 using BestBeforeApp.ViewModels;
 using MediatR;

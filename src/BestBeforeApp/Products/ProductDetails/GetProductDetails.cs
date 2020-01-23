@@ -1,7 +1,7 @@
 using BestBeforeApp.Products;
 using MediatR;
 
-namespace BestBeforeApp.ProductDetails
+namespace BestBeforeApp.Products.ProductDetails
 {
     public class GetProductDetails : IRequest<Product>
     {

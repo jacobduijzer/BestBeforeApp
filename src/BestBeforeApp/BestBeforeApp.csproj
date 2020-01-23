@@ -40,12 +40,12 @@
     <Folder Include="Helpers\Converters\" />
     <Folder Include="Shared\" />
     <Folder Include="Migrations\" />
-    <Folder Include="AddProduct\" />
-    <Folder Include="ProductDetails\" />
     <Folder Include="Helpers\Behaviors\" />
     <Folder Include="Products\Handlers\" />
     <Folder Include="Products\Specifications\" />
     <Folder Include="Helpers\CustomRenderers\" />
+    <Folder Include="Products\AddProduct\" />
+    <Folder Include="Products\ProductDetails\" />
   </ItemGroup>
   <ItemGroup>
     <None Remove="appsettings.json" />

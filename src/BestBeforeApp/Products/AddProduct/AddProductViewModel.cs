@@ -1,14 +1,13 @@
 using System;
 using System.Threading.Tasks;
 using System.Windows.Input;
-using BestBeforeApp.Products;
 using MediatR;
 using Microsoft.AppCenter.Crashes;
 using MvvmHelpers;
 using MvvmHelpers.Commands;
 using Xamarin.Forms;
 
-namespace BestBeforeApp.AddProduct
+namespace BestBeforeApp.Products.AddProduct
 {
     public class AddProductViewModel : BaseViewModel
     {

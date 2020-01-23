@@ -8,7 +8,7 @@ using MvvmHelpers;
 using MvvmHelpers.Commands;
 using Xamarin.Forms;
 
-namespace BestBeforeApp.ProductDetails
+namespace BestBeforeApp.Products.ProductDetails
 {
     public class ProductDetailsViewModel
         : BaseViewModel

@@ -3,7 +3,7 @@ using System.Threading.Tasks;
 using Plugin.Media;
 using Xamarin.Forms;
 
-namespace BestBeforeApp.AddProduct
+namespace BestBeforeApp.Products.AddProduct
 {
     public class PhotoService
     {

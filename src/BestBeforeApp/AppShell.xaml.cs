@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using BestBeforeApp.ProductDetails;
+using BestBeforeApp.Products.ProductDetails;
 using Xamarin.Forms;
 
 namespace BestBeforeApp

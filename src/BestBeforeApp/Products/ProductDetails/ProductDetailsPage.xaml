@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+<shared:BasePage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:shared="clr-namespace:BestBeforeApp.Shared"
              xmlns:i18n="clr-namespace:BestBeforeApp.Helpers"
-             x:Class="BestBeforeApp.ProductDetails.ProductDetailsPage">
+             x:Class="BestBeforeApp.Products.ProductDetails.ProductDetailsPage">
 <ScrollView>
         <StackLayout Orientation="Vertical"
                      VerticalOptions="FillAndExpand"
@@ -45,4 +46,4 @@
                 </StackLayout>
             </StackLayout>
     </ScrollView>
-</ContentPage>
+</shared:BasePage>

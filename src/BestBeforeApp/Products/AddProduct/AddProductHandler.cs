@@ -4,7 +4,7 @@ using BestBeforeApp.Products;
 using BestBeforeApp.Shared;
 using MediatR;
 
-namespace BestBeforeApp.AddProduct
+namespace BestBeforeApp.Products.AddProduct
 {
     public class AddProductHandler : INotificationHandler<AddProduct>
     {

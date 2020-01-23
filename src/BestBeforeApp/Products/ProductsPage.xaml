@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+<shared:BasePage xmlns="http://xamarin.com/schemas/2014/forms"
                             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
                             xmlns:i18n="clr-namespace:BestBeforeApp.Helpers"
                             xmlns:converters="clr-namespace:BestBeforeApp.Helpers.Converters"
+                            xmlns:shared="clr-namespace:BestBeforeApp.Shared"
                             xmlns:behaviors="clr-namespace:BestBeforeApp.Helpers.Behaviors"
                             x:Class="BestBeforeApp.Products.ProductsPage"
                             Title="{i18n:Translate Products}"
@@ -14,9 +15,9 @@
         </ResourceDictionary>
     </ContentPage.Resources>
 
-     <Shell.SearchHandler>
+     <!--<Shell.SearchHandler>
       <SearchHandler Placeholder="Enter search term"/>
-    </Shell.SearchHandler>
+    </Shell.SearchHandler>-->
    
     <StackLayout>
         <!--<SearchBar x:Name="searchBar"
@@ -66,4 +67,4 @@
             </ListView.ItemTemplate>
         </ListView>
     </StackLayout>
-</ContentPage>
+</shared:BasePage>

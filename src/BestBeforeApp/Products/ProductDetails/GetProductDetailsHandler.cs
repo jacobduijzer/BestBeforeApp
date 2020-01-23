@@ -4,7 +4,7 @@ using BestBeforeApp.Products;
 using BestBeforeApp.Shared;
 using MediatR;
 
-namespace BestBeforeApp.ProductDetails
+namespace BestBeforeApp.Products.ProductDetails
 {
     public class GetProductDetailsHandler : IRequestHandler<GetProductDetails, Product>
     {

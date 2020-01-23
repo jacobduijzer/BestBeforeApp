@@ -2,7 +2,7 @@ using Ardalis.GuardClauses;
 using BestBeforeApp.Products;
 using MediatR;
 
-namespace BestBeforeApp.AddProduct
+namespace BestBeforeApp.Products.AddProduct
 {
     public class AddProduct : INotification
     {
