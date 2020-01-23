@@ -12,6 +12,8 @@ namespace BestBeforeApp.Products
 
         public DateTime BestBefore { get; set; }
 
+        public byte[] Photo { get; set; }
+
         public string BestBeforeHumanized => BestBefore.HumanizeDate();
 
         public Product() { }
@@ -22,6 +24,9 @@ namespace BestBeforeApp.Products
             BestBefore = bestBefore;
             Amount = amount;
         }
+
+        public Product(string name, DateTime bestBefore, int amount, byte[] photo)
+            : this(name, bestBefore, amount) => Photo = photo;
     }
 }
             

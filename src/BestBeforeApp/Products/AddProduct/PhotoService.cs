@@ -1,7 +1,7 @@
 using System;
+using System.IO;
 using System.Threading.Tasks;
 using Plugin.Media;
-using Xamarin.Forms;
 
 namespace BestBeforeApp.Products.AddProduct
 {
@@ -11,7 +11,7 @@ namespace BestBeforeApp.Products.AddProduct
         {
         }
 
-        public async Task<ImageSource> TakePhoto()
+        public async Task<Stream> TakePhoto()
         {
             if (!CrossMedia.Current.IsCameraAvailable || !CrossMedia.Current.IsTakePhotoSupported)
                 throw new Exception("Camera not available of not supported");
@@ -29,13 +29,10 @@ namespace BestBeforeApp.Products.AddProduct
 
             if (file == null)
                 return null;
-
-            return ImageSource.FromStream(() =>
-            {
-                var stream = file.GetStream();
-                file.Dispose();
-                return stream;
-            });
+           
+            var stream = file.GetStream();
+            file.Dispose();
+            return stream;
         }
     }
 }

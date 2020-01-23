@@ -17,27 +17,27 @@ namespace BestBeforeApp.EFConsole.Migrations
                 .HasAnnotation("ProductVersion", "3.1.1");
 
             modelBuilder.Entity("BestBeforeApp.Products.Product", b =>
-            {
-                b.Property<int>("Id")
-                    .ValueGeneratedOnAdd()
-                    .HasColumnType("INTEGER");
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
 
-                b.Property<int>("Amount")
-                    .HasColumnType("INTEGER");
+                    b.Property<int>("Amount")
+                        .HasColumnType("INTEGER");
 
-                b.Property<DateTime>("BestBefore")
-                    .HasColumnType("TEXT");
+                    b.Property<DateTime>("BestBefore")
+                        .HasColumnType("TEXT");
 
-                b.Property<string>("Name")
-                    .HasColumnType("TEXT");
+                    b.Property<string>("Name")
+                        .HasColumnType("TEXT");
 
-                b.Property<byte[]>("Photo")
-                    .HasColumnType("BLOB");
+                    b.Property<byte[]>("Photo")
+                        .HasColumnType("BLOB");
 
-                b.HasKey("Id");
+                    b.HasKey("Id");
 
-                b.ToTable("Products");
-            });
+                    b.ToTable("Products");
+                });
 #pragma warning restore 612, 618
         }
     }

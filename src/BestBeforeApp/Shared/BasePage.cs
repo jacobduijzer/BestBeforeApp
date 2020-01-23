@@ -8,13 +8,13 @@ namespace BestBeforeApp.Shared
         protected override void OnAppearing()
         {
             base.OnAppearing();
-            Analytics.TrackEvent($"{this.GetType().Name} appearing");
+            Analytics.TrackEvent($"{this.GetType().Name} - OnAppearing");
         }
 
         protected override void OnDisappearing()
         {
             base.OnDisappearing();
-            Analytics.TrackEvent($"{this.GetType().Name} disappearing");
+            Analytics.TrackEvent($"{this.GetType().Name} - OnDisappearing");
         }
     }
 }

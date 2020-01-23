@@ -1,4 +1,5 @@
 using System;
+using System.IO;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using BestBeforeApp.Products;
@@ -14,6 +15,7 @@ namespace BestBeforeApp.Products.ProductDetails
         : BaseViewModel
     {
         public Product Product { get; private set; }
+        public ImageSource ProductPhoto { get; private set; }
         public ICommand LoadDetailsCommand { get; }
         public ICommand DeleteProductCommand { get; }
 
@@ -30,7 +32,14 @@ namespace BestBeforeApp.Products.ProductDetails
         private async Task LoadProductDetailsAsync(int productId)
         {
             Product = await _mediator.Send(new GetProductDetails(productId)).ConfigureAwait(false);
-            OnPropertyChanged(nameof(Product));
+
+            if(Product != null && Product.Photo != null)
+            {
+                ProductPhoto = ImageSource.FromStream(() => new MemoryStream(Product.Photo));
+                OnPropertyChanged(nameof(ProductPhoto));
+            }
+            
+            OnPropertyChanged(nameof(Product));            
         }
 
         private async Task DeleteProductAsync()

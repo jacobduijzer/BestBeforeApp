@@ -15,16 +15,23 @@ namespace BestBeforeApp.Shared
             Database.Migrate();
         }
 
-        //public AppDbContext(DbContextOptions<AppDbContext> options)
-        //    : base(options)
-        //{
-        //}
-
         protected override void OnConfiguring(DbContextOptionsBuilder options)
         {
             var path = _dbFileHelper.GetLocalFilePath("bestbeforeapp.db");
             options.UseSqlite($"Data Source={path}");
         }
+
+        #region use this for Ef Migrations
+
+        //public AppDbContext(DbContextOptions<AppDbContext> options)
+        //    : base(options)
+        //{
+        //}
+
+        //protected override void OnConfiguring(DbContextOptionsBuilder options) =>
+        //    options.UseSqlite($"Data Source=somefakefile.db");
+
+        #endregion
 
         public DbSet<Product> Products { get; set; }
     }

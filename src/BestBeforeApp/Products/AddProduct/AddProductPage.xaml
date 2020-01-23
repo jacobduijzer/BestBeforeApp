@@ -76,8 +76,8 @@
             </StackLayout>
 
             <StackLayout VerticalOptions="EndAndExpand">
-                <Button Text="Opslaan, volgende" Command="{Binding SaveProductAndNavigateCommand}"/>
-                <Button Text="Opslaan, naar de lijst" />
+                <Button Text="Opslaan, volgende" Command="{Binding SaveProductAndStartNewCommand}"/>
+                <Button Text="Opslaan, naar de lijst" Command="{Binding SaveProductAndNavigateCommand}" />
             </StackLayout>
         </StackLayout>
 

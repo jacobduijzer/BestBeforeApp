@@ -41,6 +41,13 @@
                    IsReadOnly="True"
                    Text="{Binding Product.Amount}"/>
 
+            <Label Text="{i18n:Translate ProductImage}"
+                   FontAttributes="Bold"
+                   TextColor="Gray"
+                   FontSize="16"/>
+
+            <Image Source="{Binding ProductPhoto}" />
+
                 <StackLayout VerticalOptions="EndAndExpand">
                     <Button Text="Delete" Command="{Binding DeleteProductCommand}"/>
                 </StackLayout>

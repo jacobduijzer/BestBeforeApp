@@ -1,7 +1,9 @@
 using System;
+using System.IO;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using MediatR;
+using Microsoft.AppCenter.Analytics;
 using Microsoft.AppCenter.Crashes;
 using MvvmHelpers;
 using MvvmHelpers.Commands;
@@ -16,7 +18,7 @@ namespace BestBeforeApp.Products.AddProduct
         
         public ICommand TakePhotoCommand { get; }
         public ICommand RemovePhotoCommand { get; }
-        public ICommand SaveProductAndNextCommand { get; }
+        public ICommand SaveProductAndStartNewCommand { get; }
         public ICommand SaveProductAndNavigateCommand { get; }
 
         public AddProductViewModel(IMediator mediator, PhotoService photoService)
@@ -26,10 +28,9 @@ namespace BestBeforeApp.Products.AddProduct
 
             TakePhotoCommand = new AsyncCommand(TakePhotoAsync);
             RemovePhotoCommand = new Xamarin.Forms.Command(RemovePhoto);
+            SaveProductAndStartNewCommand = new AsyncCommand(SaveProductAndNew);
             SaveProductAndNavigateCommand = new AsyncCommand(SaveProductAndNavigate);
         }
-
-        public ImageSource ProductPhoto { get; private set; }
 
         private string _name;
         public string Name
@@ -64,6 +65,19 @@ namespace BestBeforeApp.Products.AddProduct
             }
         }
 
+        private ImageSource _productPhoto;
+        public ImageSource ProductPhoto
+        {
+            get => _productPhoto;
+            private set 
+            {
+                _productPhoto = value;
+                OnPropertyChanged(nameof(ProductPhoto));
+            }
+        }
+
+        private byte[] _imageBytes;
+
         private void RemovePhoto(object obj)  
         {
             ProductPhoto = null;
@@ -74,10 +88,12 @@ namespace BestBeforeApp.Products.AddProduct
         {
             try
             {
+                Analytics.TrackEvent($"{this.GetType().Name} - TakePhotoAsync");
                 var imageSource = await _photoService.TakePhoto().ConfigureAwait(false);
                 if (imageSource != null)
                 {
-                    ProductPhoto = imageSource;
+                    _imageBytes = await GetImageStream(imageSource).ConfigureAwait(false);
+                    ProductPhoto = ImageSource.FromStream(() => new MemoryStream(_imageBytes));
                     OnPropertyChanged(nameof(ProductPhoto));
                 }
                     
@@ -88,14 +104,36 @@ namespace BestBeforeApp.Products.AddProduct
             }
         }
 
+        private async Task SaveProductAndNew()
+        {
+            Analytics.TrackEvent($"{this.GetType().Name} - SaveProductAndNew");
+            await SaveProduct().ConfigureAwait(false);
+            Name = string.Empty;
+            BestBefore = DateTime.Now.AddMonths(3);
+            Amount = 1;
+            ProductPhoto = null;
+        }
+
         private async Task SaveProductAndNavigate()
+        {
+            Analytics.TrackEvent($"{this.GetType().Name} - SaveProductAndNavigate");
+            await SaveProduct().ConfigureAwait(false);
+            await Shell.Current.GoToAsync("//products").ConfigureAwait(false);
+        }
+
+        private async Task SaveProduct()
         {
             IsBusy = true;
 
             try
             {
-                await SaveProduct().ConfigureAwait(false);
-                await Shell.Current.GoToAsync("//products");
+                var newProduct = _imageBytes switch
+                {
+                    null => new Product(Name, BestBefore, Amount),
+                    _ => new Product(Name, BestBefore, Amount, _imageBytes)
+                };
+
+                await _mediator.Publish(new AddProduct(newProduct)).ConfigureAwait(false);
             }
             catch (Exception ex)
             {
@@ -104,12 +142,14 @@ namespace BestBeforeApp.Products.AddProduct
             finally
             {
                 IsBusy = false;
-            }
+            }            
         }
 
-        private async Task SaveProduct() =>
-            await _mediator
-                .Publish(new AddProduct(new Product(Name, BestBefore, Amount)))
-                .ConfigureAwait(false);
+        private async Task<byte[]> GetImageStream(Stream imageStream)
+        {
+            using MemoryStream ms = new MemoryStream();
+            await imageStream.CopyToAsync(ms).ConfigureAwait(false);
+            return ms.ToArray();
+        }
     }
 }
