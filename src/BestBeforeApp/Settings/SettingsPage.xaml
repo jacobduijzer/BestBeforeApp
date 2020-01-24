@@ -10,33 +10,44 @@
     <StackLayout Padding="20,30,20,10">
 
         <!-- Local Notifications-->
-        <StackLayout Orientation="Horizontal"
+        <StackLayout Padding="0,20,0,0"
+                     Orientation="Horizontal"
                      HorizontalOptions="FillAndExpand">
             <Label Text="{i18n:Translate EnableLocalNotifications}"
                    TextColor="Gray"
                    FontSize="20"
                    VerticalTextAlignment="Center"
                    HorizontalOptions="StartAndExpand"/>
-            <Switch HorizontalOptions="End"/>
+            <Switch HorizontalOptions="End"
+                    IsToggled="{Binding UseNotifications}" />
         </StackLayout>
 
-        <StackLayout>
-            <StackLayout Orientation="Horizontal"
-                     HorizontalOptions="FillAndExpand">
-                <Label Text="{i18n:Translate NumberOfDaysBeforeExpirationDate}"
+        <StackLayout Padding="0,20,0,0" IsVisible="{Binding UseNotifications}">
+            <Label Text="{i18n:Translate NumberOfDaysBeforeExpirationDate}"
                        TextColor="Gray"
                        FontSize="20"
                        VerticalTextAlignment="Center"
                        HorizontalOptions="Start"/>
-                <Entry HorizontalOptions="EndAndExpand"
-                       Placeholder="1"
-                       Keyboard="Numeric"
+            <StackLayout Orientation="Horizontal"
+                         HorizontalOptions="FillAndExpand">
+                <Button Text="-"
+                        Command="{Binding MinCommand}" />
+
+                <Label HorizontalOptions="CenterAndExpand"
                        TextColor="#535b69"
-                       FontSize="24"
-                       Text="{Binding Amount}"/>
+                       FontSize="32"
+                       VerticalTextAlignment="Center"
+                       Text="{Binding NumberOfDaysBeforeExpirationDate}"/>
+                <Button Text="+"
+                        Command="{Binding PlusCommand}" />
             </StackLayout>
         </StackLayout>
 
+        <BoxView HeightRequest="2" BackgroundColor="Gray" Margin="0, 20, 0, 0"/>
 
+        <!-- Export database -->
+        <StackLayout Padding="0,20,0,0">
+            <Button Text="Export Database" />
+        </StackLayout>
     </StackLayout>
 </shared:BasePage>

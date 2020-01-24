@@ -4,53 +4,54 @@
              xmlns:shared="clr-namespace:BestBeforeApp.Shared"
              xmlns:i18n="clr-namespace:BestBeforeApp.Helpers"
              x:Class="BestBeforeApp.Products.ProductDetails.ProductDetailsPage">
-<ScrollView>
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Name="Edit" Order="Primary" Icon="Microsoft.png" Text="Edit" Priority="0" />
+        <ToolbarItem Name="Delete" Command="{Binding DeleteProductCommand}" Order="Primary" Icon="Xamarin.png" Text="Delete" Priority="1" />
+    </ContentPage.ToolbarItems>
+    <ScrollView>
         <StackLayout Orientation="Vertical"
-                     VerticalOptions="FillAndExpand"
-                     Padding="10">
+                        VerticalOptions="FillAndExpand"
+                        Padding="10">
             <Label Text="{i18n:Translate ProductName}"
-                   FontAttributes="Bold"
-                   TextColor="Gray"
-                   FontSize="16"
-                   Padding="0, 30, 0, 0"/>
+                    FontAttributes="Bold"
+                    TextColor="Gray"
+                    FontSize="16"
+                    Padding="0, 30, 0, 0"/>
             <Entry TextColor="#535b69"
-                   FontSize="24"
-                   Keyboard="Text"
-                   IsReadOnly="True"
-                   Text="{Binding Product.Name}"/>
+                    FontSize="24"
+                    Keyboard="Text"
+                    IsReadOnly="True"
+                    Text="{Binding Product.Name}"/>
 
             <Label Text="{i18n:Translate BestBefore}"
-                   FontAttributes="Bold"
-                   TextColor="Gray"
-                   FontSize="16"
-                   Padding="0, 30, 0, 0"/>
+                    FontAttributes="Bold"
+                    TextColor="Gray"
+                    FontSize="16"
+                    Padding="0, 30, 0, 0"/>
             <Entry TextColor="#535b69"
-                   FontSize="24"
-                   Keyboard="Text"
-                   IsReadOnly="True"
-                   Text="{Binding Product.BestBefore}"/>
+                    FontSize="24"
+                    Keyboard="Text"
+                    IsReadOnly="True"
+                    Text="{Binding Product.BestBefore}"/>
 
             <Label Text="{i18n:Translate ProductAmount}"
-                   FontAttributes="Bold"
-                   TextColor="Gray"
-                   FontSize="16"
-                   Padding="0, 30, 0, 0"/>
+                    FontAttributes="Bold"
+                    TextColor="Gray"
+                    FontSize="16"
+                    Padding="0, 30, 0, 0"/>
             <Entry TextColor="#535b69"
-                   FontSize="24"
-                   Keyboard="Text"
-                   IsReadOnly="True"
-                   Text="{Binding Product.Amount}"/>
+                    FontSize="24"
+                    Keyboard="Text"
+                    IsReadOnly="True"
+                    Text="{Binding Product.Amount}"/>
 
             <Label Text="{i18n:Translate ProductImage}"
-                   FontAttributes="Bold"
-                   TextColor="Gray"
-                   FontSize="16"/>
+                    FontAttributes="Bold"
+                    TextColor="Gray"
+                    FontSize="16"/>
 
             <Image Source="{Binding ProductPhoto}" />
 
-                <StackLayout VerticalOptions="EndAndExpand">
-                    <Button Text="Delete" Command="{Binding DeleteProductCommand}"/>
-                </StackLayout>
-            </StackLayout>
+        </StackLayout>
     </ScrollView>
 </shared:BasePage>

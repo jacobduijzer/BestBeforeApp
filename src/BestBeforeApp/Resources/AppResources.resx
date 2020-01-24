@@ -53,6 +53,25 @@
     <comment></comment>
   </data>
   
+  <!-- Product details -->
+  
+  <data name="DeleteQuestion" xml:space="preserve">
+    <value>Are you sure?</value>
+    <comment></comment>
+  </data>
+  
+   <data name="DeleteQuestionYesAnswer" xml:space="preserve">
+    <value>Yes</value>
+    <comment></comment>
+  </data>
+  
+  <data name="DeleteQuestionNoAnswer" xml:space="preserve">
+    <value>Yes</value>
+    <comment></comment>
+  </data>
+  
+  
+  
   <!-- Settings -->
   <data name="Settings" xml:space="preserve">
     <value>Settings</value>

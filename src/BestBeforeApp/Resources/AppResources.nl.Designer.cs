@@ -101,6 +101,24 @@ namespace BestBeforeApp.Resources {
             }
         }
         
+        internal static string DeleteQuestion {
+            get {
+                return ResourceManager.GetString("DeleteQuestion", resourceCulture);
+            }
+        }
+        
+        internal static string DeleteQuestionYesAnswer {
+            get {
+                return ResourceManager.GetString("DeleteQuestionYesAnswer", resourceCulture);
+            }
+        }
+        
+        internal static string DeleteQuestionNoAnswer {
+            get {
+                return ResourceManager.GetString("DeleteQuestionNoAnswer", resourceCulture);
+            }
+        }
+        
         internal static string Settings {
             get {
                 return ResourceManager.GetString("Settings", resourceCulture);

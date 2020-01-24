@@ -1,9 +1,8 @@
-using System;
 using System.IO;
 using System.Threading.Tasks;
 using System.Windows.Input;
-using BestBeforeApp.Products;
 using BestBeforeApp.Products.Handlers;
+using BestBeforeApp.Shared;
 using MediatR;
 using Microsoft.AppCenter.Analytics;
 using MvvmHelpers;
@@ -21,11 +20,14 @@ namespace BestBeforeApp.Products.ProductDetails
         public ICommand DeleteProductCommand { get; }
 
         private readonly IMediator _mediator;
+        private readonly ITranslator _translator;
 
-        public ProductDetailsViewModel(IMediator mediator)
+        public ProductDetailsViewModel(
+            IMediator mediator,
+            ITranslator translator)
         {
             _mediator = mediator;
-
+            _translator = translator;
             LoadDetailsCommand = new AsyncCommand<int>(LoadProductDetailsAsync);
             DeleteProductCommand = new AsyncCommand(DeleteProductAsync);
         }
@@ -47,8 +49,13 @@ namespace BestBeforeApp.Products.ProductDetails
         {
             Analytics.TrackEvent($"{this.GetType().Name} - DeleteProductAsync");
 
-            await _mediator.Publish(new DeleteProduct(Product)).ConfigureAwait(false);
-            await Shell.Current.GoToAsync("//products").ConfigureAwait(false);
+            var result = await Shell.Current.DisplayActionSheet(_translator.Translate("DeleteQuestion"), _translator.Translate("DeleteQuestionNoAnswer"), _translator.Translate("DeleteQuestionYesAnswer"));
+            if(result.Equals(_translator.Translate("DeleteQuestionYesAnswer")))
+            {
+                Analytics.TrackEvent($"{this.GetType().Name} - DeleteProductAsync - Deleting");
+                await _mediator.Publish(new DeleteProduct(Product)).ConfigureAwait(false);
+                await Shell.Current.Navigation.PopAsync().ConfigureAwait(false);
+            }                
         }
     }
 }
