@@ -12,10 +12,11 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-   <data name="HelloWorld" xml:space="preserve">
-      <value>Hello from App Resources</value>
-      <comment>Comments! Hello!</comment>
-    </data>
+   
+  <data name="AppName" xml:space="preserve">
+      <value>Best Before</value>
+      <comment></comment>
+  </data>
   <data name="Browse" xml:space="preserve">
       <value>Brows123</value>
       <comment>Items! Browse!</comment>
@@ -68,8 +69,16 @@
     <comment></comment>
   </data>
   
+  <!-- Notifications -->
   
+  <data name="NotificationMessage" xml:space="preserve">
+    <value>'{0}' will expire on {1}!</value>
+    <comment></comment>
+  </data>
   
-  
+  <data name="NotificationMessageDateFormat" xml:space="preserve">
+    <value>dddd, dd MMMM yyyy</value>
+    <comment></comment>
+  </data>
   
 </root>

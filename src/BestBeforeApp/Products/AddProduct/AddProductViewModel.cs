@@ -2,9 +2,12 @@ using System;
 using System.IO;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using BestBeforeApp.Settings;
+using BestBeforeApp.Shared;
 using MediatR;
 using Microsoft.AppCenter.Analytics;
 using Microsoft.AppCenter.Crashes;
+using Microsoft.Extensions.Options;
 using MvvmHelpers;
 using MvvmHelpers.Commands;
 using Plugin.LocalNotification;
@@ -16,21 +19,31 @@ namespace BestBeforeApp.Products.AddProduct
     {
         private readonly IMediator _mediator;
         private readonly PhotoService _photoService;
-        
+        private readonly IOptions<AppSettings> _appSettings;
+        private readonly ITranslator _translator;
+
         public ICommand TakePhotoCommand { get; }
         public ICommand RemovePhotoCommand { get; }
         public ICommand SaveProductAndStartNewCommand { get; }
         public ICommand SaveProductAndNavigateCommand { get; }
 
-        public AddProductViewModel(IMediator mediator, PhotoService photoService)
+        public AddProductViewModel(
+            IMediator mediator,
+            PhotoService photoService,
+            IOptions<AppSettings> appSettings,
+            ITranslator translator)
         {
             _mediator = mediator;
             _photoService = photoService;
+            _appSettings = appSettings;
+            _translator = translator;
 
             TakePhotoCommand = new AsyncCommand(TakePhotoAsync);
             RemovePhotoCommand = new Xamarin.Forms.Command(RemovePhoto);
             SaveProductAndStartNewCommand = new AsyncCommand(SaveProductAndNew);
             SaveProductAndNavigateCommand = new AsyncCommand(SaveProductAndNavigate);
+
+            SetCleanProduct();
         }
 
         private string _name;
@@ -44,7 +57,7 @@ namespace BestBeforeApp.Products.AddProduct
             }
         }
 
-        private DateTime _bestBefore = DateTime.Now.AddMonths(3);
+        private DateTime _bestBefore; 
         public DateTime BestBefore
         {
             get => _bestBefore;
@@ -55,7 +68,7 @@ namespace BestBeforeApp.Products.AddProduct
             }
         }
 
-        private int _amount = 1;
+        private int _amount;
         public int Amount
         {
             get => _amount;
@@ -109,14 +122,14 @@ namespace BestBeforeApp.Products.AddProduct
         {
             Analytics.TrackEvent($"{this.GetType().Name} - SaveProductAndNew");
             await SaveProductAndScheduleNotification().ConfigureAwait(false);
-            ResetProduct();
+            SetCleanProduct();
         }
 
-        private void ResetProduct()
+        private void SetCleanProduct()
         {
             Name = string.Empty;
-            BestBefore = DateTime.Now.AddMonths(3); // TODO: set to default or from setting
-            Amount = 1;
+            BestBefore = DateTime.Now.AddMonths(_appSettings.Value.DefaultBestBeforeMonths);
+            Amount = _appSettings.Value.DefaultAmount;
             ProductPhoto = null;
         }
 
@@ -125,7 +138,7 @@ namespace BestBeforeApp.Products.AddProduct
             Analytics.TrackEvent($"{this.GetType().Name} - SaveProductAndNavigate");
             await SaveProductAndScheduleNotification().ConfigureAwait(false);
 
-            ResetProduct();
+            SetCleanProduct();
 
             await Shell.Current.GoToAsync("//products").ConfigureAwait(false);
         }
@@ -142,9 +155,13 @@ namespace BestBeforeApp.Products.AddProduct
             {
                 NotificationId = productId,
                 BadgeNumber = 0,
-                Description = $"Over x dagen is {Name} over de datum",
-                Title = "HoudbaarTot",
-                NotifyTime = DateTime.Now.AddSeconds(10),
+                Description = string.Format(_translator.Translate("NotificationMessage"), Name, BestBefore.ToString(_translator.Translate("NotificationMessageDateFormat"))),
+                Title = _translator.Translate("AppName"),
+#if DEBUG
+                NotifyTime = DateTime.Now.AddSeconds(5),
+#else
+                NotifyTime = DateTime.Now.AddDays(_appSettings.Value.DefaultNumberOfDaysToNotifyBeforeExpire),
+#endif
                 Android =
                 {
                     IconName = "ic_launcher"

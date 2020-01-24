@@ -26,6 +26,7 @@ namespace BestBeforeApp.Products
             await _appDbContext.Products
                 .Where(expression)
                 .OrderBy(x => x.BestBefore) // TODO: parameterize!
+                .ThenByDescending(x => x.Id)
                 .ToListAsync()
                 .ConfigureAwait(false);
 

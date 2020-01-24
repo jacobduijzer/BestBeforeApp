@@ -47,9 +47,9 @@ namespace BestBeforeApp.Resources {
             }
         }
         
-        internal static string HelloWorld {
+        internal static string AppName {
             get {
-                return ResourceManager.GetString("HelloWorld", resourceCulture);
+                return ResourceManager.GetString("AppName", resourceCulture);
             }
         }
         
@@ -116,6 +116,18 @@ namespace BestBeforeApp.Resources {
         internal static string NumberOfDaysBeforeExpirationDate {
             get {
                 return ResourceManager.GetString("NumberOfDaysBeforeExpirationDate", resourceCulture);
+            }
+        }
+        
+        internal static string NotificationMessage {
+            get {
+                return ResourceManager.GetString("NotificationMessage", resourceCulture);
+            }
+        }
+        
+        internal static string NotificationMessageDateFormat {
+            get {
+                return ResourceManager.GetString("NotificationMessageDateFormat", resourceCulture);
             }
         }
     }

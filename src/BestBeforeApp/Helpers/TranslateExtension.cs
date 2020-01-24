@@ -1,13 +1,14 @@
 using System;
 using System.Reflection;
 using System.Resources;
+using BestBeforeApp.Shared;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
 namespace BestBeforeApp.Helpers
 {
     [ContentProperty("Text")]
-    public class TranslateExtension : IMarkupExtension
+    public class TranslateExtension : IMarkupExtension, ITranslator
     {
         private const string RESOURCEID = "BestBeforeApp.Resources.AppResources";
 
@@ -15,7 +16,15 @@ namespace BestBeforeApp.Helpers
 
         public string Text { get; set; }
 
-        public object ProvideValue(IServiceProvider serviceProvider)
+        public object ProvideValue(IServiceProvider serviceProvider) => DoTranslate();
+
+        public string Translate(string text)
+        {
+            Text = text;
+            return DoTranslate();
+        }
+
+        private string DoTranslate()
         {
             if (Text == null)
                 return "";

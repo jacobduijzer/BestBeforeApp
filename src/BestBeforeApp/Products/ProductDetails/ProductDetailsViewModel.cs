@@ -5,6 +5,7 @@ using System.Windows.Input;
 using BestBeforeApp.Products;
 using BestBeforeApp.Products.Handlers;
 using MediatR;
+using Microsoft.AppCenter.Analytics;
 using MvvmHelpers;
 using MvvmHelpers.Commands;
 using Xamarin.Forms;
@@ -44,8 +45,10 @@ namespace BestBeforeApp.Products.ProductDetails
 
         private async Task DeleteProductAsync()
         {
+            Analytics.TrackEvent($"{this.GetType().Name} - DeleteProductAsync");
+
             await _mediator.Publish(new DeleteProduct(Product)).ConfigureAwait(false);
-            await Shell.Current.GoToAsync("///products").ConfigureAwait(false);
+            await Shell.Current.GoToAsync("//products").ConfigureAwait(false);
         }
     }
 }

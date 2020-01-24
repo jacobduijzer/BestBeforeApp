@@ -46,9 +46,11 @@ namespace BestBeforeApp
             return App.ServiceProvider.GetService<App>();
         }
 
-        private static void ConfigureServices(HostBuilderContext ctx, IServiceCollection services) =>
+        private static void ConfigureServices(HostBuilderContext builderContext, IServiceCollection services) =>
             services.AddSingleton<AppShell>(factory => new AppShell())
+                .Configure<AppSettings>(builderContext.Configuration.GetSection("AppSettings"))
                 .AddDbContext<AppDbContext>()
+                .AddScoped<ITranslator, TranslateExtension>()
                 .AddScoped<IRepository<Product>, ProductRepository>()
                 .AddScoped<ProductsViewModel>()
                 .AddScoped<ProductDetailsViewModel>()
