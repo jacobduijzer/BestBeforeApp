@@ -25,7 +25,7 @@ namespace BestBeforeApp.Products.AddProduct
 
         public ICommand TakePhotoCommand { get; }
         public ICommand RemovePhotoCommand { get; }
-        public ICommand SaveProductAndStartNewCommand { get; }
+        public ICommand SaveProductCommand { get; }
         public ICommand SubstractAmountCommand { get; }
         public ICommand AddAmountCommand { get; }
 
@@ -41,8 +41,8 @@ namespace BestBeforeApp.Products.AddProduct
             _translator = translator;
 
             TakePhotoCommand = new AsyncCommand(TakePhotoAsync);
-            RemovePhotoCommand = new Command(RemovePhoto);
-            SaveProductAndStartNewCommand = new AsyncCommand(SaveProductAndNew);
+            RemovePhotoCommand = new Command(RemovePhoto, (args) => ProductPhoto != null);
+            SaveProductCommand = new AsyncCommand(SaveProduct, (args) => !string.IsNullOrEmpty(Name));
             SubstractAmountCommand = new Command(SubstractAmount);
             AddAmountCommand = new Command(AddAmount);
 
@@ -57,6 +57,7 @@ namespace BestBeforeApp.Products.AddProduct
             {
                 _name = value;
                 OnPropertyChanged(nameof(Name));
+                (SaveProductCommand as AsyncCommand)?.RaiseCanExecuteChanged();
             }
         }
 
@@ -82,6 +83,8 @@ namespace BestBeforeApp.Products.AddProduct
             }
         }
 
+        public bool CanRemovePhoto => ProductPhoto != null;
+
         private ImageSource _productPhoto;
         public ImageSource ProductPhoto
         {
@@ -90,6 +93,8 @@ namespace BestBeforeApp.Products.AddProduct
             {
                 _productPhoto = value;
                 OnPropertyChanged(nameof(ProductPhoto));
+                OnPropertyChanged(nameof(CanRemovePhoto));
+                (RemovePhotoCommand as AsyncCommand)?.RaiseCanExecuteChanged();
             }
         }
 
@@ -124,25 +129,14 @@ namespace BestBeforeApp.Products.AddProduct
             }
         }
 
-        private async Task SaveProductAndNew()
+        private async Task SaveProduct()
         {
-            Analytics.TrackEvent($"{this.GetType().Name} - SaveProductAndNew");
-            await SaveProductAndScheduleNotification().ConfigureAwait(false);
-            SetCleanProduct();
-        }
-
-        private void SetCleanProduct()
-        {
-            Name = string.Empty;
-            BestBefore = DateTime.Now.AddMonths(_appSettings.Value.DefaultBestBeforeMonths);
-            Amount = _appSettings.Value.DefaultAmount;
-            ProductPhoto = null;
-        }
-
-        private async Task SaveProductAndScheduleNotification()
-        {
-            var productId = await SaveProduct().ConfigureAwait(false);
+            Analytics.TrackEvent($"{this.GetType().Name} - SaveProduct");
+            var productId = await SaveProductInDatabase().ConfigureAwait(false);
             ScheduleNotification(productId);
+            SetCleanProduct();
+
+            await Shell.Current.Navigation.PopAsync().ConfigureAwait(false);
         }
 
         private void ScheduleNotification(int productId)
@@ -166,7 +160,7 @@ namespace BestBeforeApp.Products.AddProduct
             NotificationCenter.Current.Show(notification);
         }
 
-        private async Task<int> SaveProduct()
+        private async Task<int> SaveProductInDatabase()
         {
             IsBusy = true;
 
@@ -189,6 +183,14 @@ namespace BestBeforeApp.Products.AddProduct
             {
                 IsBusy = false;
             }            
+        }
+
+        private void SetCleanProduct()
+        {
+            Name = string.Empty;
+            BestBefore = DateTime.Now.AddMonths(_appSettings.Value.DefaultBestBeforeMonths);
+            Amount = _appSettings.Value.DefaultAmount;
+            ProductPhoto = null;
         }
 
         private async Task<byte[]> GetImageStream(Stream imageStream)

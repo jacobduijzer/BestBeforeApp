@@ -90,7 +90,7 @@
     <comment></comment>
   </data>
    <data name="NotificationMessageDateFormat" xml:space="preserve">
-    <value>dddd dd MMMM yyyy</value>
+    <value>dddd d MMMM yyyy</value>
     <comment></comment>
   </data>
 </root>

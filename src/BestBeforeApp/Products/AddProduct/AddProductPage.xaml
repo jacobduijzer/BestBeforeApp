@@ -1,12 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <shared:BasePage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                 xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"              
              xmlns:shared="clr-namespace:BestBeforeApp.Shared"
              xmlns:i18n="clr-namespace:BestBeforeApp.Helpers"
              x:Class="BestBeforeApp.Products.AddProduct.AddProductPage"
              Title="{i18n:Translate AddProduct}">
+   
     <ContentPage.ToolbarItems>
-        <ToolbarItem Name="Save" Command="{Binding SaveProductAndStartNewCommand}" Order="Primary" Icon="save.png" Text="Save" Priority="1" />
+        <ToolbarItem Name="Save"
+                     Command="{Binding SaveProductCommand}"
+                     Order="Primary"
+                     Icon="save.png"
+                     Text="Save"
+                     Priority="1" />
     </ContentPage.ToolbarItems>
     <ScrollView>
         <StackLayout Orientation="Vertical"
@@ -49,46 +55,25 @@
                         Command="{Binding AddAmountCommand}" />
             </StackLayout>
 
-            <Label Text="{i18n:Translate ProductImage}"
+            <Label Text="{i18n:Translate ProductImage}"                   
                    FontAttributes="Bold"
                    TextColor="Gray"
                    FontSize="16"/>
+            
+            <Grid HorizontalOptions="FillAndExpand">
+                <Image Source="photo_placeholder.png" BackgroundColor="#DADADA"/>
+                <Image Source="{Binding ProductPhoto}" />
 
-            <StackLayout HorizontalOptions="FillAndExpand"
-                         BackgroundColor="LightGray"
-                         HeightRequest="200">
-                <Image Source="camera.png"
-                       MinimumHeightRequest="120"
-                       HeightRequest="120"
-                       
-                       HorizontalOptions="Center"
-                       VerticalOptions="Center" />
-            </StackLayout>
-
-            <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="30" />
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="30" />
-                </Grid.ColumnDefinitions>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="*" />
-                </Grid.RowDefinitions>
-
-                <Image Grid.Column="1" Grid.Row="0" Source="{Binding ProductPhoto}" HorizontalOptions="FillAndExpand" />
-                <StackLayout Grid.Column="2" Grid.Row="0" Orientation="Vertical" HorizontalOptions="End">
-                <Image Source="camera" VerticalOptions="Start" HorizontalOptions="End" WidthRequest="30" HeightRequest="30">
-                    <Image.GestureRecognizers>
-                        <TapGestureRecognizer Command="{Binding TakePhotoCommand}" />
-                    </Image.GestureRecognizers>
-                </Image>
-
-                <Image Source="delete" Margin="0,14,0,0" VerticalOptions="Start" HorizontalOptions="End" WidthRequest="24" HeightRequest="24">
+                <Image Source="delete" IsVisible="{Binding CanRemovePhoto}" Margin="5" VerticalOptions="Start" HorizontalOptions="End" WidthRequest="24" HeightRequest="24">
                     <Image.GestureRecognizers>
                         <TapGestureRecognizer Command="{Binding RemovePhotoCommand}" />
                     </Image.GestureRecognizers>
                 </Image>
-                </StackLayout>
+
+                <Grid.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding TakePhotoCommand}" />
+                </Grid.GestureRecognizers>
+
             </Grid>
 
         </StackLayout>

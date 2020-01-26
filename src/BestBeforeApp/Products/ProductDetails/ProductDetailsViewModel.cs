@@ -22,6 +22,8 @@ namespace BestBeforeApp.Products.ProductDetails
         private readonly IMediator _mediator;
         private readonly ITranslator _translator;
 
+        public bool HasPhoto { get; private set; }
+
         public ProductDetailsViewModel(
             IMediator mediator,
             ITranslator translator)
@@ -35,14 +37,17 @@ namespace BestBeforeApp.Products.ProductDetails
         private async Task LoadProductDetailsAsync(int productId)
         {
             Product = await _mediator.Send(new GetProductDetails(productId)).ConfigureAwait(false);
-
-            if(Product != null && Product.Photo != null)
+            HasPhoto = false;
+            if (Product != null && Product.Photo != null)
             {
                 ProductPhoto = ImageSource.FromStream(() => new MemoryStream(Product.Photo));
                 OnPropertyChanged(nameof(ProductPhoto));
+
+                HasPhoto = true;
             }
-            
-            OnPropertyChanged(nameof(Product));            
+
+            OnPropertyChanged(nameof(Product));
+            OnPropertyChanged(nameof(HasPhoto));
         }
 
         private async Task DeleteProductAsync()
