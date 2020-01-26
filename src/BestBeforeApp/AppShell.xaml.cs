@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using BestBeforeApp.Products.AddProduct;
 using BestBeforeApp.Products.ProductDetails;
+using BestBeforeApp.Settings;
 using Xamarin.Forms;
 
 namespace BestBeforeApp
@@ -18,6 +20,8 @@ namespace BestBeforeApp
         private void RegisterRoutes()
         {
             Routes.Add("productdetails", typeof(ProductDetailsPage));
+            Routes.Add("addproduct", typeof(AddProductPage));
+            Routes.Add("settings", typeof(SettingsPage));
 
             foreach (var item in Routes)
             {

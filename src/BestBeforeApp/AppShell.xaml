@@ -39,12 +39,12 @@
             <ShellContent ContentTemplate="{DataTemplate products:ProductsPage}" />
                 
         </Tab>
-        <Tab Title="{i18n:Translate AddProduct}" Icon="add.png">
+        <!--<Tab Title="{i18n:Translate AddProduct}" Icon="add.png">
             <ShellContent ContentTemplate="{DataTemplate addproduct:AddProductPage}" />
         </Tab>
         <Tab Title="{i18n:Translate Settings}" Icon="settings.png">
             <ShellContent ContentTemplate="{DataTemplate settings:SettingsPage}" />
-        </Tab>
+        </Tab>-->
     </TabBar>
                 
 </Shell>

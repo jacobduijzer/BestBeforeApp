@@ -12,6 +12,7 @@ using MvvmHelpers;
 using MvvmHelpers.Commands;
 using Plugin.LocalNotification;
 using Xamarin.Forms;
+using Command = MvvmHelpers.Commands.Command;
 
 namespace BestBeforeApp.Products.AddProduct
 {
@@ -25,7 +26,8 @@ namespace BestBeforeApp.Products.AddProduct
         public ICommand TakePhotoCommand { get; }
         public ICommand RemovePhotoCommand { get; }
         public ICommand SaveProductAndStartNewCommand { get; }
-        public ICommand SaveProductAndNavigateCommand { get; }
+        public ICommand SubstractAmountCommand { get; }
+        public ICommand AddAmountCommand { get; }
 
         public AddProductViewModel(
             IMediator mediator,
@@ -39,9 +41,10 @@ namespace BestBeforeApp.Products.AddProduct
             _translator = translator;
 
             TakePhotoCommand = new AsyncCommand(TakePhotoAsync);
-            RemovePhotoCommand = new Xamarin.Forms.Command(RemovePhoto);
+            RemovePhotoCommand = new Command(RemovePhoto);
             SaveProductAndStartNewCommand = new AsyncCommand(SaveProductAndNew);
-            SaveProductAndNavigateCommand = new AsyncCommand(SaveProductAndNavigate);
+            SubstractAmountCommand = new Command(SubstractAmount);
+            AddAmountCommand = new Command(AddAmount);
 
             SetCleanProduct();
         }
@@ -98,6 +101,9 @@ namespace BestBeforeApp.Products.AddProduct
             OnPropertyChanged(nameof(ProductPhoto));
         }
 
+        private void SubstractAmount() => Amount = Amount > 1 ? --Amount : Amount;
+        private void AddAmount() => Amount = ++Amount;
+
         private async Task TakePhotoAsync()
         {
             try
@@ -131,16 +137,6 @@ namespace BestBeforeApp.Products.AddProduct
             BestBefore = DateTime.Now.AddMonths(_appSettings.Value.DefaultBestBeforeMonths);
             Amount = _appSettings.Value.DefaultAmount;
             ProductPhoto = null;
-        }
-
-        private async Task SaveProductAndNavigate()
-        {
-            Analytics.TrackEvent($"{this.GetType().Name} - SaveProductAndNavigate");
-            await SaveProductAndScheduleNotification().ConfigureAwait(false);
-
-            SetCleanProduct();
-
-            await Shell.Current.GoToAsync("//products").ConfigureAwait(false);
         }
 
         private async Task SaveProductAndScheduleNotification()

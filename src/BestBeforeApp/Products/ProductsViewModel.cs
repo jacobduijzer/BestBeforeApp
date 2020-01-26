@@ -15,19 +15,29 @@ namespace BestBeforeApp.Products
     public class ProductsViewModel : BaseViewModel
     {
         private readonly IMediator _mediator;
-        
+
+        public ICommand AddProductCommand { get; }
+        public ICommand SettingsCommand { get; }
         public ICommand LoadItemsCommand { get; }
         public ICommand ShowDetailsCommand { get; }
         public ICommand SearchCommand { get; }
 
         public ProductsViewModel(IMediator mediator)
         {
+            AddProductCommand = new AsyncCommand(NavigateToAddProductPageAsync);
+            SettingsCommand = new AsyncCommand(NavigateToSettingsAsync);
             LoadItemsCommand = new AsyncCommand(GetProductsAsync);
             ShowDetailsCommand = new AsyncCommand<Product>(ShowDetailsAsync);
             SearchCommand = new AsyncCommand<string>(SearchAsync);
 
             _mediator = mediator;
         }
+
+        private async Task NavigateToSettingsAsync() =>
+            await Shell.Current.GoToAsync("settings").ConfigureAwait(false);
+
+        private async Task NavigateToAddProductPageAsync() =>
+            await Shell.Current.GoToAsync("addproduct").ConfigureAwait(false);
 
         private string _searchString;
         public string SearchString

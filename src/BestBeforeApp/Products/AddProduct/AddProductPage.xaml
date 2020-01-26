@@ -5,6 +5,9 @@
              xmlns:i18n="clr-namespace:BestBeforeApp.Helpers"
              x:Class="BestBeforeApp.Products.AddProduct.AddProductPage"
              Title="{i18n:Translate AddProduct}">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Name="Save" Command="{Binding SaveProductAndStartNewCommand}" Order="Primary" Icon="save.png" Text="Save" Priority="1" />
+    </ContentPage.ToolbarItems>
     <ScrollView>
         <StackLayout Orientation="Vertical"
                      VerticalOptions="FillAndExpand"
@@ -32,16 +35,35 @@
                    FontAttributes="Bold"
                    TextColor="Gray"
                    FontSize="16" />
-            <Entry Placeholder="1"
-                   Keyboard="Numeric"
-                   TextColor="#535b69"
-                   FontSize="24"
-                   Text="{Binding Amount}"/>
+            <StackLayout Orientation="Horizontal"
+                         HorizontalOptions="FillAndExpand">
+                <Button Text="-"
+                        Command="{Binding SubstractAmountCommand}" />
+
+                <Label HorizontalOptions="CenterAndExpand"
+                       TextColor="#535b69"
+                       FontSize="32"
+                       VerticalTextAlignment="Center"
+                       Text="{Binding Amount}"/>
+                <Button Text="+"
+                        Command="{Binding AddAmountCommand}" />
+            </StackLayout>
 
             <Label Text="{i18n:Translate ProductImage}"
                    FontAttributes="Bold"
                    TextColor="Gray"
                    FontSize="16"/>
+
+            <StackLayout HorizontalOptions="FillAndExpand"
+                         BackgroundColor="LightGray"
+                         HeightRequest="200">
+                <Image Source="camera.png"
+                       MinimumHeightRequest="120"
+                       HeightRequest="120"
+                       
+                       HorizontalOptions="Center"
+                       VerticalOptions="Center" />
+            </StackLayout>
 
             <Grid>
                 <Grid.ColumnDefinitions>
@@ -61,7 +83,7 @@
                     </Image.GestureRecognizers>
                 </Image>
 
-                <Image Source="camera_off" Margin="0,14,0,0" VerticalOptions="Start" HorizontalOptions="End" WidthRequest="30" HeightRequest="30">
+                <Image Source="delete" Margin="0,14,0,0" VerticalOptions="Start" HorizontalOptions="End" WidthRequest="24" HeightRequest="24">
                     <Image.GestureRecognizers>
                         <TapGestureRecognizer Command="{Binding RemovePhotoCommand}" />
                     </Image.GestureRecognizers>
@@ -69,16 +91,6 @@
                 </StackLayout>
             </Grid>
 
-            <StackLayout Orientation="Horizontal">
-                
-                
-                
-            </StackLayout>
-
-            <StackLayout VerticalOptions="EndAndExpand">
-                <Button Text="Opslaan, volgende" Command="{Binding SaveProductAndStartNewCommand}"/>
-                <Button Text="Opslaan, naar de lijst" Command="{Binding SaveProductAndNavigateCommand}" />
-            </StackLayout>
         </StackLayout>
 
     </ScrollView>

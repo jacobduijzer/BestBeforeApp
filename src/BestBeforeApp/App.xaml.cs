@@ -9,6 +9,7 @@ using BestBeforeApp.Resources;
 using System.Globalization;
 using Plugin.LocalNotification;
 using System.Collections.Generic;
+using BestBeforeApp.Products;
 
 namespace BestBeforeApp
 {
