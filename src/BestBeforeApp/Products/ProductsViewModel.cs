@@ -20,7 +20,7 @@ namespace BestBeforeApp.Products
         public ICommand SettingsCommand { get; }
         public ICommand LoadItemsCommand { get; }
         public ICommand ShowDetailsCommand { get; }
-        public ICommand SearchCommand { get; }
+        //public ICommand SearchCommand { get; }
 
         public ProductsViewModel(IMediator mediator)
         {
@@ -28,7 +28,7 @@ namespace BestBeforeApp.Products
             SettingsCommand = new AsyncCommand(NavigateToSettingsAsync);
             LoadItemsCommand = new AsyncCommand(GetProductsAsync);
             ShowDetailsCommand = new AsyncCommand<Product>(ShowDetailsAsync);
-            SearchCommand = new AsyncCommand<string>(SearchAsync);
+            //SearchCommand = new AsyncCommand<string>(SearchAsync);
 
             _mediator = mediator;
         }
@@ -54,13 +54,6 @@ namespace BestBeforeApp.Products
         public IList<Product> Products =>
             string.IsNullOrEmpty(SearchString) ?
                 _products : _products.Where(x => x.Name.ToLower().Contains(SearchString.ToLower())).ToList();
-
-       
-        
-        private Task SearchAsync(string arg)
-        {
-            throw new NotImplementedException();
-        }
 
         private async Task GetProductsAsync()
         {
