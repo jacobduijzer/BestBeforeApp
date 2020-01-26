@@ -17,7 +17,7 @@
 
     <ContentPage.ToolbarItems>
         <ToolbarItem Name="Add" Command="{Binding AddProductCommand}" Order="Primary" Icon="add.png" Text="Add" Priority="1" />
-        <ToolbarItem Name="Settings" Command="{Binding AddProductCommand}" Order="Primary" Icon="settings.png" Text="Add" Priority="2" />
+        <ToolbarItem Name="Settings" Command="{Binding SettingsCommand}" Order="Primary" Icon="settings.png" Text="Add" Priority="2" />
     </ContentPage.ToolbarItems>
    
     <StackLayout>
