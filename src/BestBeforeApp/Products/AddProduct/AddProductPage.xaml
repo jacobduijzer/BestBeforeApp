@@ -3,8 +3,8 @@
                  xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"              
              xmlns:shared="clr-namespace:BestBeforeApp.Shared"
              xmlns:i18n="clr-namespace:BestBeforeApp.Helpers"
-             x:Class="BestBeforeApp.Products.AddProduct.AddProductPage"
-             Title="{i18n:Translate AddProduct}">
+             x:Class="BestBeforeApp.Products.AddProduct.AddProductPage" >
+    <!--Title="{i18n:Translate AddProduct}"-->
    
     <ContentPage.ToolbarItems>
         <ToolbarItem Name="Save"

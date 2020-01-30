@@ -136,7 +136,7 @@ namespace BestBeforeApp.Products.AddProduct
             ScheduleNotification(productId);
             SetCleanProduct();
 
-            await Shell.Current.Navigation.PopAsync().ConfigureAwait(false);
+            await Shell.Current.GoToAsync("//products").ConfigureAwait(false);
         }
 
         private void ScheduleNotification(int productId)

@@ -5,8 +5,8 @@
                             xmlns:converters="clr-namespace:BestBeforeApp.Helpers.Converters"
                             xmlns:shared="clr-namespace:BestBeforeApp.Shared"
                             xmlns:behaviors="clr-namespace:BestBeforeApp.Helpers.Behaviors"
-                            x:Class="BestBeforeApp.Products.ProductsPage"
-                            Title="{i18n:Translate Products}"
+                            Shell.NavBarIsVisible="False"
+                            x:Class="BestBeforeApp.Products.ProductsPage"                            
                             x:Name="ProductsListPage">
     <ContentPage.Resources>
         <ResourceDictionary>
@@ -21,6 +21,8 @@
     </ContentPage.ToolbarItems>
    
     <StackLayout>
+
+        
         <!--<SearchBar x:Name="searchBar"
                    HorizontalOptions="Fill"
                    VerticalOptions="CenterAndExpand"
@@ -31,6 +33,7 @@
         <ListView x:Name="ProductsList"
                   HasUnevenRows="true"
                   ItemsSource="{Binding Products}"
+                  SeparatorVisibility="None"
                   IsPullToRefreshEnabled="True"
                   RefreshCommand="{Binding LoadItemsCommand}"
                   IsRefreshing="{Binding IsBusy, Mode=OneWay}"
@@ -39,30 +42,46 @@
            <ListView.Behaviors>
                 <behaviors:EventToCommandBehavior EventName="ItemSelected" Command="{Binding ShowDetailsCommand}" Converter="{StaticResource SelectedItemConverter}" />
             </ListView.Behaviors>
+
+            <ListView.Header>
+                <Label Text="{i18n:Translate Products}"
+               Margin="0, 40, 0, 30"
+               HorizontalOptions="CenterAndExpand"
+               FontSize="40"
+               TextColor="#424242"/>                        
+            </ListView.Header>
+            <ListView.Footer>
+                <BoxView Margin="2" />
+            </ListView.Footer>
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
-                        <!--<StackLayout Orientation="Horizontal" Padding="0, 0, 6, 0" BackgroundColor="{Binding BestBefore, Converter={StaticResource dateToColorConverter}}">-->
-                        <StackLayout Orientation="Horizontal" Padding="0" >
-                            <StackLayout Padding="10" HorizontalOptions="FillAndExpand" BackgroundColor="White">
-                                <StackLayout Orientation="Horizontal">
-                                    <Label Text="{Binding Name}"
-                                           LineBreakMode="NoWrap"
-                                           Style="{DynamicResource ListItemTextStyle}"
-                                           HorizontalOptions="FillAndExpand"
-                                           FontSize="24" />
-                                    <Label Text="{Binding Amount}"
-                                           Style="{DynamicResource ListItemTextStyle}"
-                                           VerticalTextAlignment="Center"
-                                           VerticalOptions="Center"
-                                           HorizontalOptions="End"
-                                           FontSize="24" />
-                                </StackLayout>
+                        <StackLayout Orientation="Horizontal" Padding="18,5,18,5">
+                            <Frame CornerRadius="20"
+                                   HorizontalOptions="FillAndExpand"
+                                   BackgroundColor="White"
+                                   HasShadow="True">
+                            <StackLayout BackgroundColor="White" >
                                 <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
                                     <Label Text="{Binding BestBeforeHumanized}" Style="{DynamicResource ListItemDetailTextStyle}" FontSize="13" HorizontalOptions="FillAndExpand" TextColor="{Binding BestBefore, Converter={StaticResource dateToColorConverter}}"/>
                                     <Label Text="{Binding BestBefore, StringFormat='{0:dd-MM-yyyy}'}" Style="{DynamicResource ListItemDetailTextStyle}" FontSize="13" HorizontalOptions="End"/>
                                 </StackLayout>
+                                
+                                <Label Text="{Binding Name}"
+                                        LineBreakMode="NoWrap"
+                                        TextColor="#424242"
+                                        FontAttributes="Bold"
+                                        HorizontalOptions="FillAndExpand"
+                                        FontSize="20" />
+
+                                <Label Text="{Binding Amount, StringFormat='aantal: {0}'}"
+                                           Style="{DynamicResource ListItemTextStyle}"
+                                           VerticalTextAlignment="Center"
+                                           VerticalOptions="Center"
+                                           HorizontalOptions="Start"
+                                           FontSize="16" />                                
                             </StackLayout>
+                                </Frame>
                         </StackLayout>
                     </ViewCell>
                 </DataTemplate>

@@ -32,12 +32,21 @@
             <Style TargetType="TabBar" BasedOn="{StaticResource BaseStyle}" />
         </ResourceDictionary>
     </Shell.Resources>
-   
+
+    
+
     <!-- Your Pages -->
     <TabBar>
         <Tab Title="{i18n:Translate Products}" Icon="list.png" Route="products">
             <ShellContent ContentTemplate="{DataTemplate products:ProductsPage}" />
                 
+        </Tab>
+
+        <Tab Title="{i18n:Translate AddProduct}" Icon="add.png">
+            <ShellContent ContentTemplate="{DataTemplate addproduct:AddProductPage}" />
+        </Tab>
+        <Tab Title="{i18n:Translate Settings}" Icon="settings.png">
+            <ShellContent ContentTemplate="{DataTemplate settings:SettingsPage}" />
         </Tab>
         <!--<Tab Title="{i18n:Translate AddProduct}" Icon="add.png">
             <ShellContent ContentTemplate="{DataTemplate addproduct:AddProductPage}" />
