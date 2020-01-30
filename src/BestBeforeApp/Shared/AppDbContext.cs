@@ -13,8 +13,7 @@ namespace BestBeforeApp.Shared
         {
             _dbFileHelper = dbFileHelper;
            
-            Database.EnsureCreated();
-            Database.Migrate();
+            
         }
 
         protected override void OnConfiguring(DbContextOptionsBuilder options)

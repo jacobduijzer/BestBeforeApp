@@ -8,6 +8,8 @@ using BestBeforeApp.Products.ProductDetails;
 using BestBeforeApp.Settings;
 using BestBeforeApp.Shared;
 using MediatR;
+using Microsoft.AppCenter.Crashes;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -42,6 +44,11 @@ namespace BestBeforeApp
                             .Build();
 
             App.ServiceProvider = host.Services;
+
+            var dbContext = App.ServiceProvider.GetService<AppDbContext>();
+
+            dbContext.Database.EnsureCreated();
+            dbContext.Database.Migrate();
 
             return App.ServiceProvider.GetService<App>();
         }

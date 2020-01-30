@@ -10,6 +10,9 @@ using System.Globalization;
 using Plugin.LocalNotification;
 using System.Collections.Generic;
 using BestBeforeApp.Products;
+using BestBeforeApp.Shared;
+using Microsoft.EntityFrameworkCore;
+using System.Threading.Tasks;
 
 namespace BestBeforeApp
 {
@@ -31,6 +34,8 @@ namespace BestBeforeApp
             CultureInfo.CurrentCulture = AppCulture;
             AppResources.Culture = AppCulture;
 
+            
+
             MainPage = ServiceProvider.GetService<AppShell>();
         }
 
@@ -40,6 +45,8 @@ namespace BestBeforeApp
                 typeof(Crashes),
                 typeof(Distribute));
 
+            
+
         protected override void OnSleep()
         {
         }
@@ -47,6 +54,7 @@ namespace BestBeforeApp
         protected override void OnResume()
         {
         }
+
 
         private void LoadPageFromNotification(NotificationTappedEventArgs e)
         {
