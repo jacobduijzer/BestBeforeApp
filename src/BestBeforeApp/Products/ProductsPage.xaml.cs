@@ -14,6 +14,7 @@ namespace BestBeforeApp.Products
         protected override void OnAppearing()
         {
             base.OnAppearing();
+            ProductsList.SelectedItem = null;
             ((ProductsViewModel)BindingContext).LoadItemsCommand.Execute(null);
         }
     }

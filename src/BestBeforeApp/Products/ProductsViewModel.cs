@@ -88,7 +88,10 @@ namespace BestBeforeApp.Products
             }
         }
 
-        private async Task ShowDetailsAsync(Product product) =>
-            await Shell.Current.GoToAsync($"productdetails?id={product.Id}");
+        private async Task ShowDetailsAsync(Product product)
+        {
+            if (product != null)
+                await Shell.Current.GoToAsync($"productdetails?id={product.Id}");
+        }
     }
 }

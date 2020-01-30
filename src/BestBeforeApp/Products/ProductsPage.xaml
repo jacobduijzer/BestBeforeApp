@@ -28,7 +28,8 @@
                    Text="{Binding SearchString}"
                    Style="{DynamicResource ListItemTextStyle}"
                    HorizontalTextAlignment="Start" />-->
-        <ListView HasUnevenRows="true"
+        <ListView x:Name="ProductsList"
+                  HasUnevenRows="true"
                   ItemsSource="{Binding Products}"
                   IsPullToRefreshEnabled="True"
                   RefreshCommand="{Binding LoadItemsCommand}"
