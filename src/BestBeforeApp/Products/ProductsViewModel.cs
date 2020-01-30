@@ -73,7 +73,11 @@ namespace BestBeforeApp.Products
             }
             catch (Exception ex)
             {
-                Crashes.TrackError(ex);
+                var exeptionParam = new Dictionary<string, string>
+                {
+                    { "GetProductsAsync", ex.Message }
+                };
+                Crashes.TrackError(ex, exeptionParam);
             }
             finally
             {
