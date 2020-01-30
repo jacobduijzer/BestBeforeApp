@@ -46,16 +46,7 @@ namespace BestBeforeApp
             App.ServiceProvider = host.Services;
 
             var dbContext = App.ServiceProvider.GetService<AppDbContext>();
-            try
-            {
-                dbContext.Database.EnsureDeleted();
-                dbContext.Database.Migrate();
-            }
-            catch (Exception ex)
-            {
-                Crashes.TrackError(ex);
-            }
-            
+            dbContext.Database.Migrate();
 
             return App.ServiceProvider.GetService<App>();
         }
@@ -71,8 +62,7 @@ namespace BestBeforeApp
                 .AddScoped<AddProductViewModel>()
                 .AddScoped<SettingsViewModel>()
                 .AddScoped<PhotoService>()
-                .AddMediatR(typeof(AddProductHandler))
-                //.AddMediatR(cfg => cfg.AsScoped(), typeof(AddProductHandler).GetTypeInfo().Assembly)
+                .AddMediatR(cfg => cfg.AsScoped(), typeof(AddProductHandler).GetTypeInfo().Assembly)
                 .AddSingleton<App>();
     }
 }

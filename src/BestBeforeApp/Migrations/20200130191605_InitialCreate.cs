@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace BestBeforeApp.EFConsole.Migrations
 {
-    public partial class InitialMigration : Migration
+    public partial class InitialCreate : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -15,7 +15,8 @@ namespace BestBeforeApp.EFConsole.Migrations
                         .Annotation("Sqlite:Autoincrement", true),
                     Name = table.Column<string>(nullable: true),
                     Amount = table.Column<int>(nullable: false),
-                    BestBefore = table.Column<DateTime>(nullable: false)
+                    BestBefore = table.Column<DateTime>(nullable: false),
+                    Photo = table.Column<byte[]>(nullable: true)
                 },
                 constraints: table =>
                 {

@@ -9,8 +9,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BestBeforeApp.EFConsole.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20200117000903_InitialMigration")]
-    partial class InitialMigration
+    [Migration("20200130191605_InitialCreate")]
+    partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -32,6 +32,9 @@ namespace BestBeforeApp.EFConsole.Migrations
 
                     b.Property<string>("Name")
                         .HasColumnType("TEXT");
+
+                    b.Property<byte[]>("Photo")
+                        .HasColumnType("BLOB");
 
                     b.HasKey("Id");
 

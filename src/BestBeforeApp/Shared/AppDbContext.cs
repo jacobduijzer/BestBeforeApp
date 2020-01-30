@@ -9,12 +9,7 @@ namespace BestBeforeApp.Shared
         private readonly IDatabaseFileHelper _dbFileHelper;
 
         public AppDbContext(DbContextOptions<AppDbContext> dbContextOptions, IDatabaseFileHelper dbFileHelper) :
-            base(dbContextOptions)
-        {
-            _dbFileHelper = dbFileHelper;
-           
-            
-        }
+            base(dbContextOptions) => _dbFileHelper = dbFileHelper;
 
         protected override void OnConfiguring(DbContextOptionsBuilder options)
         {
