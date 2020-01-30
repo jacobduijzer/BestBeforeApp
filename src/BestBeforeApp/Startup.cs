@@ -57,7 +57,7 @@ namespace BestBeforeApp
                 .AddScoped<AddProductViewModel>()
                 .AddScoped<SettingsViewModel>()
                 .AddScoped<PhotoService>()
-                .AddMediatR(cfg => cfg.AsScoped(), typeof(AddProductHandler).GetTypeInfo().Assembly)
+                .AddMediatR(cfg => cfg.AsSingleton(), typeof(AddProductHandler).GetTypeInfo().Assembly)
                 .AddSingleton<App>();
     }
 }
