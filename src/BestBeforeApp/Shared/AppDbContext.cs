@@ -1,6 +1,6 @@
 using BestBeforeApp.Helpers;
 using BestBeforeApp.Products;
-using Microsoft.AppCenter;
+using Microsoft.AppCenter.Crashes;
 using Microsoft.EntityFrameworkCore;
 
 namespace BestBeforeApp.Shared
