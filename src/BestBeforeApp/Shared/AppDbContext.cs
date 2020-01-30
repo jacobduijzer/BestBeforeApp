@@ -1,6 +1,5 @@
 using BestBeforeApp.Helpers;
 using BestBeforeApp.Products;
-using Microsoft.AppCenter.Crashes;
 using Microsoft.EntityFrameworkCore;
 
 namespace BestBeforeApp.Shared
@@ -13,16 +12,9 @@ namespace BestBeforeApp.Shared
             base(dbContextOptions)
         {
             _dbFileHelper = dbFileHelper;
-            try
-            {
-                Database.EnsureCreated();
-                Database.Migrate();
-            }
-            catch (System.Exception ex)
-            {
-                Crashes.TrackError(ex);
-                throw;
-            }
+           
+            Database.EnsureCreated();
+            Database.Migrate();
         }
 
         protected override void OnConfiguring(DbContextOptionsBuilder options)
