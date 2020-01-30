@@ -53,7 +53,7 @@
   <!-- Product details -->
   
   <data name="DeleteQuestion" xml:space="preserve">
-    <value>Weet je het zeker?</value>
+    <value>Weet je zeker dat je dit product wilt verwijderen?</value>
     <comment></comment>
   </data>
   

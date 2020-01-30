@@ -47,7 +47,7 @@
 
         <!-- Export database -->
         <StackLayout Padding="0,20,0,0">
-            <Button Text="Export Database" />
+            <Button Text="Export Database" IsEnabled="False"/>
         </StackLayout>
     </StackLayout>
 </shared:BasePage>
