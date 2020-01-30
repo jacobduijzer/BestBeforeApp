@@ -33,9 +33,7 @@ namespace BestBeforeApp
             AppCulture = new CultureInfo("nl-NL");
             CultureInfo.CurrentCulture = AppCulture;
             AppResources.Culture = AppCulture;
-
             
-
             MainPage = ServiceProvider.GetService<AppShell>();
         }
 

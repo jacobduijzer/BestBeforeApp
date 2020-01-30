@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using BestBeforeApp.Products.Specifications;
 using MediatR;
+using Microsoft.AppCenter.Analytics;
 using Microsoft.AppCenter.Crashes;
 using MvvmHelpers;
 using MvvmHelpers.Commands;
@@ -22,6 +23,7 @@ namespace BestBeforeApp.Products
         public ICommand ShowDetailsCommand { get; }
         //public ICommand SearchCommand { get; }
 
+        //public ProductsViewModel(IMediator mediator)
         public ProductsViewModel(IMediator mediator)
         {
             AddProductCommand = new AsyncCommand(NavigateToAddProductPageAsync);
@@ -64,6 +66,7 @@ namespace BestBeforeApp.Products
 
             try
             {
+                Analytics.TrackEvent($"{this.GetType().Name} - GetProductsAsync");
                 var products = await _mediator
                        .Send(new RetrieveProducts(new AllProductsSpecification()))
                        .ConfigureAwait(false);
