@@ -46,7 +46,17 @@ namespace BestBeforeApp
             App.ServiceProvider = host.Services;
 
             var dbContext = App.ServiceProvider.GetService<AppDbContext>();
-            dbContext.Database.Migrate();
+
+            try
+            {
+                dbContext.Database.EnsureDeleted();
+                dbContext.Database.Migrate();
+            }
+            catch (Exception ex)
+            {
+                Crashes.TrackError(ex);
+            }
+            
 
             return App.ServiceProvider.GetService<App>();
         }
