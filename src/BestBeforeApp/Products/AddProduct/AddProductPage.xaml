@@ -79,23 +79,6 @@
                        IsVisible="{Binding CanRemovePhoto}">
                     <Image Source="{Binding ProductPhoto}" Aspect="AspectFill"/>
                     
-                    <!--<StackLayout >
-                        <StackLayout HorizontalOptions="CenterAndExpand"
-                                     VerticalOptions="CenterAndExpand"
-                                     
-                                     IsVisible="{Binding CanRemovePhoto, Converter={StaticResource InvertedBoolConverter}}">
-                            <Image Source="camera" Aspect="AspectFill"/>
-                            <Label Text="Add Photo" HorizontalTextAlignment="Center"/>
-
-                            <StackLayout.GestureRecognizers>
-                                <TapGestureRecognizer Command="{Binding TakePhotoCommand}" />
-                            </StackLayout.GestureRecognizers>
-                        </StackLayout>
-
-                        <StackLayout IsVisible="{Binding CanRemovePhoto}">
-                            <Image Source="{Binding ProductPhoto}" />
-                        </StackLayout>
-                    </StackLayout>-->
                     <Frame.GestureRecognizers>
                         <TapGestureRecognizer Command="{Binding RemovePhotoCommand}" />
                     </Frame.GestureRecognizers>
@@ -117,11 +100,6 @@
                 </Frame>
             </Grid>
 
-
-           
-            
-           
-
             <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
                 <Label Text="{i18n:Translate BestBefore}"
                        VerticalTextAlignment="Center"
@@ -138,34 +116,6 @@
                                     NumberDownCommand="{Binding SubstractAmountCommand}"
                                     NumberUpCommand="{Binding AddAmountCommand}"/>  
 
-            <!--<Label Text="{i18n:Translate ProductImage}"              
-                   
-                   TextColor="#535b69"
-                   FontSize="20"/>-->
-            
-            <!--<Grid HorizontalOptions="End" Padding="0,0,0,20">
-
-                <Image Source="photo_placeholder.png" />
-                <Image Source="{Binding ProductPhoto}" />
-
-                <Image Source="delete" IsVisible="{Binding CanRemovePhoto}"
-                       Margin="5"
-                       VerticalOptions="Start"
-                       HorizontalOptions="End"
-                       WidthRequest="24"
-                       HeightRequest="24">
-                    <Image.GestureRecognizers>
-                        <TapGestureRecognizer Command="{Binding RemovePhotoCommand}" />
-                    </Image.GestureRecognizers>
-                </Image>
-
-                <Label Text="Add Photo" />
-
-                <Grid.GestureRecognizers>
-                    <TapGestureRecognizer Command="{Binding TakePhotoCommand}" />
-                </Grid.GestureRecognizers>
-
-            </Grid>-->
 
             <BoxView HeightRequest="5" />
 

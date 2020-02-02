@@ -11,8 +11,8 @@
         </ResourceDictionary>
     </ContentPage.Resources>
     <ContentPage.ToolbarItems>
-        <ToolbarItem Name="Edit" Order="Primary" Icon="edit.png" Text="Edit" Priority="0" />
-        <ToolbarItem Name="Delete" Command="{Binding DeleteProductCommand}" Order="Primary" Icon="delete.png" Text="Delete" Priority="1" />
+        <ToolbarItem Name="Edit" Order="Secondary" Text="Edit" Priority="0" />
+        <ToolbarItem Name="Delete" Command="{Binding DeleteProductCommand}" Order="Secondary" Text="Delete" Priority="1" />
     </ContentPage.ToolbarItems>
     <ScrollView>
         <StackLayout Orientation="Vertical"
