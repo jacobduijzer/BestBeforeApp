@@ -2,11 +2,19 @@
 <shared:BasePage xmlns="http://xamarin.com/schemas/2014/forms"
                  xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
                  xmlns:shared="clr-namespace:BestBeforeApp.Shared"
+                 xmlns:converters="clr-namespace:BestBeforeApp.Helpers.Converters"
                  xmlns:i18n="clr-namespace:BestBeforeApp.Helpers"
                  xmlns:controls="clr-namespace:BestBeforeApp.Shared.Controls"
                  Shell.NavBarIsVisible="False"
                  x:Class="BestBeforeApp.Products.AddProduct.AddProductPage">
-   
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converters:HasValueConverter x:Key="HasValueConverter" />
+            <converters:InvertedBoolConverter x:Key="InvertedBoolConverter" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
     <ContentPage.ToolbarItems>
         <ToolbarItem Name="Save"
                      Command="{Binding SaveProductCommand}"
@@ -26,17 +34,99 @@
                FontSize="40"
                TextColor="#424242"/>
 
-            <Entry TextColor="#535b69"
-                   FontSize="24"
-                   Keyboard="Text"
-                   Text="{Binding Name}"
-                   Placeholder="{i18n:Translate ProductName}"/>
+            <Grid>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="20"/>
+                    <ColumnDefinition Width="100"/>
+                </Grid.ColumnDefinitions>
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="100" />
+                </Grid.RowDefinitions>
+
+                <Entry Grid.Column="0"
+                       TextColor="#535b69"
+                       FontSize="20"
+                       Keyboard="Text"
+                       Text="{Binding Name}"
+                       VerticalOptions="Start"
+                       Placeholder="{i18n:Translate ProductName}"/>
+
+                <Frame Grid.Column="2"
+                       HeightRequest="60"
+                       WidthRequest="60"
+                       CornerRadius="5"
+                       Padding="0"
+                       Margin="0"
+                       BorderColor="Gray"
+                       IsVisible="{Binding CanRemovePhoto, Converter={StaticResource InvertedBoolConverter}}">
+                    <Image Source="camera" HorizontalOptions="Center" VerticalOptions="Center" WidthRequest="40" HeightRequest="40"/>
+
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding TakePhotoCommand}" />
+                    </Frame.GestureRecognizers>
+                </Frame>
+               
+                <Frame Grid.Column="2"
+                       HeightRequest="60"
+                       WidthRequest="60"
+                       CornerRadius="5"
+                       Padding="0"
+                       Margin="0"
+                       BorderColor="Gray"
+                       IsVisible="{Binding CanRemovePhoto}">
+                    <Image Source="{Binding ProductPhoto}" Aspect="AspectFill"/>
+                    
+                    <!--<StackLayout >
+                        <StackLayout HorizontalOptions="CenterAndExpand"
+                                     VerticalOptions="CenterAndExpand"
+                                     
+                                     IsVisible="{Binding CanRemovePhoto, Converter={StaticResource InvertedBoolConverter}}">
+                            <Image Source="camera" Aspect="AspectFill"/>
+                            <Label Text="Add Photo" HorizontalTextAlignment="Center"/>
+
+                            <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding TakePhotoCommand}" />
+                            </StackLayout.GestureRecognizers>
+                        </StackLayout>
+
+                        <StackLayout IsVisible="{Binding CanRemovePhoto}">
+                            <Image Source="{Binding ProductPhoto}" />
+                        </StackLayout>
+                    </StackLayout>-->
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding RemovePhotoCommand}" />
+                    </Frame.GestureRecognizers>
+                </Frame>
+                <Frame Grid.Column="2"
+                       CornerRadius="5"
+                       VerticalOptions="End"
+                       Padding="0"
+                       Margin="0"
+                       IsVisible="{Binding CanRemovePhoto}">
+                <Label Grid.Column="2"
+                       Text="Delete"
+                       VerticalOptions="End"
+                       TextColor="White"
+                       BackgroundColor="Black"
+                       HorizontalTextAlignment="Center"/>
+
+                    
+                </Frame>
+            </Grid>
+
+
+           
+            
+           
 
             <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
                 <Label Text="{i18n:Translate BestBefore}"
                        VerticalTextAlignment="Center"
                        TextColor="#535b69"
-                       FontSize="24" />
+                       FontSize="20" />
                 <DatePicker TextColor="#535b69"
                             FontSize="24"
                             MinimumDate="01/01/2018"
@@ -48,29 +138,39 @@
                                     NumberDownCommand="{Binding SubstractAmountCommand}"
                                     NumberUpCommand="{Binding AddAmountCommand}"/>  
 
-            <Label Text="{i18n:Translate ProductImage}"              
+            <!--<Label Text="{i18n:Translate ProductImage}"              
                    
                    TextColor="#535b69"
-                   FontSize="24"/>
+                   FontSize="20"/>-->
             
-            <Grid HorizontalOptions="FillAndExpand" Padding="0,0,0,20">
-                <Image Source="photo_placeholder.png" BackgroundColor="#DADADA"/>
+            <!--<Grid HorizontalOptions="End" Padding="0,0,0,20">
+
+                <Image Source="photo_placeholder.png" />
                 <Image Source="{Binding ProductPhoto}" />
 
-                <Image Source="delete" IsVisible="{Binding CanRemovePhoto}" Margin="5" VerticalOptions="Start" HorizontalOptions="End" WidthRequest="24" HeightRequest="24">
+                <Image Source="delete" IsVisible="{Binding CanRemovePhoto}"
+                       Margin="5"
+                       VerticalOptions="Start"
+                       HorizontalOptions="End"
+                       WidthRequest="24"
+                       HeightRequest="24">
                     <Image.GestureRecognizers>
                         <TapGestureRecognizer Command="{Binding RemovePhotoCommand}" />
                     </Image.GestureRecognizers>
                 </Image>
 
+                <Label Text="Add Photo" />
+
                 <Grid.GestureRecognizers>
                     <TapGestureRecognizer Command="{Binding TakePhotoCommand}" />
                 </Grid.GestureRecognizers>
 
-            </Grid>
+            </Grid>-->
+
+            <BoxView HeightRequest="5" />
 
             <Button Text="Opslaan"
-                    ImageSource="save"                    
+                                      
                     BackgroundColor="#f36721"
                     TextColor="White"
                     Command="{Binding SaveProductCommand}"/>

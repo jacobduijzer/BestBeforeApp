@@ -10,31 +10,35 @@
             <Label Text="{Binding TitleValue, Source={x:Reference NumberControlRoot}}"
                    VerticalTextAlignment="Center"
                    TextColor="#535b69"
-                   FontSize="24" />
+                   FontSize="20" />
 
-            <Frame CornerRadius="10" Margin="10" BackgroundColor="#cfcfcf" Padding="0"
+            <Frame CornerRadius="10"
+                   Margin="10"
+                   BackgroundColor="#cfcfcf" Padding="0"
                    HorizontalOptions="EndAndExpand">
-                <StackLayout Orientation="Horizontal" BackgroundColor="#cfcfcf">
+                <StackLayout Orientation="Horizontal"
+                             BackgroundColor="#cfcfcf"
+                             HeightRequest="60">
                     <Button x:Name="DownButton"
                     Text="-"
                     TextColor="#535b69"
-                    HeightRequest="60"
-                    WidthRequest="60"
-                    FontSize="32"
+                    HeightRequest="50"
+                    WidthRequest="50"
+                    FontSize="24"
                     BackgroundColor="#cfcfcf"
                     Command="{Binding NumberDownCommand, Source={x:Reference NumberControlRoot}}" />
 
             <Label 
                    TextColor="#535b69"
-                   FontSize="32"
+                   FontSize="24"
                    VerticalTextAlignment="Center"
                    Text="{Binding NumberValue, Source={x:Reference NumberControlRoot}}"/>
 
             <Button Text="+"
                     TextColor="#535b69"
-                    HeightRequest="60"
-                    WidthRequest="60"
-                    FontSize="32"
+                    HeightRequest="50"
+                    WidthRequest="50"
+                    FontSize="24"
                     BackgroundColor="#cfcfcf"
                     Command="{Binding NumberUpCommand, Source={x:Reference NumberControlRoot}}" />
                     </StackLayout>
