@@ -45,9 +45,9 @@
 
             <ListView.Header>
                 <Label Text="{i18n:Translate Products}"
-               Margin="0, 40, 0, 30"
-               HorizontalOptions="CenterAndExpand"
-               FontSize="40"
+                       Margin="0, 40, 0, 30"
+                       HorizontalOptions="CenterAndExpand"
+                       FontSize="40"
                TextColor="#424242"/>                        
             </ListView.Header>
             <ListView.Footer>

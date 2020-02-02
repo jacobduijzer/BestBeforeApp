@@ -83,8 +83,13 @@
     <comment></comment>
   </data>
   
+  <data name="NumberOfDaysBeforeExpirationDateHelpText" xml:space="preserve">
+    <value>You receive a notification a number of days before it is actually expiring.</value>
+    <comment></comment>
+  </data>
+  
   <data name="NumberOfDaysBeforeExpirationDate" xml:space="preserve">
-    <value>Number of days before expiration date</value>
+    <value>Number of days:</value>
     <comment></comment>
   </data>
   

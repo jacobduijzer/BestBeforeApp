@@ -137,6 +137,12 @@ namespace BestBeforeApp.Resources {
             }
         }
         
+        internal static string NumberOfDaysBeforeExpirationDateHelpText {
+            get {
+                return ResourceManager.GetString("NumberOfDaysBeforeExpirationDateHelpText", resourceCulture);
+            }
+        }
+        
         internal static string NotificationMessage {
             get {
                 return ResourceManager.GetString("NotificationMessage", resourceCulture);

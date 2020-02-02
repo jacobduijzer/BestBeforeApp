@@ -5,42 +5,49 @@
                  xmlns:converters="clr-namespace:BestBeforeApp.Helpers.Converters"
                  xmlns:shared="clr-namespace:BestBeforeApp.Shared"
                  xmlns:behaviors="clr-namespace:BestBeforeApp.Helpers.Behaviors"
+                 xmlns:controls="clr-namespace:BestBeforeApp.Shared.Controls"
                  x:Class="BestBeforeApp.Settings.SettingsPage"
+                 Shell.NavBarIsVisible="False"
                  Title="{i18n:Translate Settings}" >
-    <StackLayout Padding="20,30,20,10">
-
+    <StackLayout Padding="20,0,20,10">
+        <Label Text="{i18n:Translate Settings}"
+               Margin="0, 40, 0, 30"
+               HorizontalOptions="CenterAndExpand"
+               FontSize="40"
+               TextColor="#424242"/>        
         <!-- Local Notifications-->
         <StackLayout Padding="0,20,0,0"
-                     Orientation="Horizontal"
+                     Orientation="Vertical"
                      HorizontalOptions="FillAndExpand">
-            <Label Text="{i18n:Translate EnableLocalNotifications}"
-                   TextColor="Gray"
-                   FontSize="20"
-                   VerticalTextAlignment="Center"
-                   HorizontalOptions="StartAndExpand"/>
-            <Switch HorizontalOptions="End"
-                    IsToggled="{Binding UseNotifications}" />
-        </StackLayout>
 
-        <StackLayout Padding="0,20,0,0" IsVisible="{Binding UseNotifications}">
-            <Label Text="{i18n:Translate NumberOfDaysBeforeExpirationDate}"
+            <Label Text="{i18n:Translate NumberOfDaysBeforeExpirationDateHelpText}"
                        TextColor="Gray"
                        FontSize="20"
                        VerticalTextAlignment="Center"
                        HorizontalOptions="Start"/>
             <StackLayout Orientation="Horizontal"
                          HorizontalOptions="FillAndExpand">
-                <Button Text="-"
-                        Command="{Binding MinCommand}" />
-
-                <Label HorizontalOptions="CenterAndExpand"
-                       TextColor="#535b69"
-                       FontSize="32"
+                <Label Text="{i18n:Translate EnableLocalNotifications}"
+                       TextColor="Gray"
+                       FontSize="20"
                        VerticalTextAlignment="Center"
-                       Text="{Binding NumberOfDaysBeforeExpirationDate}"/>
-                <Button Text="+"
-                        Command="{Binding PlusCommand}" />
+                       HorizontalOptions="StartAndExpand"/>
+                <Switch HorizontalOptions="End"
+                        IsToggled="{Binding UseNotifications}" />
             </StackLayout>
+        </StackLayout>
+
+        <StackLayout Padding="0,20,0,0" IsVisible="{Binding UseNotifications}">
+            
+            <controls:NumberControl TitleValue="{i18n:Translate NumberOfDaysBeforeExpirationDate}"
+                                    NumberValue="{Binding NumberOfDaysBeforeExpirationDate}"                                    
+                                    NumberDownCommand="{Binding MinCommand}"
+                                    NumberUpCommand="{Binding PlusCommand}"/>
+
+            <controls:NumberControl TitleValue="Some testing"
+                                    NumberValue="{Binding NumberOfDaysBeforeExpirationDate}"                                    
+                                    NumberDownCommand="{Binding MinCommand}"
+                                    NumberUpCommand="{Binding PlusCommand}"/>
         </StackLayout>
 
         <BoxView HeightRequest="2" BackgroundColor="Gray" Margin="0, 20, 0, 0"/>

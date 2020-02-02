@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <shared:BasePage xmlns="http://xamarin.com/schemas/2014/forms"
-                 xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"              
-             xmlns:shared="clr-namespace:BestBeforeApp.Shared"
-             xmlns:i18n="clr-namespace:BestBeforeApp.Helpers"
-             x:Class="BestBeforeApp.Products.AddProduct.AddProductPage" >
-    <!--Title="{i18n:Translate AddProduct}"-->
+                 xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                 xmlns:shared="clr-namespace:BestBeforeApp.Shared"
+                 xmlns:i18n="clr-namespace:BestBeforeApp.Helpers"
+                 xmlns:controls="clr-namespace:BestBeforeApp.Shared.Controls"
+                 x:Class="BestBeforeApp.Products.AddProduct.AddProductPage" >
    
     <ContentPage.ToolbarItems>
         <ToolbarItem Name="Save"
@@ -41,19 +41,10 @@
                    FontAttributes="Bold"
                    TextColor="Gray"
                    FontSize="16" />
-            <StackLayout Orientation="Horizontal"
-                         HorizontalOptions="FillAndExpand">
-                <Button Text="-"
-                        Command="{Binding SubstractAmountCommand}" />
 
-                <Label HorizontalOptions="CenterAndExpand"
-                       TextColor="#535b69"
-                       FontSize="32"
-                       VerticalTextAlignment="Center"
-                       Text="{Binding Amount}"/>
-                <Button Text="+"
-                        Command="{Binding AddAmountCommand}" />
-            </StackLayout>
+            <controls:NumberControl NumberValue="{Binding Amount}"                                    
+                                    NumberDownCommand="{Binding SubstractAmountCommand}"
+                                    NumberUpCommand="{Binding AddAmountCommand}"/>  
 
             <Label Text="{i18n:Translate ProductImage}"                   
                    FontAttributes="Bold"

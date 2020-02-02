@@ -83,6 +83,16 @@
     <comment></comment>
   </data>
   
+  <data name="NumberOfDaysBeforeExpirationDateHelpText" xml:space="preserve">
+    <value>Je ontvangt een notificatie een aantal dagen voordat het product daadwerkelijk over de datum is.</value>
+    <comment></comment>
+  </data>
+  
+  <data name="NumberOfDaysBeforeExpirationDate" xml:space="preserve">
+    <value>Aantal dagen:</value>
+    <comment></comment>
+  </data>
+  
   <!-- Notifications -->
   
   <data name="NotificationMessage" xml:space="preserve">

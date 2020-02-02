@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="BestBeforeApp.Shared.Controls.NumberControl"
+             x:Name="NumberControlRoot">  
+    <ContentView.Content>
+        <StackLayout Orientation="Horizontal"
+                     HorizontalOptions="FillAndExpand" >
+
+            <Label Text="{Binding TitleValue, Source={x:Reference NumberControlRoot}}"
+                   VerticalTextAlignment="Center"
+                   FontSize="24" />
+
+            <Frame CornerRadius="10" Margin="10" BackgroundColor="#cfcfcf" Padding="0"
+                   HorizontalOptions="EndAndExpand">
+                <StackLayout Orientation="Horizontal" BackgroundColor="#cfcfcf">
+                    <Button x:Name="DownButton"
+                    Text="-"
+                    TextColor="#535b69"
+                    HeightRequest="60"
+                    WidthRequest="60"
+                    FontSize="32"
+                    BackgroundColor="#cfcfcf"
+                    Command="{Binding NumberDownCommand, Source={x:Reference NumberControlRoot}}" />
+
+            <Label 
+                   TextColor="#535b69"
+                   FontSize="32"
+                   VerticalTextAlignment="Center"
+                   Text="{Binding NumberValue, Source={x:Reference NumberControlRoot}}"/>
+
+            <Button Text="+"
+                    TextColor="#535b69"
+                    HeightRequest="60"
+                    WidthRequest="60"
+                    FontSize="32"
+                    BackgroundColor="#cfcfcf"
+                    Command="{Binding NumberUpCommand, Source={x:Reference NumberControlRoot}}" />
+                    </StackLayout>
+                </Frame>
+        </StackLayout>
+    </ContentView.Content>
+</ContentView>

@@ -51,6 +51,7 @@
     <Folder Include="Products\AddProduct\" />
     <Folder Include="Products\ProductDetails\" />
     <Folder Include="Settings\" />
+    <Folder Include="Shared\Controls\" />
   </ItemGroup>
   <ItemGroup>
     <None Remove="appsettings.json" />
