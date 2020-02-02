@@ -4,7 +4,8 @@
                  xmlns:shared="clr-namespace:BestBeforeApp.Shared"
                  xmlns:i18n="clr-namespace:BestBeforeApp.Helpers"
                  xmlns:controls="clr-namespace:BestBeforeApp.Shared.Controls"
-                 x:Class="BestBeforeApp.Products.AddProduct.AddProductPage" >
+                 Shell.NavBarIsVisible="False"
+                 x:Class="BestBeforeApp.Products.AddProduct.AddProductPage">
    
     <ContentPage.ToolbarItems>
         <ToolbarItem Name="Save"
@@ -15,43 +16,44 @@
                      Priority="1" />
     </ContentPage.ToolbarItems>
     <ScrollView>
+        
         <StackLayout Orientation="Vertical"
                      VerticalOptions="FillAndExpand"
-                     Padding="10">
-            <Label Text="{i18n:Translate ProductName}"
-                   FontAttributes="Bold"
-                   TextColor="Gray"
-                   FontSize="16"
-                   Padding="0, 30, 0, 0"/>
+                     Padding="20,0,20,10">
+            <Label Text="{i18n:Translate AddProduct}"
+               Margin="0, 40, 0, 30"
+               HorizontalOptions="CenterAndExpand"
+               FontSize="40"
+               TextColor="#424242"/>
+
             <Entry TextColor="#535b69"
                    FontSize="24"
                    Keyboard="Text"
-                   Text="{Binding Name}"/>
+                   Text="{Binding Name}"
+                   Placeholder="{i18n:Translate ProductName}"/>
 
-            <Label Text="{i18n:Translate BestBefore}"
-                   FontAttributes="Bold"
-                   TextColor="Gray"
-                   FontSize="16" />
-            <DatePicker TextColor="#535b69"
-                        FontSize="24"
-                        MinimumDate="01/01/2018"
-                        Date="{Binding BestBefore}"/>
-
-            <Label Text="{i18n:Translate ProductAmount}"
-                   FontAttributes="Bold"
-                   TextColor="Gray"
-                   FontSize="16" />
-
-            <controls:NumberControl NumberValue="{Binding Amount}"                                    
+            <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                <Label Text="{i18n:Translate BestBefore}"
+                       VerticalTextAlignment="Center"
+                       TextColor="#535b69"
+                       FontSize="24" />
+                <DatePicker TextColor="#535b69"
+                            FontSize="24"
+                            MinimumDate="01/01/2018"
+                            HorizontalOptions="EndAndExpand"
+                            Date="{Binding BestBefore}"/>
+            </StackLayout>
+            <controls:NumberControl TitleValue="{i18n:Translate ProductAmount}"
+                                    NumberValue="{Binding Amount}"                                    
                                     NumberDownCommand="{Binding SubstractAmountCommand}"
                                     NumberUpCommand="{Binding AddAmountCommand}"/>  
 
-            <Label Text="{i18n:Translate ProductImage}"                   
-                   FontAttributes="Bold"
-                   TextColor="Gray"
-                   FontSize="16"/>
+            <Label Text="{i18n:Translate ProductImage}"              
+                   
+                   TextColor="#535b69"
+                   FontSize="24"/>
             
-            <Grid HorizontalOptions="FillAndExpand">
+            <Grid HorizontalOptions="FillAndExpand" Padding="0,0,0,20">
                 <Image Source="photo_placeholder.png" BackgroundColor="#DADADA"/>
                 <Image Source="{Binding ProductPhoto}" />
 
@@ -66,6 +68,12 @@
                 </Grid.GestureRecognizers>
 
             </Grid>
+
+            <Button Text="Opslaan"
+                    ImageSource="save"                    
+                    BackgroundColor="#f36721"
+                    TextColor="White"
+                    Command="{Binding SaveProductCommand}"/>
 
         </StackLayout>
 

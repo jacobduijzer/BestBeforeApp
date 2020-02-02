@@ -9,6 +9,7 @@
 
             <Label Text="{Binding TitleValue, Source={x:Reference NumberControlRoot}}"
                    VerticalTextAlignment="Center"
+                   TextColor="#535b69"
                    FontSize="24" />
 
             <Frame CornerRadius="10" Margin="10" BackgroundColor="#cfcfcf" Padding="0"

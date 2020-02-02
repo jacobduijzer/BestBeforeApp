@@ -26,7 +26,7 @@
       <comment></comment>
   </data>
   <data name="AddProduct" xml:space="preserve">
-    <value>Toevoegen</value>
+    <value>Nieuw product</value>
     <comment></comment>
   </data>
   <data name="ProductsFilter" xml:space="preserve">

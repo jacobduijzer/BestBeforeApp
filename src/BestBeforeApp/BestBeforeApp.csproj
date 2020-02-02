@@ -76,8 +76,5 @@
     <Compile Update="Resources\AppResources.nl.Designer.cs">
       <DependentUpon>AppResources.nl.resx</DependentUpon>
     </Compile>
-    <Compile Update="Settings\SettingsPage.xaml.cs">
-      <DependentUpon>SettingsPage.xaml</DependentUpon>
-    </Compile>
   </ItemGroup>
 </Project>
