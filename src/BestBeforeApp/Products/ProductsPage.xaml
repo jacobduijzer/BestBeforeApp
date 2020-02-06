@@ -12,6 +12,8 @@
         <ResourceDictionary>
             <converters:DateToColorConverter x:Key="dateToColorConverter" />
             <converters:SelectedItemEventArgsToSelectedItemConverter x:Key="SelectedItemConverter" />
+            <converters:StreamToImageConverter x:Key="StreamToImageConverter" />
+            <converters:DateToTextDecorationConverter x:Key="DateToTextDecorationConverter" />
         </ResourceDictionary>
     </ContentPage.Resources>
 
@@ -22,18 +24,10 @@
    
     <StackLayout>
 
-        
-        <!--<SearchBar x:Name="searchBar"
-                   HorizontalOptions="Fill"
-                   VerticalOptions="CenterAndExpand"
-                   Placeholder="{i18n:Translate ProductsFilter}"
-                   Text="{Binding SearchString}"
-                   Style="{DynamicResource ListItemTextStyle}"
-                   HorizontalTextAlignment="Start" />-->
         <ListView x:Name="ProductsList"
                   HasUnevenRows="true"
                   ItemsSource="{Binding Products}"
-                  SeparatorVisibility="None"
+                  SeparatorVisibility="Default"
                   IsPullToRefreshEnabled="True"
                   RefreshCommand="{Binding LoadItemsCommand}"
                   IsRefreshing="{Binding IsBusy, Mode=OneWay}"
@@ -56,33 +50,39 @@
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
-                        <StackLayout Orientation="Horizontal" Padding="18,5,18,5">
-                            <Frame CornerRadius="20"
-                                   HorizontalOptions="FillAndExpand"
-                                   BackgroundColor="White"
-                                   HasShadow="True">
-                            <StackLayout BackgroundColor="White" >
-                                <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
-                                    <Label Text="{Binding BestBeforeHumanized}" Style="{DynamicResource ListItemDetailTextStyle}" FontSize="13" HorizontalOptions="FillAndExpand" TextColor="{Binding BestBefore, Converter={StaticResource dateToColorConverter}}"/>
-                                    <Label Text="{Binding BestBefore, StringFormat='{0:dd-MM-yyyy}'}" Style="{DynamicResource ListItemDetailTextStyle}" FontSize="13" HorizontalOptions="End"/>
-                                </StackLayout>
-                                
-                                <Label Text="{Binding Name}"
+                        <Grid Padding="0, 5, 5, 5" >
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="60" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="20"/>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="20"/>
+                            </Grid.RowDefinitions>
+
+                            <Image Grid.Column="0" Grid.RowSpan="3" Source="{Binding Photo, Converter={StaticResource StreamToImageConverter}}" Aspect="AspectFill"/>
+                            <StackLayout Grid.Column="1" Grid.Row="0" Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                                <Label Text="{Binding BestBeforeHumanized}" Style="{DynamicResource ListItemDetailTextStyle}" FontSize="13" HorizontalOptions="FillAndExpand" TextColor="{Binding BestBefore, Converter={StaticResource dateToColorConverter}}"/>
+                                <Label Text="{Binding BestBefore, StringFormat='{0:dd-MM-yyyy}'}" Style="{DynamicResource ListItemDetailTextStyle}" FontSize="13" HorizontalOptions="End"/>
+                            </StackLayout>
+
+                            <Label Grid.Column="1" Grid.Row="1" Text="{Binding Name}"
                                         LineBreakMode="NoWrap"
                                         TextColor="#424242"
                                         FontAttributes="Bold"
+                                        TextDecorations="{Binding BestBefore, Converter={StaticResource DateToTextDecorationConverter}}" 
                                         HorizontalOptions="FillAndExpand"
-                                        FontSize="20" />
+                                        FontSize="30" />
 
-                                <Label Text="{Binding Amount, StringFormat='aantal: {0}'}"
+                                <Label Grid.Column="1" Grid.Row="2" Text="{Binding Amount, StringFormat='aantal: {0}'}"
                                            Style="{DynamicResource ListItemTextStyle}"
-                                           VerticalTextAlignment="Center"
-                                           VerticalOptions="Center"
+                                           VerticalTextAlignment="End"
+                                           VerticalOptions="End"
                                            HorizontalOptions="Start"
-                                           FontSize="16" />                                
-                            </StackLayout>
-                                </Frame>
-                        </StackLayout>
+                                           FontSize="16" />    
+                        </Grid>
                     </ViewCell>
                 </DataTemplate>
             </ListView.ItemTemplate>

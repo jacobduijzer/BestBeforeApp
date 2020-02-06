@@ -7,10 +7,6 @@ namespace BestBeforeApp.Products.AddProduct
 {
     public class PhotoService
     {
-        public PhotoService()
-        {
-        }
-
         public async Task<Stream> TakePhoto()
         {
             if (!CrossMedia.Current.IsCameraAvailable || !CrossMedia.Current.IsTakePhotoSupported)
@@ -19,7 +15,7 @@ namespace BestBeforeApp.Products.AddProduct
             var file = await CrossMedia.Current.TakePhotoAsync(new Plugin.Media.Abstractions.StoreCameraMediaOptions
             {
                 Directory = "BestBeforeApp",
-                SaveToAlbum = true,
+                SaveToAlbum = false,
                 CompressionQuality = 40,
                 CustomPhotoSize = 40,
                 PhotoSize = Plugin.Media.Abstractions.PhotoSize.Small,
