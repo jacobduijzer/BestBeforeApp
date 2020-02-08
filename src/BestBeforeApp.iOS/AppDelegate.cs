@@ -1,4 +1,5 @@
 ﻿using BestBeforeApp.Helpers;
+using FFImageLoading.Forms.Platform;
 using Foundation;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -14,6 +15,8 @@ namespace BestBeforeApp.iOS
         {
             global::Xamarin.Forms.Forms.SetFlags("CollectionView_Experimental");
             global::Xamarin.Forms.Forms.Init();
+            CachedImageRenderer.Init();
+            CachedImageRenderer.InitImageSourceHandler();
             LoadApplication(Startup.Init(ConfigureServices));
 
             return base.FinishedLaunching(app, options);

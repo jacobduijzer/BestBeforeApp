@@ -5,9 +5,11 @@
                             xmlns:converters="clr-namespace:BestBeforeApp.Helpers.Converters"
                             xmlns:shared="clr-namespace:BestBeforeApp.Shared"
                             xmlns:behaviors="clr-namespace:BestBeforeApp.Helpers.Behaviors"
+                            xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
                             Shell.NavBarIsVisible="False"
                             x:Class="BestBeforeApp.Products.ProductsPage"                            
-                            x:Name="ProductsListPage">
+                            x:Name="ProductsListPage"
+                            BackgroundColor="AliceBlue">
     <ContentPage.Resources>
         <ResourceDictionary>
             <converters:DateToColorConverter x:Key="dateToColorConverter" />
@@ -27,7 +29,7 @@
         <ListView x:Name="ProductsList"
                   HasUnevenRows="true"
                   ItemsSource="{Binding Products}"
-                  SeparatorVisibility="Default"
+                  SeparatorVisibility="None"
                   IsPullToRefreshEnabled="True"
                   RefreshCommand="{Binding LoadItemsCommand}"
                   IsRefreshing="{Binding IsBusy, Mode=OneWay}"
@@ -50,39 +52,70 @@
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
-                        <Grid Padding="0, 5, 5, 5" >
+                        <StackLayout BackgroundColor="White" Margin="30,14,30,14">
+                        <Grid BackgroundColor="White" Margin="20">
+
                             <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="60" />
+                                <ColumnDefinition Width="100" />
                                 <ColumnDefinition Width="*" />
                             </Grid.ColumnDefinitions>
 
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="20"/>
-                                <RowDefinition Height="*"/>
-                                <RowDefinition Height="20"/>
-                            </Grid.RowDefinitions>
+                            <ffimageloading:CachedImage Grid.Column="0"
+                                                        HorizontalOptions="Center"
+                                                        VerticalOptions="Center"
+                                                        WidthRequest="100"
+                                                        HeightRequest="100"
+                                                        DownsampleToViewSize="true"
+                                                        Aspect="AspectFill"
+                                                        Source="{Binding Photo, Converter={StaticResource StreamToImageConverter}}" />
 
-                            <Image Grid.Column="0" Grid.RowSpan="3" Source="{Binding Photo, Converter={StaticResource StreamToImageConverter}}" Aspect="AspectFill"/>
-                            <StackLayout Grid.Column="1" Grid.Row="0" Orientation="Horizontal" HorizontalOptions="FillAndExpand">
-                                <Label Text="{Binding BestBeforeHumanized}" Style="{DynamicResource ListItemDetailTextStyle}" FontSize="13" HorizontalOptions="FillAndExpand" TextColor="{Binding BestBefore, Converter={StaticResource dateToColorConverter}}"/>
-                                <Label Text="{Binding BestBefore, StringFormat='{0:dd-MM-yyyy}'}" Style="{DynamicResource ListItemDetailTextStyle}" FontSize="13" HorizontalOptions="End"/>
-                            </StackLayout>
+                            <StackLayout Orientation="Vertical"
+                                         BackgroundColor="White"
+                                         Grid.Column="1"
+                                         Grid.Row="0"
+                                         Padding="20,0,0,0">
+                                <StackLayout Orientation="Horizontal">
+                                    <Label Text="{Binding Name}"   
+                                           LineBreakMode="NoWrap"
+                                           TextColor="#4D5FA0"
+                                           FontAttributes="Bold"
+                                           TextDecorations="{Binding BestBefore, Converter={StaticResource DateToTextDecorationConverter}}"                                       
+                                           VerticalTextAlignment="Start"
+                                           Padding="0"
+                                           FontSize="20" />
 
-                            <Label Grid.Column="1" Grid.Row="1" Text="{Binding Name}"
-                                        LineBreakMode="NoWrap"
-                                        TextColor="#424242"
-                                        FontAttributes="Bold"
-                                        TextDecorations="{Binding BestBefore, Converter={StaticResource DateToTextDecorationConverter}}" 
-                                        HorizontalOptions="FillAndExpand"
-                                        FontSize="30" />
+                                    <Label Text="{Binding Amount, StringFormat='({0:x}x)'}"
+                                               VerticalTextAlignment="Center"
+                                               />
+                                </StackLayout>
 
-                                <Label Grid.Column="1" Grid.Row="2" Text="{Binding Amount, StringFormat='aantal: {0}'}"
-                                           Style="{DynamicResource ListItemTextStyle}"
-                                           VerticalTextAlignment="End"
-                                           VerticalOptions="End"
-                                           HorizontalOptions="Start"
-                                           FontSize="16" />    
-                        </Grid>
+                                <Label Text="{Binding BestBefore, StringFormat='{0:dd-MM-yyyy}'}"
+                                       Padding="0"
+                                        FontSize="12" />
+                                
+                                
+                                    <Frame CornerRadius="25"
+                                           Margin="0"
+                                           Padding="4"                                           
+                                           VerticalOptions="EndAndExpand"
+                                           BackgroundColor="{Binding BestBefore, Converter={StaticResource dateToColorConverter}}">
+                                        <Label Text="{Binding BestBeforeHumanized}"
+                                               TextColor="White"
+                                               VerticalTextAlignment="Center"
+                                               HorizontalTextAlignment="Center"
+                                               Style="{DynamicResource ListItemDetailTextStyle}"
+                                               FontSize="13"
+                                               Padding="15,5,15,5"
+                                               HorizontalOptions="FillAndExpand"
+                                               />
+                                        </Frame>
+
+                                    
+
+                                </StackLayout>
+
+                            </Grid>
+                        </StackLayout>
                     </ViewCell>
                 </DataTemplate>
             </ListView.ItemTemplate>

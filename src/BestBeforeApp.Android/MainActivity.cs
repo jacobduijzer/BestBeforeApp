@@ -9,6 +9,7 @@ using BestBeforeApp.Helpers;
 using Plugin.CurrentActivity;
 using Plugin.LocalNotification;
 using Android.Content;
+using FFImageLoading.Forms.Platform;
 
 namespace BestBeforeApp.Droid
 {
@@ -28,6 +29,8 @@ namespace BestBeforeApp.Droid
 
             global::Xamarin.Essentials.Platform.Init(this, savedInstanceState);
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
+            CachedImageRenderer.Init(enableFastRenderer: true);
+            CachedImageRenderer.InitImageViewHandler();
 
             NotificationCenter.CreateNotificationChannel(new Plugin.LocalNotification.Platform.Droid.NotificationChannelRequest
             {

@@ -36,6 +36,8 @@
     <PackageReference Include="Xam.Plugin.Media" Version="4.4.10-beta" />
     <PackageReference Include="Xam.Plugins.Notifier" Version="3.0.1" />
     <PackageReference Include="Plugin.LocalNotification" Version="4.1.2" />
+    <PackageReference Include="Xamarin.FFImageLoading" Version="2.4.11.982" />
+    <PackageReference Include="Xamarin.FFImageLoading.Forms" Version="2.4.11.982" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Helpers\" />
