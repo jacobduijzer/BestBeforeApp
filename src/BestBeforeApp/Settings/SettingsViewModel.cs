@@ -1,10 +1,9 @@
-using System;
 using System.Windows.Input;
+using BestBeforeApp.Shared;
 using MediatR;
 using Microsoft.Extensions.Options;
 using MvvmHelpers;
 using MvvmHelpers.Commands;
-using Xamarin.Essentials;
 
 namespace BestBeforeApp.Settings
 {
@@ -12,21 +11,22 @@ namespace BestBeforeApp.Settings
     {
         private readonly IMediator _mediator;
         private readonly IOptions<AppSettings> _appSettings;
+        private readonly IPreferenceService _preferenceService;
 
         public ICommand MinCommand { get; private set; }
         public ICommand PlusCommand { get; private set; }
 
         public SettingsViewModel(
             IMediator mediator,
-            IOptions<AppSettings> appSettings)
+            IPreferenceService preferenceService)
         {
             _mediator = mediator;
-            _appSettings = appSettings;
+            _preferenceService = preferenceService;
 
-            UseNotifications = Preferences.Get(nameof(UseNotifications), _appSettings.Value.UseNotifications);
-            NumberOfDaysBeforeExpirationDate = Preferences.Get(nameof(NumberOfDaysBeforeExpirationDate), _appSettings.Value.DefaultNumberOfDaysToNotifyBeforeExpire);
+            UseNotifications = _preferenceService.UseNotifications;
+            NumberOfDaysBeforeExpirationDate = _preferenceService.NumberOfDaysBeforeExpirationDate;
 
-            MinCommand = new Command(DoMinus);
+            MinCommand = new Command(DoMinus, () => _preferenceService.NumberOfDaysBeforeExpirationDate > 1);
             PlusCommand = new Command(DoPlus);
         }
 
@@ -37,7 +37,7 @@ namespace BestBeforeApp.Settings
             set
             {
                 _useNotifications = value;
-                Preferences.Set(nameof(UseNotifications), value);
+                _preferenceService.UseNotifications = value;
                 OnPropertyChanged(nameof(UseNotifications));
             }
         }
@@ -49,7 +49,7 @@ namespace BestBeforeApp.Settings
             set
             {
                 _numberOfDaysBeforeExpirationDate = value;
-                Preferences.Set(nameof(NumberOfDaysBeforeExpirationDate), value);
+                _preferenceService.NumberOfDaysBeforeExpirationDate = value;
                 OnPropertyChanged(nameof(NumberOfDaysBeforeExpirationDate));
             }
         }
