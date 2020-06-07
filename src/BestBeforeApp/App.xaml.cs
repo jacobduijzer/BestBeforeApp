@@ -61,8 +61,8 @@ namespace BestBeforeApp
                 return;
             }
 
-            var serializer = new ObjectSerializer<List<string>>();
-            var list = serializer.DeserializeObject(e.Data);
+            //var serializer = new ObjectSerializer<List<string>>();
+            //var list = serializer.DeserializeObject(e.Data);
             //if (list.Count != 2)
             //{
             //    return;

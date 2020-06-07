@@ -15,6 +15,7 @@ namespace BestBeforeApp.iOS
         {
             global::Xamarin.Forms.Forms.SetFlags("CollectionView_Experimental");
             global::Xamarin.Forms.Forms.Init();
+            global::Xamarin.Forms.FormsMaterial.Init();
             CachedImageRenderer.Init();
             CachedImageRenderer.InitImageSourceHandler();
             LoadApplication(Startup.Init(ConfigureServices));
